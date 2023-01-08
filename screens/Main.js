@@ -23,7 +23,7 @@ function Main({ navigation: { navigate } }) {
         <Text>Detail</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={goDetailEdit}>
-        <Text>Detail Edit test 1</Text>
+        <Text>Detail Edit</Text>
       </TouchableOpacity>
     </>
   );
