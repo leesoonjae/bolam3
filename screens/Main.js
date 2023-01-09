@@ -29,18 +29,23 @@ function Main({ navigation: { navigate } }) {
   // };
 
   return (
-    <>
+    <MainPage>
       <ScrollView showsVerticalScrollIndicator={false}>
         <TodayBook>오늘의 추천도서</TodayBook>
         <Addbooks>책 추가하기</Addbooks>
         <ReadingBooks />
         <FinishedBooks />
       </ScrollView>
-    </>
+    </MainPage>
   );
 }
 
 export default Main;
+
+const MainPage = styled.View`
+  padding-left: 30px;
+  padding-right: 30px;
+`;
 
 const TodayBook = styled.Text`
   border: 1px solid gray;

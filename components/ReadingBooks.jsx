@@ -138,7 +138,7 @@ const ReadingBookText = styled.View`
 `;
 const ReadingBookTextTitle = styled.Text`
   font-size: 20px;
-  color: #513d34;
+  color: ${(props) => props.theme.text};
   font-weight: 600;
 `;
 const More = styled.Pressable`
@@ -146,7 +146,7 @@ const More = styled.Pressable`
 `;
 const MoreText = styled.Text`
   font-size: 15px;
-  color: #513d34;
+  color: ${(props) => props.theme.text};
   justify-content: center;
   font-weight: 400;
 `;
@@ -158,7 +158,7 @@ const Poster = styled.View`
 `;
 const PosterTitle = styled.Text`
   padding: 10px;
-  color: #513d3466;
+  color: ${(props) => props.theme.text};
 `;
 const ReadingBookPoster = styled.Image`
   width: 142px;

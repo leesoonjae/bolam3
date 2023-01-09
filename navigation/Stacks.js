@@ -6,6 +6,7 @@ import Detail from "../screens/Detail";
 import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
+import { DARK_COLOR, GRAY_COLOR } from "../colors";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +20,11 @@ export default function Stacks({ navigation: { goBack } }) {
         headerStyle: { backgroundColor: "#BBA58F" },
         headerLeft: () => (
           <TouchableOpacity onPress={() => goBack()}>
-            <Ionicons name="arrow-back" size={24} color="black" />
+            <Ionicons
+              name="arrow-back"
+              size={24}
+              color={isDark ? GRAY_COLOR : "black"}
+            />
           </TouchableOpacity>
         ),
       }}

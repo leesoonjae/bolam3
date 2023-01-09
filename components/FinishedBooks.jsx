@@ -3,8 +3,12 @@ import { View, Text, TouchableOpacity } from "react-native";
 import styled from "@emotion/native";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
+import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
+import { LIGHTGRAY_COLOR } from "../colors";
+import { Theme } from "@react-navigation/native";
 
 function FinishedBooks() {
+  const isDark = useColorScheme() === "dark";
   const navigation = useNavigation();
   const goDetail = () => {
     navigation.navigate("Stacks", { screen: "Detail" });
@@ -149,7 +153,7 @@ const ReadingBookText = styled.View`
 `;
 const ReadingBookTextTitle = styled.Text`
   font-size: 20px;
-  color: #513d34;
+  color: ${(props) => props.theme.text};
   font-weight: 600;
 `;
 const More = styled.Pressable`
@@ -157,7 +161,7 @@ const More = styled.Pressable`
 `;
 const MoreText = styled.Text`
   font-size: 15px;
-  color: #513d34;
+  color: ${(props) => props.theme.text};
   justify-content: center;
   font-weight: 400;
 `;
@@ -169,7 +173,7 @@ const Poster = styled.View`
 `;
 const PosterTitle = styled.Text`
   padding: 10px;
-  color: #513d3466;
+  color: ${(props) => props.theme.text};
 `;
 const ReadingBookPoster = styled.Image`
   width: 142px;
