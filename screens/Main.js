@@ -4,7 +4,7 @@ import { Button, Pressable, Text, TouchableOpacity, View } from "react-native";
 import TodayBooks from "../components/TodayBooks";
 import AddBooks from "../components/AddBooks";
 import ReadBooks from "../components/ReadBooks";
-import ReadingBooks from "../components/ReadBooks";
+import ReadingBooks from "../components/ReadingBooks";
 
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -262,7 +262,6 @@ function Main({ navigation: { navigate } }) {
           </ScrollView>
         </ReadBook>
       </ScrollView>
-      <ReadingBooks />
     </>
   );
 }
