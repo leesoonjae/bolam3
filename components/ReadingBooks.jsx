@@ -11,7 +11,8 @@ import {
 } from "react-native";
 import styled from "@emotion/native";
 
-export default function App() {
+// 컴포넌트명 변경했습니다 App => ReadingBooks
+export default function ReadingBooks() {
   return (
     <SafeAreaView style={{ alignItems: "stretch" }}>
       <ReadingTitle>📚 독서리스트 추가하기</ReadingTitle>
