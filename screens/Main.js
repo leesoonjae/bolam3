@@ -18,9 +18,9 @@ function Main({ navigation: { navigate } }) {
     navigate("Tabs", { screen: "Finished" });
   };
 
-  // const goDetail = () => {
-  //   navigate("Stacks", { screen: "Detail" });
-  // };
+  const goDetail = () => {
+    navigate("Stacks", { screen: "Detail" });
+  };
 
   // const goDetailEdit = () => {
   //   navigate("Stacks", { screen: "DetailEdit" });
@@ -31,6 +31,7 @@ function Main({ navigation: { navigate } }) {
       <ScrollView showsVerticalScrollIndicator={false}>
         <TodayBook>오늘의 추천도서</TodayBook>
         <Addbooks>책 추가하기</Addbooks>
+
         <ReadingBook>
           <ReadingBookText>
             <ReadingBookTextTitle>읽고 있는 책</ReadingBookTextTitle>
@@ -40,149 +41,222 @@ function Main({ navigation: { navigate } }) {
           </ReadingBookText>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <Poster>
-              <View
-                style={{
-                  shadowColor: "black",
-                  shadowOffset: { width: 3, height: 3 },
-                  shadowOpacity: 0.5,
-                  height: "auto",
-                }}
-              >
-                <ReadingBookPoster
-                  source={{
-                    uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+              <TouchableOpacity onPress={goDetail}>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
                   }}
-                />
-              </View>
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
               <PosterTitle>분열된 자기</PosterTitle>
             </Poster>
             <Poster>
-              <View
-                style={{
-                  shadowColor: "black",
-                  shadowOffset: { width: 3, height: 3 },
-                  shadowOpacity: 0.5,
-                  height: "auto",
-                }}
-              >
-                <ReadingBookPoster
-                  source={{
-                    uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+              <TouchableOpacity onPress={goDetail}>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
                   }}
-                />
-              </View>
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
               <PosterTitle>분열된 자기</PosterTitle>
             </Poster>
             <Poster>
-              <View
-                style={{
-                  shadowColor: "black",
-                  shadowOffset: { width: 3, height: 3 },
-                  shadowOpacity: 0.5,
-                  height: "auto",
-                }}
-              >
-                <ReadingBookPoster
-                  source={{
-                    uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+              <TouchableOpacity onPress={goDetail}>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
                   }}
-                />
-              </View>
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
               <PosterTitle>분열된 자기</PosterTitle>
             </Poster>
             <Poster>
-              <View
-                style={{
-                  shadowColor: "black",
-                  shadowOffset: { width: 3, height: 3 },
-                  shadowOpacity: 0.5,
-                  height: "auto",
-                }}
-              >
-                <ReadingBookPoster
-                  source={{
-                    uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+              <TouchableOpacity onPress={goDetail}>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
                   }}
-                />
-              </View>
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
+              <PosterTitle>분열된 자기</PosterTitle>
+            </Poster>
+            <Poster>
+              <TouchableOpacity onPress={goDetail}>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
+                  }}
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
               <PosterTitle>분열된 자기</PosterTitle>
             </Poster>
           </ScrollView>
         </ReadingBook>
         <ReadBook>
           <ReadingBookText>
-            <ReadingBookTextTitle>읽고 있는 책</ReadingBookTextTitle>
+            <ReadingBookTextTitle>완독한 책</ReadingBookTextTitle>
             <More>
               <MoreText onPress={goFinished}>더보기</MoreText>
             </More>
           </ReadingBookText>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             <Poster>
-              <View
-                style={{
-                  shadowColor: "black",
-                  shadowOffset: { width: 3, height: 3 },
-                  shadowOpacity: 0.5,
-                  height: "auto",
-                }}
-              >
-                <ReadingBookPoster
-                  source={{
-                    uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+              <TouchableOpacity onPress={goDetail}>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
                   }}
-                />
-              </View>
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
               <PosterTitle>분열된 자기</PosterTitle>
             </Poster>
             <Poster>
-              <View
-                style={{
-                  shadowColor: "black",
-                  shadowOffset: { width: 3, height: 3 },
-                  shadowOpacity: 0.5,
-                  height: "auto",
-                }}
-              >
-                <ReadingBookPoster
-                  source={{
-                    uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+              <TouchableOpacity onPress={goDetail}>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
                   }}
-                />
-              </View>
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
               <PosterTitle>분열된 자기</PosterTitle>
             </Poster>
             <Poster>
-              <View
-                style={{
-                  shadowColor: "black",
-                  shadowOffset: { width: 3, height: 3 },
-                  shadowOpacity: 0.5,
-                  height: "auto",
-                }}
-              >
-                <ReadingBookPoster
-                  source={{
-                    uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+              <TouchableOpacity onPress={goDetail}>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
                   }}
-                />
-              </View>
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
               <PosterTitle>분열된 자기</PosterTitle>
             </Poster>
             <Poster>
-              <View
-                style={{
-                  shadowColor: "black",
-                  shadowOffset: { width: 3, height: 3 },
-                  shadowOpacity: 0.5,
-                  height: "auto",
-                }}
-              >
-                <ReadingBookPoster
-                  source={{
-                    uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+              <TouchableOpacity onPress={goDetail}>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
                   }}
-                />
-              </View>
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
+              <PosterTitle>분열된 자기</PosterTitle>
+            </Poster>
+            <Poster>
+              <TouchableOpacity onPress={goDetail}>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
+                  }}
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
+              <PosterTitle>분열된 자기</PosterTitle>
+            </Poster>
+            <Poster>
+              <TouchableOpacity onPress={goDetail}>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
+                  }}
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
               <PosterTitle>분열된 자기</PosterTitle>
             </Poster>
           </ScrollView>
