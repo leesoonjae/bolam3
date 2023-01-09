@@ -1,134 +1,168 @@
-import React from "react";
-import { View, Text } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import {
+  Alert,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import styled from "@emotion/native";
-import { ScrollView } from "react-native-gesture-handler";
 
-const ReadingBooks = () => {
+export default function App() {
   return (
-    <View>
-      <Text>dasdwd</Text>
-    </View>
+    <SafeAreaView style={{ alignItems: "stretch" }}>
+      <ReadingTitle>📚 독서리스트 추가하기</ReadingTitle>
+      <ReadAddButton style={{ backgroundColor: "#E7DFD4" }}>
+        <ReadAddButtonText>+</ReadAddButtonText>
+      </ReadAddButton>
+      <ReadingListWrapper>
+        <ReadingList>
+          <ReadingCard>
+            <ReadingImg
+              source={{
+                uri: "https://image.yes24.com/goods/102591011/XL",
+              }}
+            />
+            <ReadingText>
+              <ReadingCardTitle>친애하는 나의 민원인</ReadingCardTitle>
+              <ReadingCardAuthor>정명원</ReadingCardAuthor>
+            </ReadingText>
+          </ReadingCard>
+          <ReadingCard>
+            <ReadingImg
+              source={{
+                uri: "https://image.yes24.com/goods/102591011/XL",
+              }}
+            />
+            <ReadingText>
+              <ReadingCardTitle>친애하는 나의 민원인</ReadingCardTitle>
+              <ReadingCardAuthor>정명원</ReadingCardAuthor>
+            </ReadingText>
+          </ReadingCard>
+        </ReadingList>
+        <ReadingList>
+          <ReadingCard>
+            <ReadingImg
+              source={{
+                uri: "https://image.yes24.com/goods/102591011/XL",
+              }}
+            />
+            <ReadingText>
+              <ReadingCardTitle>친애하는 나의 민원인</ReadingCardTitle>
+              <ReadingCardAuthor>정명원</ReadingCardAuthor>
+            </ReadingText>
+          </ReadingCard>
+          <ReadingCard>
+            <ReadingImg
+              source={{
+                uri: "https://image.yes24.com/goods/102591011/XL",
+              }}
+            />
+            <ReadingText>
+              <ReadingCardTitle>친애하는 나의 민원인</ReadingCardTitle>
+              <ReadingCardAuthor>정명원</ReadingCardAuthor>
+            </ReadingText>
+          </ReadingCard>
+        </ReadingList>
+        <ReadingList>
+          <ReadingCard>
+            <ReadingImg
+              source={{
+                uri: "https://image.yes24.com/goods/102591011/XL",
+              }}
+            />
+            <ReadingText>
+              <ReadingCardTitle>친애하는 나의 민원인</ReadingCardTitle>
+              <ReadingCardAuthor>정명원</ReadingCardAuthor>
+            </ReadingText>
+          </ReadingCard>
+          <ReadingCard>
+            <ReadingImg
+              source={{
+                uri: "https://image.yes24.com/goods/102591011/XL",
+              }}
+            />
+            <ReadingText>
+              <ReadingCardTitle>친애하는 나의 민원인</ReadingCardTitle>
+              <ReadingCardAuthor>정명원</ReadingCardAuthor>
+            </ReadingText>
+          </ReadingCard>
+        </ReadingList>
+      </ReadingListWrapper>
+
+      <StatusBar style="auto" />
+    </SafeAreaView>
   );
-  // <ReadingBook>
-  //   <ReadingBookText>
-  //     <ReadingBookTextTitle>읽고 있는 책</ReadingBookTextTitle>
-  //     <More>
-  //       <MoreText onPress={goReading}>더보기</MoreText>
-  //     </More>
-  //   </ReadingBookText>
-  //   <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-  //     <Poster>
-  //       <View
-  //         style={{
-  //           shadowColor: "black",
-  //           shadowOffset: { width: 3, height: 3 },
-  //           shadowOpacity: 0.5,
-  //           height: "auto",
-  //         }}
-  //       >
-  //         <ReadingBookPoster
-  //           source={{
-  //             uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-  //           }}
-  //         />
-  //       </View>
-  //       <PosterTitle>분열된 자기</PosterTitle>
-  //     </Poster>
-  //     <Poster>
-  //       <View
-  //         style={{
-  //           shadowColor: "black",
-  //           shadowOffset: { width: 3, height: 3 },
-  //           shadowOpacity: 0.5,
-  //           height: "auto",
-  //         }}
-  //       >
-  //         <ReadingBookPoster
-  //           source={{
-  //             uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-  //           }}
-  //         />
-  //       </View>
-  //       <PosterTitle>분열된 자기</PosterTitle>
-  //     </Poster>
-  //     <Poster>
-  //       <View
-  //         style={{
-  //           shadowColor: "black",
-  //           shadowOffset: { width: 3, height: 3 },
-  //           shadowOpacity: 0.5,
-  //           height: "auto",
-  //         }}
-  //       >
-  //         <ReadingBookPoster
-  //           source={{
-  //             uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-  //           }}
-  //         />
-  //       </View>
-  //       <PosterTitle>분열된 자기</PosterTitle>
-  //     </Poster>
-  //     <Poster>
-  //       <View
-  //         style={{
-  //           shadowColor: "black",
-  //           shadowOffset: { width: 3, height: 3 },
-  //           shadowOpacity: 0.5,
-  //           height: "auto",
-  //         }}
-  //       >
-  //         <ReadingBookPoster
-  //           source={{
-  //             uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-  //           }}
-  //         />
-  //       </View>
-  //       <PosterTitle>분열된 자기</PosterTitle>
-  //     </Poster>
-  //   </ScrollView>
-  // </ReadingBook>;
-};
+}
 
-export default ReadingBooks;
+const ReadingTitle = styled.Text`
+  margin-top: 50px;
+  font-size: 18px;
+  color: #513d34;
+  text-align: left;
+  margin-left: 50px;
+`;
 
-// const ReadingBook = styled.View`
-//   margin: 10px 0px;
-//   flex: 1;
-//   width: 100%;
-//   height: 270px;
-// `;
-// const ReadingBookText = styled.View`
-//   flex-direction: row;
-//   justify-content: space-between;
-//   padding-bottom: 5;
-// `;
-// const ReadingBookTextTitle = styled.Text`
-//   font-size: 20px;
-//   color: #513d34;
-//   font-weight: 600;
-// `;
-// const More = styled.Pressable`
-//   justify-content: center;
-// `;
-// const MoreText = styled.Text`
-//   font-size: 15px;
-//   color: #513d34;
-//   justify-content: center;
-//   font-weight: 400;
-// `;
-// const Poster = styled.View`
-//   flex-direction: column;
-//   align-items: center;
-//   padding-top: 10px;
-//   padding-right: 10px;
-// `;
-// const PosterTitle = styled.Text`
-//   padding: 10px;
-//   color: #513d3466;
-// `;
-// const ReadingBookPoster = styled.Image`
-//   width: 142px;
-//   height: 205px;
-//   background-color: gray;
-//   border-radius: 17px;
-// `;
+const ReadAddButton = styled.TouchableOpacity`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 45px;
+  margin-top: 10px;
+  width: 300;
+  height: 150;
+  border-radius: 25px;
+`;
+
+const ReadAddButtonText = styled.Text`
+  text-align: center;
+  color: white;
+`;
+
+const ReadingListWrapper = styled.View`
+  flex-direction: column;
+`;
+
+const ReadingList = styled.View`
+  flex-direction: row;
+`;
+
+const ReadingCard = styled.View`
+  margin-top: 20px;
+  margin-left: 13px;
+  margin-right: 10px;
+  width: 170;
+  height: 250;
+  background-color: #e2d9ce;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+`;
+
+const ReadingText = styled.View``;
+
+const ReadingCardTitle = styled.Text`
+  color: #513d34;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+`;
+
+const ReadingCardAuthor = styled.Text`
+  color: #6a6c6b;
+  font-size: 13px;
+  font-weight: 400;
+  text-align: right;
+  margin-top: 2px;
+`;
+
+const ReadingImg = styled.Image`
+  width: 170;
+  height: 210;
+  margin-top: -9px;
+  margin-bottom: 4px;
+`;
