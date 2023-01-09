@@ -4,10 +4,12 @@ import Main from "../screens/Main";
 import Reading from "../screens/Reading";
 import Finished from "../screens/Finished";
 import styled from "@emotion/native";
+import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
 
 const Tab = createBottomTabNavigator();
 
 export default function Tabs() {
+  const isDark = useColorScheme() === "dark";
   return (
     // <Tab.Navigator
     //   screenOptions={{ headerTitleAlign: "left" }}

@@ -1,3 +1,4 @@
+import styled from "@emotion/native";
 import React from "react";
 import { Button, Pressable, Text, TouchableOpacity, View } from "react-native";
 import TodayBooks from "../components/TodayBooks";
