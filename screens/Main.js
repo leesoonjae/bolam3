@@ -63,7 +63,7 @@ function Main({ navigation: { navigate } }) {
         <FinishedBooks />
       </ScrollView>
       <ReadingBooks />
-    </>
+    </MainPage>
   );
 }
 
