@@ -1,5 +1,5 @@
 import styled from "@emotion/native";
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from "./util";
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../util";
 import { AntDesign } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
 import { Picker } from "@react-native-picker/picker";
@@ -107,6 +107,7 @@ const StOnelineInputContainer = styled.View`
 const StOnelineText = styled.Text`
   font-size: 16px;
   align-self: center;
+  color: ${(props) => props.theme.text};
 `;
 
 const StOnelineInput = styled.TextInput`
@@ -124,6 +125,7 @@ const StOverlinesInputContainer = styled.View``;
 const StOverlineText = styled.Text`
   font-size: 16px;
   margin-bottom: 5px;
+  color: ${(props) => props.theme.text};
 `;
 
 const StLinesInput = styled.TextInput`

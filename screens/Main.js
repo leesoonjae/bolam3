@@ -1,3 +1,4 @@
+import styled from "@emotion/native";
 import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 
@@ -17,16 +18,20 @@ function Main({ navigation: { navigate } }) {
   return (
     <>
       <TouchableOpacity onPress={goAdd}>
-        <Text>Add</Text>
+        <StText>Add</StText>
       </TouchableOpacity>
       <TouchableOpacity onPress={goDetail}>
-        <Text>Detail</Text>
+        <StText>Detail</StText>
       </TouchableOpacity>
       <TouchableOpacity onPress={goDetailEdit}>
-        <Text>Detail Edit</Text>
+        <StText>Detail Edit</StText>
       </TouchableOpacity>
     </>
   );
 }
 
 export default Main;
+
+const StText = styled.Text`
+  color: ${(props) => props.theme.text};
+`;

@@ -5,10 +5,12 @@ import DetailEdit from "../screens/Edit";
 import Detail from "../screens/Edit";
 import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
 
 const Stack = createNativeStackNavigator();
 
 export default function Stacks({ navigation: { goBack } }) {
+  const isDark = useColorScheme() === "dark";
   return (
     // 기동 : 헤더 제목, 가운데 정렬, 뒤로가기 버튼, 배경 추가
     <Stack.Navigator
