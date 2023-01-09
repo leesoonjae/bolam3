@@ -11,15 +11,29 @@ const Tab = createBottomTabNavigator();
 export default function Tabs() {
   const isDark = useColorScheme() === "dark";
   return (
+    // <Tab.Navigator
+    //   screenOptions={{ headerTitleAlign: "left" }}
+    //   sceneContainerStyle={{
+    //     paddingLeft: 30,
+    //     paddingRight: 30,
+    //   }}
+    // >
     <Tab.Navigator
-      screenOptions={{ headerTitleAlign: "center" }}
-      // 패딩이 바디뿐만 아니라 헤더에도 적용되기 때문에 없애는게 어떨까요?
-      // sceneContainerStyle={{
-      //   paddingLeft: 30,
-      //   paddingRight: 30,
-      // }}
+      sceneContainerStyle={{
+        backgroundColor: "white",
+        paddingLeft: 30,
+        paddingRight: 30,
+      }}
+      screenOptions={{
+        headerTitleAlign: "left",
+
+        tabBarShowIcon: true,
+        tabBarStyle: {
+          backgroundColor: "#BBA58F",
+        },
+      }}
     >
-      <Tab.Screen name="Main" component={Main} />
+      <Tab.Screen name="Read Me" component={Main} />
       <Tab.Screen name="Reading" component={Reading} />
       <Tab.Screen name="Finished" component={Finished} />
     </Tab.Navigator>

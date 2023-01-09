@@ -1,8 +1,8 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Add from "../screens/Add";
-import DetailEdit from "../screens/Edit";
-import Detail from "../screens/Edit";
+import DetailEdit from "../screens/DetailEdit";
+import Detail from "../screens/Detail";
 import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
