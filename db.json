@@ -1,0 +1,11 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "img": "",
+      "title": "json-server",
+      "author": "typicode",
+      "content": "sysysy"
+    }
+  ]
+}

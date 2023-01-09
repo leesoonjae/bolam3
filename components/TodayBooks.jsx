@@ -1,12 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import styled from "@emotion/native";
 import { AntDesign } from "@expo/vector-icons";
+import axios from "axios";
+import { object } from "prop-types";
+
+const BOOK_KEY = process.env.REACT_APP_OPENBOOK_KEY;
 
 export default function TodayBooks({ navigation: { navigate } }) {
   const goAdd = () => {
     navigate("Stacks", { screen: "Add" });
   };
+
+  const { books, setBooks } = useState("");
+
+  // const getBooks = async () => {
+  //   await axios
+  //     .get(
+  //       `https://nl.go.kr/NL/search/openApi/saseoApi.do?key=${BOOK_KEY}&startRowNumApi=1&endRowNumApi=10&start_date=20200101&end_date=20200131&drcode=11`
+  //     )
+  //     .then((response) => {
+  //       console.log("Hello", response);
+  //       setBooks(response.data.recomfilepath[1]);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+
+  useEffect(() => {
+    const getBooks = async () => {
+      const response = await fetch(
+        `https://nl.go.kr/NL/search/openApi/saseoApi.do?key=${BOOK_KEY}&startRowNumApi=1`
+      );
+      console.log("hello", object);
+      return response;
+    };
+    getBooks();
+  }, []);
 
   // const goDetail = () => {
   //   navigate("Stacks", { screen: "Detail" });
@@ -22,7 +53,7 @@ export default function TodayBooks({ navigation: { navigate } }) {
       <ToDay>
         <ToDayImg
           source={{
-            uri: "https://post-phinf.pstatic.net/MjAxOTEwMjVfMjU2/MDAxNTcxOTc3OTgyOTg2.OwjmtOOHMVENcc0WxKoXrG84ctM3YVTmqu4xQIZpRNEg.XGviDR7sFURuxXAsWknZm6XHnTGIyI13-5V9rQq0d9Qg.PNG/20191025_111210.png?type=w1200",
+            uri: books,
           }}
         />
         <TodayText>

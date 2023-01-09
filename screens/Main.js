@@ -1,13 +1,16 @@
 import styled from "@emotion/native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Pressable, Text, TouchableOpacity, View } from "react-native";
 import TodayBooks from "../components/TodayBooks";
 import AddBooks from "../components/AddBooks";
 import ReadBooks from "../components/ReadBooks";
 import ReadingBooks from "../components/ReadBooks";
 import { AntDesign } from "@expo/vector-icons";
-
+import axios from "axios";
+import XMLParser from "react-xml-parser";
 import { ScrollView } from "react-native-gesture-handler";
+
+// const BOOK_KEY = process.env.REACT_APP_OPENBOOK_KEY;
 
 function Main({ navigation: { navigate } }) {
   const goAdd = () => {
@@ -24,6 +27,37 @@ function Main({ navigation: { navigate } }) {
     navigate("Stacks", { screen: "Detail" });
   };
 
+  const { books, setBooks } = useState("");
+
+  function parseBook(dataSet) {
+    const bookData = new XMLParser().parseFromString(dataSet).children;
+    console.log(bookData);
+  }
+
+  useEffect(() => {
+    const getBooks = async () => {
+      try {
+        const bookApi = await axios.get(
+          `https://proxy.cors.sh/https://nl.go.kr/NL/search/openApi/saseoApi.do`,
+          {
+            params: {
+              key: "b17d0b4e1c423eba19d7c55c3a7c364a730bb89261b3faa891a66151a027de7b",
+              startRowNumApi: 1,
+              endRowNemApi: 9,
+              start_date: 20200101,
+              end_date: 20200131,
+              drCode: 11,
+            },
+          }
+        );
+        console.log(parseBook(bookApi.data));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getBooks();
+  }, []);
+
   // const goDetailEdit = () => {
   //   navigate("Stacks", { screen: "DetailEdit" });
   // };
@@ -35,9 +69,9 @@ function Main({ navigation: { navigate } }) {
           <MainToDayTitle>오늘의 추천 도서</MainToDayTitle>
           <ToDay>
             <ToDayImg
-              source={{
-                uri: "https://post-phinf.pstatic.net/MjAxOTEwMjVfMjU2/MDAxNTcxOTc3OTgyOTg2.OwjmtOOHMVENcc0WxKoXrG84ctM3YVTmqu4xQIZpRNEg.XGviDR7sFURuxXAsWknZm6XHnTGIyI13-5V9rQq0d9Qg.PNG/20191025_111210.png?type=w1200",
-              }}
+            // source={{
+            //   uri: books,
+            // }}
             />
             <TodayText>
               <ToDayTitle>제목</ToDayTitle>
