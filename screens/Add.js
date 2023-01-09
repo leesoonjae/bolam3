@@ -4,8 +4,11 @@ import { AntDesign } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
 import { Picker } from "@react-native-picker/picker";
 import React, { useState } from "react";
+import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
 
 const Add = () => {
+  const isDark = useColorScheme() === "dark";
+
   const [isDone, setIsDone] = useState(false);
   return (
     <StAddContainer>
@@ -31,7 +34,7 @@ const Add = () => {
             style={{ marginLeft: 20 }}
             ratingCount={5}
             imageSize={30}
-            tintColor="#E1DEDA"
+            tintColor={isDark ? "#333030" : "#E1DEDA"}
           />
         </StOnelineInputContainer>
 
