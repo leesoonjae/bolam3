@@ -9,14 +9,29 @@ const Tab = createBottomTabNavigator();
 
 export default function Tabs() {
   return (
+    // <Tab.Navigator
+    //   screenOptions={{ headerTitleAlign: "left" }}
+    //   sceneContainerStyle={{
+    //     paddingLeft: 30,
+    //     paddingRight: 30,
+    //   }}
+    // >
     <Tab.Navigator
-      screenOptions={{ headerTitleAlign: "center" }}
       sceneContainerStyle={{
+        backgroundColor: "white",
         paddingLeft: 30,
         paddingRight: 30,
       }}
+      screenOptions={{
+        headerTitleAlign: "left",
+
+        tabBarShowIcon: true,
+        tabBarStyle: {
+          backgroundColor: "#BBA58F",
+        },
+      }}
     >
-      <Tab.Screen name="Main" component={Main} />
+      <Tab.Screen name="Read Me" component={Main} />
       <Tab.Screen name="Reading" component={Reading} />
       <Tab.Screen name="Finished" component={Finished} />
     </Tab.Navigator>

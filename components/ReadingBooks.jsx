@@ -3,7 +3,7 @@ import { View, Text } from "react-native";
 import styled from "@emotion/native";
 import { ScrollView } from "react-native-gesture-handler";
 
-function ReadingBooks() {
+const ReadingBooks = () => {
   return (
     <View>
       <Text>dasdwd</Text>
@@ -87,7 +87,7 @@ function ReadingBooks() {
   //     </Poster>
   //   </ScrollView>
   // </ReadingBook>;
-}
+};
 
 export default ReadingBooks;
 

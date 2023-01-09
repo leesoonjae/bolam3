@@ -31,7 +31,6 @@ function Main({ navigation: { navigate } }) {
       <ScrollView showsVerticalScrollIndicator={false}>
         <TodayBook>오늘의 추천도서</TodayBook>
         <Addbooks>책 추가하기</Addbooks>
-
         <ReadingBook>
           <ReadingBookText>
             <ReadingBookTextTitle>읽고 있는 책</ReadingBookTextTitle>
@@ -292,7 +291,7 @@ const ReadingBook = styled.View`
 const ReadingBookText = styled.View`
   flex-direction: row;
   justify-content: space-between;
-  padding-bottom: 5;
+  padding-bottom: 5px;
 `;
 const ReadingBookTextTitle = styled.Text`
   font-size: 20px;
