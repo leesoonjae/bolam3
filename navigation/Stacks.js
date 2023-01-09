@@ -6,6 +6,7 @@ import Detail from "../screens/Detail";
 import { TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
+import Recommend from "../screens/Recommend";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,12 @@ export default function Stacks({ navigation: { goBack } }) {
         ),
       }}
     >
+      {/* 기동 : Recommend 파일 추가 */}
+      <Stack.Screen
+        options={{ title: "Read me", headerTitleStyle: { color: "white" } }}
+        name="Recommed"
+        component={Recommend}
+      />
       {/* 기동 : Add 제목, 색상 변경 */}
       <Stack.Screen
         options={{ title: "Read me", headerTitleStyle: { color: "white" } }}
