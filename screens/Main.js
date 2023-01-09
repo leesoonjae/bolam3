@@ -12,6 +12,11 @@ function Main({ navigation: { navigate } }) {
   const goAdd = () => {
     navigate("Stacks", { screen: "Add" });
   };
+
+  const goRecommend = () => {
+    navigate("Stacks", { screen: "Recommend" });
+  };
+
   const goReading = () => {
     navigate("Tabs", { screen: "Reading" });
   };
@@ -30,8 +35,12 @@ function Main({ navigation: { navigate } }) {
   return (
     <>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <TodayBook>오늘의 추천도서</TodayBook>
-        <Addbooks>책 추가하기</Addbooks>
+        <TouchableOpacity onPress={goRecommend}>
+          <TodayBook>오늘의 추천도서</TodayBook>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={goAdd}>
+          <Addbooks>책 추가하기</Addbooks>
+        </TouchableOpacity>
         <ReadingBook>
           <ReadingBookText>
             <ReadingBookTextTitle>읽고 있는 책</ReadingBookTextTitle>

@@ -111,6 +111,7 @@ export default Recommend;
 const StRecommendContainer = styled.ScrollView`
   padding-left: 30px;
   padding-right: 30px;
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 
 /////////////// 레이아웃, 콘텐츠 구분 ///////////////
@@ -141,6 +142,7 @@ const StTitleContainer = styled.View``;
 const StTitle = styled.Text`
   font-size: 16px;
   margin-bottom: 5px;
+  color: ${(props) => props.theme.text};
 `;
 
 const StWriterContainer = styled.View`
@@ -149,16 +151,20 @@ const StWriterContainer = styled.View`
 
 const StWriter = styled.Text`
   margin-bottom: 5px;
+  color: ${(props) => props.theme.text};
 `;
 
 const StTextContainer = styled.View``;
 
-const StText = styled.Text``;
+const StText = styled.Text`
+  color: ${(props) => props.theme.text};
+`;
 
 const StSubText = styled.Text`
   font-size: 16px;
   margin-bottom: 5px;
   margin-top: 20px;
+  color: ${(props) => props.theme.text};
 `;
 
 const StSubImgsContainer = styled.View`
@@ -191,7 +197,7 @@ const StButtonContainer = styled.TouchableOpacity`
   width: 250px;
   justify-content: center;
   align-items: center;
-  background-color: #5a5c59;
+  background-color: #959d90;
 `;
 
 const StButtonText = styled.Text`

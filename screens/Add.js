@@ -81,17 +81,22 @@ const Add = () => {
 
 export default Add;
 
+/////////////// 레이아웃 ///////////////
+
 const StAddContainer = styled.ScrollView`
   padding-left: 30px;
   padding-right: 30px;
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
+
+/////////////// 레이아웃, 콘텐츠 구분 ///////////////
 
 const StContents = styled.View``;
 
 const StImage = styled.TouchableOpacity`
   width: 100%;
   height: ${SCREEN_HEIGHT / 5 + "px"};
-  background-color: #d9d9d9;
+  background-color: #b5aeae;
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 10px;
