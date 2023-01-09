@@ -4,8 +4,11 @@ import { AntDesign } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
 import { Picker } from "@react-native-picker/picker";
 import React, { useState } from "react";
+import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
 
 const Add = () => {
+  const isDark = useColorScheme() === "dark";
+
   const [isDone, setIsDone] = useState(false);
   return (
     <StAddContainer>
@@ -31,7 +34,7 @@ const Add = () => {
             style={{ marginLeft: 20 }}
             ratingCount={5}
             imageSize={30}
-            tintColor="#E1DEDA"
+            tintColor={isDark ? "#333030" : "#E1DEDA"}
           />
         </StOnelineInputContainer>
 
@@ -81,17 +84,22 @@ const Add = () => {
 
 export default Add;
 
+/////////////// 레이아웃 ///////////////
+
 const StAddContainer = styled.ScrollView`
   padding-left: 30px;
   padding-right: 30px;
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
+
+/////////////// 레이아웃, 콘텐츠 구분 ///////////////
 
 const StContents = styled.View``;
 
 const StImage = styled.TouchableOpacity`
   width: 100%;
   height: ${SCREEN_HEIGHT / 5 + "px"};
-  background-color: #d9d9d9;
+  background-color: #b5aeae;
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 10px;

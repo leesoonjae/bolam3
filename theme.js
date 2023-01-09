@@ -1,10 +1,17 @@
-import { DARK_COLOR, LIGHT_COLOR } from "./colors";
+import {
+  DARK_BACKGROUND_COLOR,
+  DARK_TEXT_COLOR,
+  LIGHT_BACKGROUND_COLOR,
+  LIGHT_TEXT_COLOR,
+} from "./colors";
 
 // 기동 : 다크모드 추가
 export const lightTheme = {
-  text: DARK_COLOR,
+  text: LIGHT_TEXT_COLOR,
+  backgroundColor: LIGHT_BACKGROUND_COLOR,
 };
 
 export const darkTheme = {
-  text: LIGHT_COLOR,
+  text: DARK_TEXT_COLOR,
+  backgroundColor: DARK_BACKGROUND_COLOR,
 };
