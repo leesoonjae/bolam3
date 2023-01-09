@@ -38,7 +38,7 @@ function Main({ navigation: { navigate } }) {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View>
           <MainToDayTitle>오늘의 추천 도서</MainToDayTitle>
-          <ToDay>
+          <ToDay onPress={goRecommend}>
             <ToDayImg
               source={{
                 uri: "https://post-phinf.pstatic.net/MjAxOTEwMjVfMjU2/MDAxNTcxOTc3OTgyOTg2.OwjmtOOHMVENcc0WxKoXrG84ctM3YVTmqu4xQIZpRNEg.XGviDR7sFURuxXAsWknZm6XHnTGIyI13-5V9rQq0d9Qg.PNG/20191025_111210.png?type=w1200",
@@ -361,7 +361,7 @@ const MainToDayTitle = styled.Text`
   color: #513d34;
 `;
 
-const ToDay = styled.View`
+const ToDay = styled.TouchableOpacity`
   flex-direction: row;
   margin-top: 15px;
   background-color: #e2d9ce;
