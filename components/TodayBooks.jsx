@@ -3,13 +3,16 @@ import { View } from "react-native";
 import styled from "@emotion/native";
 import { AntDesign } from "@expo/vector-icons";
 import axios from "axios";
-import { object } from "prop-types";
+import { useNavigation } from "@react-navigation/native";
 
-const BOOK_KEY = process.env.REACT_APP_OPENBOOK_KEY;
-
-export default function TodayBooks({ navigation: { navigate } }) {
+function TodayBooks() {
+  const navigation = useNavigation();
   const goAdd = () => {
-    navigate("Stacks", { screen: "Add" });
+    navigation.navigate("Stacks", { screen: "Add" });
+  };
+
+  const goRecommend = () => {
+    navigation.navigate("Stacks", { screen: "Recommend" });
   };
 
   const [bookApiImg, setbookApiImg] = useState("");
@@ -47,7 +50,7 @@ export default function TodayBooks({ navigation: { navigate } }) {
   return (
     <View>
       <MainToDayTitle>오늘의 추천 도서</MainToDayTitle>
-      <ToDay>
+      <ToDay onPress={goRecommend}>
         <ToDayImg
           source={{
             uri: bookApiImg,
@@ -75,6 +78,8 @@ export default function TodayBooks({ navigation: { navigate } }) {
   );
 }
 
+export default TodayBooks;
+
 const MainToDayTitle = styled.Text`
   margin-top: 10px;
   font-size: 25px;
@@ -97,17 +102,20 @@ const ToDayTitle = styled.Text`
   width: 140px;
   font-size: 20px;
   font-weight: 500px;
+  margin-bottom: 5px;
 `;
 
 const ToDayOuter = styled.Text`
-  width: 150px;
-  font-size: 15px;
+  width: 140px;
+  font-size: 11px;
   font-weight: 400px;
   text-align: right;
+  margin-bottom: 5px;
 `;
 
 const ToDayContents = styled.Text`
   width: 140px;
+  font-size: 13px;
 `;
 
 const ToDayImg = styled.Image`

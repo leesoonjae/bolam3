@@ -21,8 +21,6 @@ export default function Tabs() {
     <Tab.Navigator
       sceneContainerStyle={{
         backgroundColor: "white",
-        paddingLeft: 30,
-        paddingRight: 30,
       }}
       screenOptions={{
         headerTitleAlign: "left",
