@@ -77,8 +77,8 @@ const ToDayContents = styled.Text`
 `;
 
 const ToDayImg = styled.Image`
-  width: 150;
-  height: 200;
+  width: 150px;
+  height: 200px;
 `;
 
 const AddBook = styled.Text`
@@ -89,7 +89,7 @@ const AddBook = styled.Text`
 
 const AddBookBack = styled.View`
   background-color: #e2d9ce;
-  height: 160;
+  height: 160px;
   border-radius: 25px;
   margin-top: 10px;
   display: flex;
@@ -101,6 +101,6 @@ const AddBookBtn = styled.TouchableOpacity`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50;
-  height: 50;
+  width: 50px;
+  height: 50px;
 `;
