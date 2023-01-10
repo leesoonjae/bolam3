@@ -1,19 +1,174 @@
 {
-  "posts": [
+  "data": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "id": "e20aadc9-0a8c-44d0-86fd-e28eb400f6cb",
+      "title": "we",
+      "writer": "ddd",
+      "rating": 5,
+      "period": "2023.1.1 ~ 2.3",
+      "isDone": true,
+      "bestSentence": "sss",
+      "myThinking": "www"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": "de7e98f0-01b1-4f03-b69a-fd8b4b6fdd8c",
+      "title": "",
+      "writer": "",
+      "rating": 0,
+      "period": "",
+      "isDone": false,
+      "bestSentence": "",
+      "myThinking": ""
+    },
+    {
+      "id": "63487317-d07b-4fe9-841e-ea7ecd8104aa",
+      "title": "dddd",
+      "writer": "dss",
+      "rating": 3,
+      "period": "sss",
+      "isDone": true,
+      "bestSentence": "dd",
+      "myThinking": "ww"
+    },
+    {
+      "id": "97f6a24e-8420-4f66-ab4a-8474ced4898e",
+      "title": "ddddd",
+      "writer": "",
+      "rating": 0,
+      "period": "",
+      "isDone": false,
+      "bestSentence": "",
+      "myThinking": ""
+    },
+    {
+      "id": "e72b82ff-5696-4591-b9e7-1cdc806c0ad4",
+      "title": "",
+      "writer": "",
+      "rating": 0,
+      "period": "",
+      "isDone": false,
+      "bestSentence": "",
+      "myThinking": ""
+    },
+    {
+      "id": "5a178c29-3ddb-41bf-9b79-6b32944ec91e",
+      "title": "sss",
+      "writer": "",
+      "rating": 0,
+      "period": "",
+      "isDone": false,
+      "bestSentence": "",
+      "myThinking": ""
+    },
+    {
+      "id": "8e89f7c4-23ee-40f1-9dd2-679d73abdb94",
+      "title": "sssss",
+      "writer": "",
+      "rating": 0,
+      "period": "",
+      "isDone": false,
+      "bestSentence": "",
+      "myThinking": ""
+    },
+    {
+      "id": "b8a75124-d11d-41b6-87fc-ff5e532be65f",
+      "title": "",
+      "writer": "",
+      "rating": 0,
+      "period": "",
+      "isDone": false,
+      "bestSentence": "",
+      "myThinking": ""
+    },
+    {
+      "id": "aff4ceb1-ec7b-4770-9e45-1bb741f3a296",
+      "title": "ssss",
+      "writer": "",
+      "rating": 0,
+      "period": "",
+      "isDone": false,
+      "bestSentence": "",
+      "myThinking": ""
+    },
+    {
+      "id": "7fd45958-4e54-465e-8754-d47ad1100330",
+      "title": "ss",
+      "writer": "ss",
+      "rating": 5,
+      "period": "22222",
+      "isDone": true,
+      "bestSentence": "dd",
+      "myThinking": "aaa"
+    },
+    {
+      "id": "57c42b76-bd10-49d4-9db3-c986a92531d9",
+      "title": "wwww",
+      "writer": "ss",
+      "rating": 5,
+      "period": "22222",
+      "isDone": true,
+      "bestSentence": "dd",
+      "myThinking": "aaa"
+    },
+    {
+      "id": "c5f61d1b-a456-42b2-8a17-764ed44e47fb",
+      "title": "",
+      "writer": "",
+      "rating": 0,
+      "period": "",
+      "isDone": true,
+      "bestSentence": "",
+      "myThinking": ""
+    },
+    {
+      "id": "52e22aaf-b8af-4733-b5de-e6d1f1ca2918",
+      "title": "",
+      "writer": "",
+      "rating": 0,
+      "period": "",
+      "isDone": false,
+      "bestSentence": "",
+      "myThinking": ""
+    },
+    {
+      "id": "ccc6a4f9-6332-4044-873e-8982433ced7c",
+      "title": "",
+      "writer": "",
+      "rating": 0,
+      "period": "",
+      "isDone": false,
+      "bestSentence": "",
+      "myThinking": ""
+    },
+    {
+      "id": "730565ac-3fd9-4ec2-923c-3db759504a0f",
+      "title": "",
+      "writer": "",
+      "rating": "",
+      "period": "",
+      "isDone": false,
+      "bestSentence": "",
+      "myThinking": ""
+    },
+    {
+      "id": "365a3abc-38cb-47a0-994d-fa541d2dcc0f",
+      "title": "",
+      "writer": "",
+      "rating": 1,
+      "period": "",
+      "isDone": false,
+      "bestSentence": "",
+      "myThinking": ""
+    },
+    {
+      "id": "22f2bc51-9f32-48af-9799-49365db751c5",
+      "title": "",
+      "writer": "",
+      "rating": 3,
+      "period": "",
+      "isDone": false,
+      "bestSentence": "",
+      "myThinking": ""
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
