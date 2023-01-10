@@ -83,10 +83,10 @@ export default TodayBooks;
 const MainToDayTitle = styled.Text`
   margin-top: 10px;
   font-size: 25px;
-  color: #513d34;
+  color: ${(props) => props.theme.text};
 `;
 
-const ToDay = styled.View`
+const ToDay = styled.TouchableOpacity`
   flex-direction: row;
   margin-top: 15px;
   background-color: #e2d9ce;
@@ -126,7 +126,7 @@ const ToDayImg = styled.Image`
 const AddBook = styled.Text`
   margin-top: 10px;
   font-size: 25px;
-  color: #513d34;
+  color: ${(props) => props.theme.text};
 `;
 
 const AddBookBack = styled.View`
