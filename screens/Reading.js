@@ -100,18 +100,18 @@ export default function ReadingBooks() {
 }
 
 const ReadingTitle = styled.Text`
-  margin-top: 50px;
+  margin-top: 20px;
   font-size: 18px;
   color: #513d34;
   text-align: left;
-  margin-left: 50px;
+  margin-left: 30px;
 `;
 
 const ReadAddButton = styled.TouchableOpacity`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 45px;
+  margin-left: 15px;
   margin-top: 10px;
   width: 300px;
   height: 150px;
@@ -129,11 +129,12 @@ const ReadingListWrapper = styled.View`
 
 const ReadingList = styled.View`
   flex-direction: row;
+  margin-left: -10px;
+  justify-content: space-between;
 `;
 
 const ReadingCard = styled.View`
   margin-top: 20px;
-  margin-left: 13px;
   margin-right: 10px;
   width: 170px;
   height: 250px;

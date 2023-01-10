@@ -101,7 +101,7 @@ export default function ReadBooks() {
 }
 
 const FinishedTitle = styled.Text`
-  margin-top: 50px;
+  margin-top: 20px;
   font-size: 22px;
   color: #513d34;
   text-align: center;
@@ -110,6 +110,7 @@ const FinishedTitle = styled.Text`
 const FinishedSubTitle = styled.Text`
   margin-top: 10px;
   margin-right: 10px;
+  margin-bottom: -7px;
   font-size: 18px;
   text-align: right;
   color: #513d34;
@@ -121,11 +122,12 @@ const FinishedListWrapper = styled.View`
 
 const FinishedList = styled.View`
   flex-direction: row;
+  margin-left: -10px;
+  justify-content: space-between;
 `;
 
 const FinishedCard = styled.View`
   margin-top: 20px;
-  margin-left: 13px;
   margin-right: 10px;
   width: 170px;
   height: 250px;
