@@ -5,6 +5,7 @@ import Reading from "../screens/Reading";
 import Finished from "../screens/Finished";
 import styled from "@emotion/native";
 import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
+import { DARK_COLOR, GRAY_COLOR, LIGHTGRAY_COLOR } from "../colors";
 
 const Tab = createBottomTabNavigator();
 
@@ -20,16 +21,17 @@ export default function Tabs() {
     // >
     <Tab.Navigator
       sceneContainerStyle={{
-        backgroundColor: "white",
-        paddingLeft: 30,
-        paddingRight: 30,
+        backgroundColor: isDark ? DARK_COLOR : "white",
       }}
       screenOptions={{
         headerTitleAlign: "left",
-
+        headerStyle: {
+          backgroundColor: isDark ? GRAY_COLOR : "#BBA58F",
+        },
+        headerTintColor: isDark ? LIGHTGRAY_COLOR : "white",
         tabBarShowIcon: true,
         tabBarStyle: {
-          backgroundColor: "#BBA58F",
+          backgroundColor: isDark ? GRAY_COLOR : "#BBA58F",
         },
       }}
     >

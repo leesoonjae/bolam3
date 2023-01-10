@@ -16,7 +16,6 @@ function Main({ navigation: { navigate } }) {
     navigate("Stacks", { screen: "Recommend" });
   };
 
-
   return (
     <MainPage>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -120,7 +119,7 @@ const ReadBook = styled.View`
 const MainToDayTitle = styled.Text`
   margin-top: 10px;
   font-size: 25px;
-  color: #513d34;
+  color: ${(props) => props.theme.text};
 `;
 
 const ToDay = styled.TouchableOpacity`
@@ -160,7 +159,7 @@ const ToDayImg = styled.Image`
 const AddBook = styled.Text`
   margin-top: 10px;
   font-size: 25px;
-  color: #513d34;
+  color: ${(props) => props.theme.text};
 `;
 
 const AddBookBack = styled.View`
