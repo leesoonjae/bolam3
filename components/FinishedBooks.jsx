@@ -3,22 +3,25 @@ import { View, Text, TouchableOpacity } from "react-native";
 import styled from "@emotion/native";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
+import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
+import { LIGHTGRAY_COLOR } from "../colors";
+import { Theme } from "@react-navigation/native";
 
-function ReadingBooks() {
+function FinishedBooks() {
+  const isDark = useColorScheme() === "dark";
   const navigation = useNavigation();
   const goDetail = () => {
     navigation.navigate("Stacks", { screen: "Detail" });
   };
-  const goReading = () => {
-    navigation.navigate("Tabs", { screen: "Reading" });
+  const goFinished = () => {
+    navigation.navigate("Tabs", { screen: "Finished" });
   };
-
   return (
-    <ReadingBook>
+    <ReadBook>
       <ReadingBookText>
-        <ReadingBookTextTitle>읽고 있는 책</ReadingBookTextTitle>
+        <ReadingBookTextTitle>완독한 책</ReadingBookTextTitle>
         <More>
-          <MoreText onPress={goReading}>더보기</MoreText>
+          <MoreText onPress={goFinished}>더보기</MoreText>
         </More>
       </ReadingBookText>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -117,19 +120,31 @@ function ReadingBooks() {
           </TouchableOpacity>
           <PosterTitle>분열된 자기</PosterTitle>
         </Poster>
+        <Poster>
+          <TouchableOpacity onPress={goDetail}>
+            <View
+              style={{
+                shadowColor: "black",
+                shadowOffset: { width: 3, height: 3 },
+                shadowOpacity: 0.5,
+                height: "auto",
+              }}
+            >
+              <ReadingBookPoster
+                source={{
+                  uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
+                }}
+              />
+            </View>
+          </TouchableOpacity>
+          <PosterTitle>분열된 자기</PosterTitle>
+        </Poster>
       </ScrollView>
-    </ReadingBook>
+    </ReadBook>
   );
 }
 
-export default ReadingBooks;
-
-const ReadingBook = styled.View`
-  margin: 10px 0px;
-  flex: 1;
-  width: 100%;
-  height: 270px;
-`;
+export default FinishedBooks;
 
 const ReadingBookText = styled.View`
   flex-direction: row;
@@ -165,4 +180,10 @@ const ReadingBookPoster = styled.Image`
   height: 205px;
   background-color: gray;
   border-radius: 17px;
+`;
+const ReadBook = styled.View`
+  margin: 10px 0px;
+  flex: 1;
+  width: 100%;
+  height: 270px;
 `;
