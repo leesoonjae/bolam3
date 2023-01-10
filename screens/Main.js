@@ -4,8 +4,9 @@ import { Button, Pressable, Text, TouchableOpacity, View } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import FinishedBooks from "../components/FinishedBooks";
 import ReadingBooks from "../components/ReadingBooks";
-
 import { ScrollView } from "react-native-gesture-handler";
+
+// const BOOK_KEY = process.env.REACT_APP_OPENBOOK_KEY;
 
 function Main({ navigation: { navigate } }) {
   const goAdd = () => {
@@ -24,14 +25,20 @@ function Main({ navigation: { navigate } }) {
           <MainToDayTitle>오늘의 추천 도서</MainToDayTitle>
           <ToDay onPress={goRecommend}>
             <ToDayImg
-              source={{
-                uri: "https://post-phinf.pstatic.net/MjAxOTEwMjVfMjU2/MDAxNTcxOTc3OTgyOTg2.OwjmtOOHMVENcc0WxKoXrG84ctM3YVTmqu4xQIZpRNEg.XGviDR7sFURuxXAsWknZm6XHnTGIyI13-5V9rQq0d9Qg.PNG/20191025_111210.png?type=w1200",
-              }}
+            // source={{
+            //   uri: bookApiImg,
+            // }}
             />
             <TodayText>
-              <ToDayTitle>제목</ToDayTitle>
-              <ToDayOuter>저자</ToDayOuter>
-              <ToDayContents>내용</ToDayContents>
+              <ToDayTitle numberOfLines={1} ellipsizeMode="tail">
+                {/* {bookApiTitle} */}
+              </ToDayTitle>
+              <ToDayOuter numberOfLines={1} ellipsizeMode="tail">
+                {/* {bookApiAuthor} */}
+              </ToDayOuter>
+              <ToDayContents numberOfLines={8} ellipsizeMode="tail">
+                {/* {bookApiContent} */}
+              </ToDayContents>
             </TodayText>
           </ToDay>
           <AddBook>책 추가하기</AddBook>
@@ -143,7 +150,7 @@ const ToDayTitle = styled.Text`
 
 const ToDayOuter = styled.Text`
   width: 150px;
-  font-size: 15px;
+  font-size: 10px;
   font-weight: 400;
   text-align: right;
 `;

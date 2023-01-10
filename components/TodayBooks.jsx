@@ -1,12 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import styled from "@emotion/native";
 import { AntDesign } from "@expo/vector-icons";
+import axios from "axios";
+import { object } from "prop-types";
+
+const BOOK_KEY = process.env.REACT_APP_OPENBOOK_KEY;
 
 export default function TodayBooks({ navigation: { navigate } }) {
   const goAdd = () => {
     navigate("Stacks", { screen: "Add" });
   };
+
+  const [bookApiImg, setbookApiImg] = useState("");
+  const [bookApiTitle, setBookApiTitle] = useState("");
+  const [bookApiAuthor, setBookApiAuthor] = useState("");
+  const [bookApiContent, setBookApContent] = useState("");
+
+  const getBooks = async () => {
+    try {
+      const bookApi = await axios.get(
+        `http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttbsoojae10291105001&QueryType=BlogBest&MaxResults=1&start=1&SearchTarget=Book&output=JS&Version=20131101`
+      );
+      const aaa = JSON.parse(bookApi.request._response);
+      setbookApiImg(aaa.item[0].cover);
+      setBookApiTitle(aaa.item[0].title);
+      setBookApiAuthor(aaa.item[0].author);
+      setBookApContent(aaa.item[0].description);
+    } catch (error) {
+      console.log("Error가 발생했습니다.", error);
+    }
+  };
+
+  useEffect(() => {
+    getBooks();
+  }, []);
 
   // const goDetail = () => {
   //   navigate("Stacks", { screen: "Detail" });
@@ -22,13 +50,19 @@ export default function TodayBooks({ navigation: { navigate } }) {
       <ToDay>
         <ToDayImg
           source={{
-            uri: "https://post-phinf.pstatic.net/MjAxOTEwMjVfMjU2/MDAxNTcxOTc3OTgyOTg2.OwjmtOOHMVENcc0WxKoXrG84ctM3YVTmqu4xQIZpRNEg.XGviDR7sFURuxXAsWknZm6XHnTGIyI13-5V9rQq0d9Qg.PNG/20191025_111210.png?type=w1200",
+            uri: bookApiImg,
           }}
         />
         <TodayText>
-          <ToDayTitle>제목</ToDayTitle>
-          <ToDayOuter>저자</ToDayOuter>
-          <ToDayContents>내용</ToDayContents>
+          <ToDayTitle numberOfLines={1} ellipsizeMode="tail">
+            {bookApiTitle}
+          </ToDayTitle>
+          <ToDayOuter numberOfLines={1} ellipsizeMode="tail">
+            {bookApiAuthor}
+          </ToDayOuter>
+          <ToDayContents numberOfLines={8} ellipsizeMode="tail">
+            {bookApiContent}
+          </ToDayContents>
         </TodayText>
       </ToDay>
       <AddBook>책 추가하기</AddBook>
