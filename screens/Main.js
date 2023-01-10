@@ -1,13 +1,11 @@
 import styled from "@emotion/native";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button, Pressable, Text, TouchableOpacity, View } from "react-native";
 import TodayBooks from "../components/TodayBooks";
 import AddBooks from "../components/AddBooks";
 import ReadBooks from "../components/ReadBooks";
 import ReadingBooks from "../components/ReadBooks";
 import { AntDesign } from "@expo/vector-icons";
-import axios from "axios";
-import XMLParser from "react-xml-parser";
 import { ScrollView } from "react-native-gesture-handler";
 
 // const BOOK_KEY = process.env.REACT_APP_OPENBOOK_KEY;
@@ -27,36 +25,6 @@ function Main({ navigation: { navigate } }) {
     navigate("Stacks", { screen: "Detail" });
   };
 
-  const [bookApiImg, setbookApiImg] = useState("");
-  const [bookApiTitle, setBookApiTitle] = useState("");
-  const [bookApiAuthor, setBookApiAuthor] = useState("");
-  const [bookApiContent, setBookApContent] = useState("");
-
-  // function parseBook(dataSet) {
-  //   const bookData = new XMLParser().parseFromString(dataSet).children;
-  //   console.log("bookData", bookData);
-  //   return bookData;
-  // }
-
-  const getBooks = async () => {
-    try {
-      const bookApi = await axios.get(
-        `http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttbsoojae10291105001&QueryType=BlogBest&MaxResults=1&start=1&SearchTarget=Book&output=JS&Version=20131101`
-      );
-      const aaa = JSON.parse(bookApi.request._response);
-      setbookApiImg(aaa.item[0].cover);
-      setBookApiTitle(aaa.item[0].title);
-      setBookApiAuthor(aaa.item[0].author);
-      setBookApContent(aaa.item[0].description);
-    } catch (error) {
-      console.log("Error가 발생했습니다.", error);
-    }
-  };
-
-  useEffect(() => {
-    getBooks();
-  }, []);
-
   // const goDetailEdit = () => {
   //   navigate("Stacks", { screen: "DetailEdit" });
   // };
@@ -68,19 +36,19 @@ function Main({ navigation: { navigate } }) {
           <MainToDayTitle>오늘의 추천 도서</MainToDayTitle>
           <ToDay>
             <ToDayImg
-              source={{
-                uri: bookApiImg,
-              }}
+            // source={{
+            //   uri: bookApiImg,
+            // }}
             />
             <TodayText>
               <ToDayTitle numberOfLines={1} ellipsizeMode="tail">
-                {bookApiTitle}
+                {/* {bookApiTitle} */}
               </ToDayTitle>
               <ToDayOuter numberOfLines={1} ellipsizeMode="tail">
-                {bookApiAuthor}
+                {/* {bookApiAuthor} */}
               </ToDayOuter>
               <ToDayContents numberOfLines={8} ellipsizeMode="tail">
-                {bookApiContent}
+                {/* {bookApiContent} */}
               </ToDayContents>
             </TodayText>
           </ToDay>
