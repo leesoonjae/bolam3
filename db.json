@@ -169,6 +169,61 @@
       "isDone": false,
       "bestSentence": "",
       "myThinking": ""
+    },
+    {
+      "id": "83db7fa6-e6df-415c-85f0-2c7d90691897",
+      "title": "ㄴㄴㄴㄴ",
+      "writer": "ㄷㄷㄷㄷㄷ",
+      "rating": 5,
+      "period": "212312",
+      "isDone": false,
+      "bestSentence": "ㄴㅁㅇㄹㄴㅇ",
+      "myThinking": "ㄴㅇㅁㄹㅇㄴ"
+    },
+    {
+      "id": "2c4fcf14-17ea-4354-8745-abe7c1c63c3e",
+      "createdAt": 1673361827230,
+      "title": "qqqqqq",
+      "writer": "qqqqqq",
+      "rating": 5,
+      "period": "qqqqqqq",
+      "isDone": true,
+      "bestSentence": "qqqqqqq",
+      "myThinking": "qqqqqq"
+    },
+    {
+      "id": "99de3c32-130d-43b5-aeac-66677629e20f",
+      "createdAt": 1673362191278,
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/aa14f4f5-17ef-4ffc-bbc5-9d3cf2d4c5af.jpeg",
+      "title": "dddd",
+      "writer": "sssss",
+      "rating": 5,
+      "period": "eeeee",
+      "isDone": false,
+      "bestSentence": "pppppppp",
+      "myThinking": "ppppppppp"
+    },
+    {
+      "id": "a7c0cc9f-f90b-4bac-b773-7a905965a921",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/5b1ae1d7-6c3f-4715-a36e-048abdae234e.jpeg",
+      "title": "aaaaaw",
+      "writer": "wwwww",
+      "rating": 3,
+      "period": "eqweqwewq",
+      "isDone": false,
+      "bestSentence": "erqer",
+      "myThinking": "ewqfsda"
+    },
+    {
+      "id": "0e2eccb8-1aff-4e4b-8832-d72229bf356c",
+      "imgUri": "",
+      "title": "qwdsfadsf",
+      "writer": "adsfdsa",
+      "rating": 4,
+      "period": "",
+      "isDone": false,
+      "bestSentence": "sdfds",
+      "myThinking": "sdfsdaf"
     }
   ]
 }

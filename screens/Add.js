@@ -1,5 +1,5 @@
 import styled from "@emotion/native";
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../util";
+import { SCREEN_HEIGHT } from "../util";
 import { AntDesign } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
 import { Picker } from "@react-native-picker/picker";
@@ -7,9 +7,13 @@ import React, { useState, useEffect } from "react";
 import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
 import axios from "axios";
 import uuid from "react-native-uuid";
+import * as ImagePicker from "expo-image-picker";
+import { Alert } from "react-native";
 
 const Add = () => {
-  const [image, setImage] = useState("");
+  const isDark = useColorScheme() === "dark";
+
+  const [imgUri, setImgUri] = useState("");
   const [title, setTitle] = useState("");
   const [writer, setWriter] = useState("");
   const [rating, setRating] = useState(0);
@@ -18,8 +22,12 @@ const Add = () => {
   const [bestSentence, setbestSentence] = useState("");
   const [myThinking, setMyThinking] = useState("");
 
+  // console.log("imgUri: ", imgUri);
+
+  // 데이터 구조
   const data = {
     id: uuid.v4(),
+    imgUri: imgUri,
     title: title,
     writer: writer,
     rating: rating,
@@ -29,73 +37,77 @@ const Add = () => {
     myThinking: myThinking,
   };
 
-  // console.log(title);
-
+  // 별점 기록
   const getRatings = (ratings) => {
     setRating(ratings);
   };
 
-  const getData = async () => {
-    try {
-      const response_data = axios.get("http://172.30.1.91:4000/data");
-      console.log(response_data.data);
-    } catch (err) {
-      console.log(err);
+  // json-server 추가
+  const postData = async () => {
+    Alert.alert("리드미 작성", "리드미를 작성하시겠습니까", [
+      { text: "취소", style: "destructive" },
+      {
+        text: "작성",
+        onPress: async () => {
+          try {
+            // console.log("data: ", data);
+            await axios.post("http://172.30.1.91:4000/data", data);
+            setImgUri("");
+            setTitle("");
+            setWriter("");
+            setRating(0);
+            setPeriod("");
+            setIsDone(false);
+            setbestSentence("");
+            setMyThinking("");
+          } catch (err) {
+            console.log(err);
+          }
+        },
+      },
+    ]);
+  };
+
+  // 이미지 업로드
+  const imageUpload = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    console.log("result.assets[0].uri: ", result.assets[0].uri);
+    setImgUri(result.assets[0].uri);
+
+    if (!result.canceled) {
+      setImgUri(result.assets[0].uri);
     }
   };
+
+  // json-server 조회
+  // const getData = async () => {
+  //   try {
+  //     const response_data = await axios.get("http://172.30.1.91:4000/data");
+  //     console.log(response_data.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   // useEffect(() => {
   //   getData();
   // }, []);
 
-  const postData = async () => {
-    try {
-      // console.log("data: ", data);
-      await axios.post("http://172.30.1.91:4000/data", data);
-      // inputRef.current.clear();
-      setTitle("");
-      setWriter("");
-      setRating(0);
-      setPeriod("");
-      setIsDone(false);
-      setbestSentence("");
-      setMyThinking("");
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  // export const postContent = createAsyncThunk(
-  //   `${name}/postContent`,
-  //   async (
-  //     { nickname, password, contentTitle, contentWhy, contentHow, contentWhen },
-  //     { fulfillWithValue, rejectWithValue }
-  //   ) => {
-  //     try {
-  //       await axios.post("http://localhost:3001/content", {
-  //         id: nanoid(),
-  //         nickname,
-  //         password,
-  //         contentTitle,
-  //         contentWhy,
-  //         contentHow,
-  //         contentWhen,
-  //       });
-  //       const res = axios.get("http://localhost:3001/content");
-  //       return fulfillWithValue(res.data);
-  //     } catch (e) {
-  //       return rejectWithValue(e);
-  //     }
-  //   }
-  // );
-
-  const isDark = useColorScheme() === "dark";
   return (
     <StAddContainer>
       <StContents>
-        <StImage>
-          <AntDesign name="pluscircleo" size={40} color="white" />
-        </StImage>
+        <StImageContainer onPress={imageUpload}>
+          {imgUri ? (
+            <StImage source={{ uri: imgUri }} />
+          ) : (
+            <AntDesign name="pluscircleo" size={40} color="white" />
+          )}
+        </StImageContainer>
 
         <StOnelineInputContainer>
           <StOnelineText>제목</StOnelineText>
@@ -194,7 +206,7 @@ const StAddContainer = styled.ScrollView`
 
 const StContents = styled.View``;
 
-const StImage = styled.TouchableOpacity`
+const StImageContainer = styled.TouchableOpacity`
   width: 100%;
   height: ${SCREEN_HEIGHT / 5 + "px"};
   background-color: #b5aeae;
@@ -203,6 +215,12 @@ const StImage = styled.TouchableOpacity`
   border-radius: 10px;
   justify-content: center;
   align-items: center;
+`;
+
+const StImage = styled.Image`
+  width: 70%;
+  height: 100%;
+  border-radius: 10px;
 `;
 
 const StOnelineInputContainer = styled.View`
