@@ -11,7 +11,7 @@ import { darkTheme, lightTheme } from "./theme";
 
 export default function App() {
   const isDark = useColorScheme() === "dark";
-  console.log('isDark: ', isDark);
+  // console.log('isDark: ', isDark);
   return (
     // 기동 : 다크모드 추가
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>

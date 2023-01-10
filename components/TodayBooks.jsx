@@ -62,13 +62,13 @@ const TodayText = styled.View`
 const ToDayTitle = styled.Text`
   width: 140px;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 500px;
 `;
 
 const ToDayOuter = styled.Text`
   width: 150px;
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 400px;
   text-align: right;
 `;
 

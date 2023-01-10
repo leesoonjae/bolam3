@@ -27,11 +27,7 @@ export default function Stacks({ navigation: { goBack } }) {
         },
         headerLeft: () => (
           <TouchableOpacity onPress={() => goBack()}>
-            <Ionicons
-              name="arrow-back"
-              size={24}
-              color={isDark ? GRAY_COLOR : "black"}
-            />
+            <Ionicons name="arrow-back" size={24} color="black" />
           </TouchableOpacity>
         ),
       }}

@@ -3,13 +3,93 @@ import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../util";
 import { AntDesign } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
 import { Picker } from "@react-native-picker/picker";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
+import axios from "axios";
+import uuid from "react-native-uuid";
 
 const Add = () => {
-  const isDark = useColorScheme() === "dark";
-
+  const [image, setImage] = useState("");
+  const [title, setTitle] = useState("");
+  const [writer, setWriter] = useState("");
+  const [rating, setRating] = useState(0);
+  const [period, setPeriod] = useState("");
   const [isDone, setIsDone] = useState(false);
+  const [bestSentence, setbestSentence] = useState("");
+  const [myThinking, setMyThinking] = useState("");
+
+  const data = {
+    id: uuid.v4(),
+    title: title,
+    writer: writer,
+    rating: rating,
+    period: period,
+    isDone: isDone,
+    bestSentence: bestSentence,
+    myThinking: myThinking,
+  };
+
+  // console.log(title);
+
+  const getRatings = (ratings) => {
+    setRating(ratings);
+  };
+
+  const getData = async () => {
+    try {
+      const response_data = axios.get("http://172.30.1.91:4000/data");
+      console.log(response_data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
+
+  const postData = async () => {
+    try {
+      // console.log("data: ", data);
+      await axios.post("http://172.30.1.91:4000/data", data);
+      // inputRef.current.clear();
+      setTitle("");
+      setWriter("");
+      setRating(0);
+      setPeriod("");
+      setIsDone(false);
+      setbestSentence("");
+      setMyThinking("");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  // export const postContent = createAsyncThunk(
+  //   `${name}/postContent`,
+  //   async (
+  //     { nickname, password, contentTitle, contentWhy, contentHow, contentWhen },
+  //     { fulfillWithValue, rejectWithValue }
+  //   ) => {
+  //     try {
+  //       await axios.post("http://localhost:3001/content", {
+  //         id: nanoid(),
+  //         nickname,
+  //         password,
+  //         contentTitle,
+  //         contentWhy,
+  //         contentHow,
+  //         contentWhen,
+  //       });
+  //       const res = axios.get("http://localhost:3001/content");
+  //       return fulfillWithValue(res.data);
+  //     } catch (e) {
+  //       return rejectWithValue(e);
+  //     }
+  //   }
+  // );
+
+  const isDark = useColorScheme() === "dark";
   return (
     <StAddContainer>
       <StContents>
@@ -19,18 +99,19 @@ const Add = () => {
 
         <StOnelineInputContainer>
           <StOnelineText>제목</StOnelineText>
-          <StOnelineInput />
+          <StOnelineInput value={title} onChangeText={setTitle} />
         </StOnelineInputContainer>
 
         <StOnelineInputContainer>
           <StOnelineText>저자</StOnelineText>
-          <StOnelineInput />
+          <StOnelineInput value={writer} onChangeText={setWriter} />
         </StOnelineInputContainer>
 
         <StOnelineInputContainer>
           <StOnelineText>평점</StOnelineText>
           <Rating
-            startingValue={0}
+            onFinishRating={getRatings}
+            startingValue={rating}
             style={{ marginLeft: 20 }}
             ratingCount={5}
             imageSize={30}
@@ -40,12 +121,17 @@ const Add = () => {
 
         <StOnelineInputContainer>
           <StOnelineText>독서 기간</StOnelineText>
-          <StOnelineInput />
+          <StOnelineInput
+            value={period}
+            placeholder="2023.1.10 ~ 2023.2.10"
+            onChangeText={setPeriod}
+          />
         </StOnelineInputContainer>
 
         <StOnelineInputContainer>
           <StOnelineText>진행 상황</StOnelineText>
           <Picker
+            value={isDone}
             selectedValue={isDone}
             onValueChange={(itemValue) => setIsDone(itemValue)}
             style={{
@@ -61,17 +147,29 @@ const Add = () => {
 
         <StOverlinesInputContainer>
           <StOverlineText>인상 깊었던 문장</StOverlineText>
-          <StLinesInput multiline numberOfLines={2} style={{ height: 80 }} />
+          <StLinesInput
+            value={bestSentence}
+            multiline
+            numberOfLines={2}
+            style={{ height: 80 }}
+            onChangeText={setbestSentence}
+          />
         </StOverlinesInputContainer>
 
         <StOverlinesInputContainer>
           <StOverlineText>나의 생각</StOverlineText>
-          <StLinesInput multiline numberOfLines={10} style={{ height: 150 }} />
+          <StLinesInput
+            value={myThinking}
+            multiline
+            numberOfLines={10}
+            style={{ height: 150 }}
+            onChangeText={setMyThinking}
+          />
         </StOverlinesInputContainer>
       </StContents>
 
       <StButtons>
-        <StButton style={{ backgroundColor: "#959d90" }}>
+        <StButton style={{ backgroundColor: "#959d90" }} onPress={postData}>
           <StButtonText>Done</StButtonText>
         </StButton>
         <StButton style={{ backgroundColor: "#BDBDBD" }}>
