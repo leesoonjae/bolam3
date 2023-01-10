@@ -1,11 +1,9 @@
 import styled from "@emotion/native";
 import React from "react";
 import { Button, Pressable, Text, TouchableOpacity, View } from "react-native";
-import TodayBooks from "../components/TodayBooks";
-import AddBooks from "../components/AddBooks";
-import ReadBooks from "../components/ReadBooks";
-import ReadingBooks from "../components/ReadBooks";
 import { AntDesign } from "@expo/vector-icons";
+import FinishedBooks from "../components/FinishedBooks";
+import ReadingBooks from "../components/ReadingBooks";
 
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -18,23 +16,9 @@ function Main({ navigation: { navigate } }) {
     navigate("Stacks", { screen: "Recommend" });
   };
 
-  const goReading = () => {
-    navigate("Tabs", { screen: "Reading" });
-  };
-  const goFinished = () => {
-    navigate("Tabs", { screen: "Finished" });
-  };
-
-  const goDetail = () => {
-    navigate("Stacks", { screen: "Detail" });
-  };
-
-  // const goDetailEdit = () => {
-  //   navigate("Stacks", { screen: "DetailEdit" });
-  // };
 
   return (
-    <>
+    <MainPage>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View>
           <MainToDayTitle>오늘의 추천 도서</MainToDayTitle>
@@ -57,242 +41,20 @@ function Main({ navigation: { navigate } }) {
             </AddBookBtn>
           </AddBookBack>
         </View>
-        <ReadingBook>
-          <ReadingBookText>
-            <ReadingBookTextTitle>읽고 있는 책</ReadingBookTextTitle>
-            <More>
-              <MoreText onPress={goReading}>더보기</MoreText>
-            </More>
-          </ReadingBookText>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <Poster>
-              <TouchableOpacity onPress={goDetail}>
-                <View
-                  style={{
-                    shadowColor: "black",
-                    shadowOffset: { width: 3, height: 3 },
-                    shadowOpacity: 0.5,
-                    height: "auto",
-                  }}
-                >
-                  <ReadingBookPoster
-                    source={{
-                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                    }}
-                  />
-                </View>
-              </TouchableOpacity>
-              <PosterTitle>분열된 자기</PosterTitle>
-            </Poster>
-            <Poster>
-              <TouchableOpacity onPress={goDetail}>
-                <View
-                  style={{
-                    shadowColor: "black",
-                    shadowOffset: { width: 3, height: 3 },
-                    shadowOpacity: 0.5,
-                    height: "auto",
-                  }}
-                >
-                  <ReadingBookPoster
-                    source={{
-                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                    }}
-                  />
-                </View>
-              </TouchableOpacity>
-              <PosterTitle>분열된 자기</PosterTitle>
-            </Poster>
-            <Poster>
-              <TouchableOpacity onPress={goDetail}>
-                <View
-                  style={{
-                    shadowColor: "black",
-                    shadowOffset: { width: 3, height: 3 },
-                    shadowOpacity: 0.5,
-                    height: "auto",
-                  }}
-                >
-                  <ReadingBookPoster
-                    source={{
-                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                    }}
-                  />
-                </View>
-              </TouchableOpacity>
-              <PosterTitle>분열된 자기</PosterTitle>
-            </Poster>
-            <Poster>
-              <TouchableOpacity onPress={goDetail}>
-                <View
-                  style={{
-                    shadowColor: "black",
-                    shadowOffset: { width: 3, height: 3 },
-                    shadowOpacity: 0.5,
-                    height: "auto",
-                  }}
-                >
-                  <ReadingBookPoster
-                    source={{
-                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                    }}
-                  />
-                </View>
-              </TouchableOpacity>
-              <PosterTitle>분열된 자기</PosterTitle>
-            </Poster>
-            <Poster>
-              <TouchableOpacity onPress={goDetail}>
-                <View
-                  style={{
-                    shadowColor: "black",
-                    shadowOffset: { width: 3, height: 3 },
-                    shadowOpacity: 0.5,
-                    height: "auto",
-                  }}
-                >
-                  <ReadingBookPoster
-                    source={{
-                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                    }}
-                  />
-                </View>
-              </TouchableOpacity>
-              <PosterTitle>분열된 자기</PosterTitle>
-            </Poster>
-          </ScrollView>
-        </ReadingBook>
-        <ReadBook>
-          <ReadingBookText>
-            <ReadingBookTextTitle>완독한 책</ReadingBookTextTitle>
-            <More>
-              <MoreText onPress={goFinished}>더보기</MoreText>
-            </More>
-          </ReadingBookText>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <Poster>
-              <TouchableOpacity onPress={goDetail}>
-                <View
-                  style={{
-                    shadowColor: "black",
-                    shadowOffset: { width: 3, height: 3 },
-                    shadowOpacity: 0.5,
-                    height: "auto",
-                  }}
-                >
-                  <ReadingBookPoster
-                    source={{
-                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                    }}
-                  />
-                </View>
-              </TouchableOpacity>
-              <PosterTitle>분열된 자기</PosterTitle>
-            </Poster>
-            <Poster>
-              <TouchableOpacity onPress={goDetail}>
-                <View
-                  style={{
-                    shadowColor: "black",
-                    shadowOffset: { width: 3, height: 3 },
-                    shadowOpacity: 0.5,
-                    height: "auto",
-                  }}
-                >
-                  <ReadingBookPoster
-                    source={{
-                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                    }}
-                  />
-                </View>
-              </TouchableOpacity>
-              <PosterTitle>분열된 자기</PosterTitle>
-            </Poster>
-            <Poster>
-              <TouchableOpacity onPress={goDetail}>
-                <View
-                  style={{
-                    shadowColor: "black",
-                    shadowOffset: { width: 3, height: 3 },
-                    shadowOpacity: 0.5,
-                    height: "auto",
-                  }}
-                >
-                  <ReadingBookPoster
-                    source={{
-                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                    }}
-                  />
-                </View>
-              </TouchableOpacity>
-              <PosterTitle>분열된 자기</PosterTitle>
-            </Poster>
-            <Poster>
-              <TouchableOpacity onPress={goDetail}>
-                <View
-                  style={{
-                    shadowColor: "black",
-                    shadowOffset: { width: 3, height: 3 },
-                    shadowOpacity: 0.5,
-                    height: "auto",
-                  }}
-                >
-                  <ReadingBookPoster
-                    source={{
-                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                    }}
-                  />
-                </View>
-              </TouchableOpacity>
-              <PosterTitle>분열된 자기</PosterTitle>
-            </Poster>
-            <Poster>
-              <TouchableOpacity onPress={goDetail}>
-                <View
-                  style={{
-                    shadowColor: "black",
-                    shadowOffset: { width: 3, height: 3 },
-                    shadowOpacity: 0.5,
-                    height: "auto",
-                  }}
-                >
-                  <ReadingBookPoster
-                    source={{
-                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                    }}
-                  />
-                </View>
-              </TouchableOpacity>
-              <PosterTitle>분열된 자기</PosterTitle>
-            </Poster>
-            <Poster>
-              <TouchableOpacity onPress={goDetail}>
-                <View
-                  style={{
-                    shadowColor: "black",
-                    shadowOffset: { width: 3, height: 3 },
-                    shadowOpacity: 0.5,
-                    height: "auto",
-                  }}
-                >
-                  <ReadingBookPoster
-                    source={{
-                      uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                    }}
-                  />
-                </View>
-              </TouchableOpacity>
-              <PosterTitle>분열된 자기</PosterTitle>
-            </Poster>
-          </ScrollView>
-        </ReadBook>
+        <ReadingBooks />
+        <FinishedBooks />
       </ScrollView>
-      {/* <ReadingBooks /> */}
-    </>
+      <ReadingBooks />
+    </MainPage>
   );
 }
 
 export default Main;
+
+const MainPage = styled.View`
+  padding-left: 30px;
+  padding-right: 30px;
+`;
 
 const TodayBook = styled.Text`
   border: 1px solid gray;
@@ -376,13 +138,13 @@ const TodayText = styled.View`
 const ToDayTitle = styled.Text`
   width: 140px;
   font-size: 20px;
-  font-weight: 500px;
+  font-weight: 500;
 `;
 
 const ToDayOuter = styled.Text`
   width: 150px;
   font-size: 15px;
-  font-weight: 400px;
+  font-weight: 400;
   text-align: right;
 `;
 
