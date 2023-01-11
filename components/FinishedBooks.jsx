@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { View, Text, TouchableOpacity } from "react-native";
 import styled from "@emotion/native";
 import { ScrollView } from "react-native-gesture-handler";
@@ -10,12 +11,39 @@ import { Theme } from "@react-navigation/native";
 function FinishedBooks() {
   const isDark = useColorScheme() === "dark";
   const navigation = useNavigation();
-  const goDetail = () => {
-    navigation.navigate("Stacks", { screen: "Detail" });
-  };
+  // const goDetail = () => {
+  //   navigation.navigate("Stacks", { screen: "Detail" });
+  // };
+
   const goFinished = () => {
     navigation.navigate("Tabs", { screen: "Finished" });
   };
+
+  const [finishedBookData, setFinishedBookData] = useState([]);
+
+  const [finishedBookCount, setFinishedBookCount] = useState(0);
+  const [goalBooksCount, setGoalBooksCount] = useState(0);
+
+  const finishedBooks = async () => {
+    try {
+      const serverFinishedBooks = await axios.get(
+        `http://192.168.0.4:4000/data`
+      );
+      // npm start 해서 나오는 자신의 주소로 봐꾸셔야 실행이 됩니다!
+      setFinishedBookData(serverFinishedBooks.data);
+      const allReadBooks = finishedBookData.map((allRead) => allRead.length);
+      setGoalBooksCount(allReadBooks.length);
+      const bbb = finishedBookData.filter((allRead) => allRead.isDone === true);
+      setFinishedBookCount(bbb.length);
+    } catch (error) {
+      console.log("Error 가 발생했습니다.", error);
+    }
+  };
+
+  useEffect(() => {
+    finishedBooks();
+  }, []);
+
   return (
     <ReadBook>
       <ReadingBookText>
@@ -25,120 +53,36 @@ function FinishedBooks() {
         </More>
       </ReadingBookText>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <Poster>
-          <TouchableOpacity onPress={goDetail}>
-            <View
-              style={{
-                shadowColor: "black",
-                shadowOffset: { width: 3, height: 3 },
-                shadowOpacity: 0.5,
-                height: "auto",
-              }}
+        {finishedBookData.map((obj) =>
+          obj.isDone === true ? (
+            <Poster
+              onPress={() =>
+                navigation.navigate("Stacks", {
+                  screen: "Detail",
+                  params: obj,
+                })
+              }
             >
-              <ReadingBookPoster
-                source={{
-                  uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                }}
-              />
-            </View>
-          </TouchableOpacity>
-          <PosterTitle>분열된 자기</PosterTitle>
-        </Poster>
-        <Poster>
-          <TouchableOpacity onPress={goDetail}>
-            <View
-              style={{
-                shadowColor: "black",
-                shadowOffset: { width: 3, height: 3 },
-                shadowOpacity: 0.5,
-                height: "auto",
-              }}
-            >
-              <ReadingBookPoster
-                source={{
-                  uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                }}
-              />
-            </View>
-          </TouchableOpacity>
-          <PosterTitle>분열된 자기</PosterTitle>
-        </Poster>
-        <Poster>
-          <TouchableOpacity onPress={goDetail}>
-            <View
-              style={{
-                shadowColor: "black",
-                shadowOffset: { width: 3, height: 3 },
-                shadowOpacity: 0.5,
-                height: "auto",
-              }}
-            >
-              <ReadingBookPoster
-                source={{
-                  uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                }}
-              />
-            </View>
-          </TouchableOpacity>
-          <PosterTitle>분열된 자기</PosterTitle>
-        </Poster>
-        <Poster>
-          <TouchableOpacity onPress={goDetail}>
-            <View
-              style={{
-                shadowColor: "black",
-                shadowOffset: { width: 3, height: 3 },
-                shadowOpacity: 0.5,
-                height: "auto",
-              }}
-            >
-              <ReadingBookPoster
-                source={{
-                  uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                }}
-              />
-            </View>
-          </TouchableOpacity>
-          <PosterTitle>분열된 자기</PosterTitle>
-        </Poster>
-        <Poster>
-          <TouchableOpacity onPress={goDetail}>
-            <View
-              style={{
-                shadowColor: "black",
-                shadowOffset: { width: 3, height: 3 },
-                shadowOpacity: 0.5,
-                height: "auto",
-              }}
-            >
-              <ReadingBookPoster
-                source={{
-                  uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                }}
-              />
-            </View>
-          </TouchableOpacity>
-          <PosterTitle>분열된 자기</PosterTitle>
-        </Poster>
-        <Poster>
-          <TouchableOpacity onPress={goDetail}>
-            <View
-              style={{
-                shadowColor: "black",
-                shadowOffset: { width: 3, height: 3 },
-                shadowOpacity: 0.5,
-                height: "auto",
-              }}
-            >
-              <ReadingBookPoster
-                source={{
-                  uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                }}
-              />
-            </View>
-          </TouchableOpacity>
-          <PosterTitle>분열된 자기</PosterTitle>
-        </Poster>
+              <TouchableOpacity>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
+                  }}
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: obj.imgUri,
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
+              <PosterTitle>{obj.title}</PosterTitle>
+            </Poster>
+          ) : null
+        )}
       </ScrollView>
     </ReadBook>
   );
@@ -152,7 +96,7 @@ const ReadingBookText = styled.View`
   padding-bottom: 5px;
 `;
 const ReadingBookTextTitle = styled.Text`
-  font-size: 20px;
+  font-size: 18px;
   color: ${(props) => props.theme.text};
   font-weight: 600;
 `;
@@ -160,7 +104,7 @@ const More = styled.Pressable`
   justify-content: center;
 `;
 const MoreText = styled.Text`
-  font-size: 15px;
+  font-size: 14px;
   color: ${(props) => props.theme.text};
   justify-content: center;
   font-weight: 400;

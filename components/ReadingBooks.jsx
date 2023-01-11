@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { View, Text, TouchableOpacity } from "react-native";
 import styled from "@emotion/native";
 import { ScrollView } from "react-native-gesture-handler";
@@ -6,12 +7,30 @@ import { useNavigation } from "@react-navigation/native";
 
 function ReadingBooks() {
   const navigation = useNavigation();
-  const goDetail = () => {
-    navigation.navigate("Stacks", { screen: "Detail" });
-  };
+  // const goDetail = () => {
+  //   navigation.navigate("Stacks", { screen: "Detail" });
+  // };
   const goReading = () => {
     navigation.navigate("Tabs", { screen: "Reading" });
   };
+
+  const [readingBookData, setReadingBookData] = useState([]);
+
+  const getData = async () => {
+    try {
+      const res = await axios.get("http://192.168.0.4:4000/data");
+      setReadingBookData(res.data);
+      const allReadingBooks = readingBookData.map(
+        (allReading) => allReading.length
+      );
+    } catch (error) {
+      console.log("Error!", error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <ReadingBook>
@@ -22,101 +41,36 @@ function ReadingBooks() {
         </More>
       </ReadingBookText>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <Poster>
-          <TouchableOpacity onPress={goDetail}>
-            <View
-              style={{
-                shadowColor: "black",
-                shadowOffset: { width: 3, height: 3 },
-                shadowOpacity: 0.5,
-                height: "auto",
-              }}
+        {readingBookData.map((obj) =>
+          obj.isDone === false ? (
+            <Poster
+              onPress={() =>
+                navigation.navigate("Stacks", {
+                  screen: "Detail",
+                  params: obj,
+                })
+              }
             >
-              <ReadingBookPoster
-                source={{
-                  uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                }}
-              />
-            </View>
-          </TouchableOpacity>
-          <PosterTitle>분열된 자기</PosterTitle>
-        </Poster>
-        <Poster>
-          <TouchableOpacity onPress={goDetail}>
-            <View
-              style={{
-                shadowColor: "black",
-                shadowOffset: { width: 3, height: 3 },
-                shadowOpacity: 0.5,
-                height: "auto",
-              }}
-            >
-              <ReadingBookPoster
-                source={{
-                  uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                }}
-              />
-            </View>
-          </TouchableOpacity>
-          <PosterTitle>분열된 자기</PosterTitle>
-        </Poster>
-        <Poster>
-          <TouchableOpacity onPress={goDetail}>
-            <View
-              style={{
-                shadowColor: "black",
-                shadowOffset: { width: 3, height: 3 },
-                shadowOpacity: 0.5,
-                height: "auto",
-              }}
-            >
-              <ReadingBookPoster
-                source={{
-                  uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                }}
-              />
-            </View>
-          </TouchableOpacity>
-          <PosterTitle>분열된 자기</PosterTitle>
-        </Poster>
-        <Poster>
-          <TouchableOpacity onPress={goDetail}>
-            <View
-              style={{
-                shadowColor: "black",
-                shadowOffset: { width: 3, height: 3 },
-                shadowOpacity: 0.5,
-                height: "auto",
-              }}
-            >
-              <ReadingBookPoster
-                source={{
-                  uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                }}
-              />
-            </View>
-          </TouchableOpacity>
-          <PosterTitle>분열된 자기</PosterTitle>
-        </Poster>
-        <Poster>
-          <TouchableOpacity onPress={goDetail}>
-            <View
-              style={{
-                shadowColor: "black",
-                shadowOffset: { width: 3, height: 3 },
-                shadowOpacity: 0.5,
-                height: "auto",
-              }}
-            >
-              <ReadingBookPoster
-                source={{
-                  uri: "https://i.pinimg.com/474x/e0/41/44/e0414464c389ab135284d45789d735e4.jpg",
-                }}
-              />
-            </View>
-          </TouchableOpacity>
-          <PosterTitle>분열된 자기</PosterTitle>
-        </Poster>
+              <TouchableOpacity>
+                <View
+                  style={{
+                    shadowColor: "black",
+                    shadowOffset: { width: 3, height: 3 },
+                    shadowOpacity: 0.5,
+                    height: "auto",
+                  }}
+                >
+                  <ReadingBookPoster
+                    source={{
+                      uri: obj.imgUri,
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
+              <PosterTitle>{obj.title}</PosterTitle>
+            </Poster>
+          ) : null
+        )}
       </ScrollView>
     </ReadingBook>
   );
@@ -129,6 +83,7 @@ const ReadingBook = styled.View`
   flex: 1;
   width: 100%;
   height: 270px;
+  margin-bottom: 12px;
 `;
 
 const ReadingBookText = styled.View`
@@ -137,7 +92,7 @@ const ReadingBookText = styled.View`
   padding-bottom: 5px;
 `;
 const ReadingBookTextTitle = styled.Text`
-  font-size: 20px;
+  font-size: 18px;
   color: ${(props) => props.theme.text};
   font-weight: 600;
 `;
@@ -145,7 +100,7 @@ const More = styled.Pressable`
   justify-content: center;
 `;
 const MoreText = styled.Text`
-  font-size: 15px;
+  font-size: 14px;
   color: ${(props) => props.theme.text};
   justify-content: center;
   font-weight: 400;

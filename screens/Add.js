@@ -66,14 +66,13 @@ const Add = () => {
       return;
     }
     Alert.alert("리드미 작성", "리드미를 작성하시겠습니까?", [
-
       { text: "취소", style: "destructive" },
       {
         text: "작성",
         onPress: async () => {
           try {
             // console.log("data: ", data);
-            await axios.post("http://192.168.0.2:4000/data", data);
+            await axios.post("http://192.168.0.4:4000/data", data);
             setImgUri("");
             setTitle("");
             setWriter("");

@@ -26,8 +26,8 @@
   "data": [
     {
       "id": "e20aadc9-0a8c-44d0-86fd-e28eb400f6cb",
-      "title": "we",
-      "writer": "ddd",
+      "title": "좋아요",
+      "writer": "우와!",
       "rating": 5,
       "period": "2023.1.1 ~ 2.3",
       "isDone": true,
@@ -35,19 +35,9 @@
       "myThinking": "www"
     },
     {
-      "id": "de7e98f0-01b1-4f03-b69a-fd8b4b6fdd8c",
-      "title": "",
-      "writer": "",
-      "rating": 0,
-      "period": "",
-      "isDone": false,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
       "id": "63487317-d07b-4fe9-841e-ea7ecd8104aa",
-      "title": "dddd",
-      "writer": "dss",
+      "title": "안녕하세요",
+      "writer": "반갑습니다",
       "rating": 3,
       "period": "sss",
       "isDone": true,
@@ -55,30 +45,10 @@
       "myThinking": "ww"
     },
     {
-      "id": "97f6a24e-8420-4f66-ab4a-8474ced4898e",
-      "title": "ddddd",
-      "writer": "",
-      "rating": 0,
-      "period": "",
-      "isDone": false,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
-      "id": "e72b82ff-5696-4591-b9e7-1cdc806c0ad4",
-      "title": "",
-      "writer": "",
-      "rating": 0,
-      "period": "",
-      "isDone": false,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
       "id": "5a178c29-3ddb-41bf-9b79-6b32944ec91e",
-      "title": "sss",
-      "writer": "",
-      "rating": 0,
+      "title": "순두부찌개",
+      "writer": "맛있다",
+      "rating": 5,
       "period": "",
       "isDone": false,
       "bestSentence": "",
@@ -86,28 +56,18 @@
     },
     {
       "id": "8e89f7c4-23ee-40f1-9dd2-679d73abdb94",
-      "title": "sssss",
-      "writer": "",
-      "rating": 0,
+      "title": "카페인",
+      "writer": "필요해",
+      "rating": 4,
       "period": "",
-      "isDone": false,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
-      "id": "b8a75124-d11d-41b6-87fc-ff5e532be65f",
-      "title": "",
-      "writer": "",
-      "rating": 0,
-      "period": "",
-      "isDone": false,
+      "isDone": true,
       "bestSentence": "",
       "myThinking": ""
     },
     {
       "id": "aff4ceb1-ec7b-4770-9e45-1bb741f3a296",
-      "title": "ssss",
-      "writer": "",
+      "title": "커피커피",
+      "writer": "커피",
       "rating": 0,
       "period": "",
       "isDone": false,
@@ -136,61 +96,11 @@
     },
     {
       "id": "c5f61d1b-a456-42b2-8a17-764ed44e47fb",
-      "title": "",
+      "title": "dfd",
       "writer": "",
-      "rating": 0,
+      "rating": 4,
       "period": "",
       "isDone": true,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
-      "id": "52e22aaf-b8af-4733-b5de-e6d1f1ca2918",
-      "title": "",
-      "writer": "",
-      "rating": 0,
-      "period": "",
-      "isDone": false,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
-      "id": "ccc6a4f9-6332-4044-873e-8982433ced7c",
-      "title": "",
-      "writer": "",
-      "rating": 0,
-      "period": "",
-      "isDone": false,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
-      "id": "730565ac-3fd9-4ec2-923c-3db759504a0f",
-      "title": "",
-      "writer": "",
-      "rating": "",
-      "period": "",
-      "isDone": false,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
-      "id": "365a3abc-38cb-47a0-994d-fa541d2dcc0f",
-      "title": "",
-      "writer": "",
-      "rating": 1,
-      "period": "",
-      "isDone": false,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
-      "id": "22f2bc51-9f32-48af-9799-49365db751c5",
-      "title": "",
-      "writer": "",
-      "rating": 3,
-      "period": "",
-      "isDone": false,
       "bestSentence": "",
       "myThinking": ""
     },
@@ -250,3 +160,59 @@
       "myThinking": "sdfsdaf"
     },
     {
+      "id": "887c13f3-ff56-43ef-bd24-53d2bb3cfec5",
+      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/1D84F11F-477C-4618-8442-DDD5B358C018.jpg",
+      "title": "소금빵",
+      "writer": "맛있죠",
+      "rating": 5,
+      "period": "2023.02.03~2023.03.04",
+      "isDone": false,
+      "bestSentence": "단팥빵도",
+      "myThinking": "맛있죠!!!!!!!!!!!!!"
+    },
+    {
+      "id": "491fbf73-9992-4bab-b6fa-b7320f899b2f",
+      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/63CB73B0-4DC6-4C89-B77C-43DFD7E340FB.jpg",
+      "title": "귀여운식빵",
+      "writer": "모락모락",
+      "rating": 5,
+      "period": "2022.03.04~2022.04.04",
+      "isDone": false,
+      "bestSentence": "와",
+      "myThinking": "따끈따근!!!!!!!"
+    },
+    {
+      "id": "7a36e85e-402e-43f0-95ab-d0902a7b29a8",
+      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/4C9AE236-47D9-43BA-AF4A-4665E61ED7D1.jpg",
+      "title": "새해",
+      "writer": "복",
+      "rating": 5,
+      "period": "2023.01.01~",
+      "isDone": true,
+      "bestSentence": "우아",
+      "myThinking": "많이받으새요!!!!!"
+    },
+    {
+      "id": "599d58d3-7c10-431e-896e-9eb4ab025b23",
+      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/91FBD88D-54B9-4E0C-A83D-2DB0C2D60281.jpg",
+      "title": "봄",
+      "writer": "추워",
+      "rating": 5,
+      "period": "2022.12.12~2023.03.01",
+      "isDone": false,
+      "bestSentence": "봄봄!!!!",
+      "myThinking": "빨리빨리!!!!!!!!!"
+    },
+    {
+      "id": "fc34bd2a-0dd7-492b-b3b8-e8421d358ee1",
+      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/C378FC6D-5A8F-4658-A6A8-CE72C276CCBA.jpg",
+      "title": "바다",
+      "writer": "조아",
+      "rating": 4,
+      "period": "2022.12.12~2022.12.25",
+      "isDone": false,
+      "bestSentence": "일렁일렁",
+      "myThinking": "넘실넘실~~~~~~"
+    }
+  ]
+}
