@@ -224,6 +224,17 @@
       "isDone": false,
       "bestSentence": "sdfds",
       "myThinking": "sdfsdaf"
+    },
+    {
+      "id": "1809dd2e-daf7-4846-8aaf-767e3c0b24f9",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540bowul%252Fbolam3/ImagePicker/8eb4e910-887e-452b-81e6-f281cc9f0256.jpeg",
+      "title": "테스트",
+      "writer": "테수트",
+      "rating": 3,
+      "period": "2023.01.01~2023.01.10",
+      "isDone": true,
+      "bestSentence": "뿌뿌",
+      "myThinking": "뿌뿌"
     }
   ]
 }
