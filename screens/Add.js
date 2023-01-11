@@ -72,7 +72,7 @@ const Add = () => {
         onPress: async () => {
           try {
             // console.log("data: ", data);
-            await axios.post("http://172.30.1.64:4000/data", data);
+            await axios.post("http://192.168.0.2:4000/data", data);
             setImgUri("");
             setTitle("");
             setWriter("");
