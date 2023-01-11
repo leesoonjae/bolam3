@@ -5,102 +5,93 @@ import { Rating } from "react-native-ratings";
 import { Picker } from "@react-native-picker/picker";
 import React, { useState } from "react";
 
-const Detail = ({ navigation: { navigate }}) => {
-
-
-
+const Detail = ({ navigation: { navigate }, route: { params: obj } }) => {
+  console.log("ggg", obj);
   const [isDone, setIsDone] = useState(false);
-  
 
   const goDetailEdit = () => {
     navigate("Stacks", { screen: "DetailEdit" });
   };
 
-  return(
+  return (
     <Scroll>
+      <StImageBox></StImageBox>
 
-        <StImageBox>
-        </StImageBox>
-        
-        <StAddContainer>
+      <StAddContainer>
         <StContents>
-        <TitleContainer>
-         <TitleText>나의라임 오뤤즤나무</TitleText> 
-         <AuthorText>김d엘라스</AuthorText>
-        </TitleContainer>
+          <TitleContainer>
+            <TitleText>{obj.title}</TitleText>
+            <AuthorText>{obj.writer}</AuthorText>
+          </TitleContainer>
 
-        <StOnelineInputContainer>
-        <StOnelineText>독서 기간:</StOnelineText>
-          <ReadDate>
-            <OutputText>2022.01.09 ~ 2029.12.31</OutputText>
-          </ReadDate>
-        </StOnelineInputContainer>
+          <StOnelineInputContainer>
+            <StOnelineText>독서 기간:</StOnelineText>
+            <ReadDate>
+              <OutputText>{obj.period}</OutputText>
+            </ReadDate>
+          </StOnelineInputContainer>
 
-        <StOnelineInputContainer>
-          <StOnelineText>진행 상황:</StOnelineText>
-          <Picker
-            selectedValue={isDone}
-            onValueChange={(itemValue) => setIsDone(itemValue)}
-            style={{
-              backgroundColor: "white",
-              width: 265,
-              marginLeft: 20,
-            }}
+          <StOnelineInputContainer>
+            <StOnelineText>진행 상황:</StOnelineText>
+            <Picker
+              selectedValue={isDone}
+              onValueChange={(itemValue) => setIsDone(itemValue)}
+              style={{
+                backgroundColor: "white",
+                width: 265,
+                marginLeft: 20,
+              }}
+            >
+              <Picker.Item label="Reading" value={() => setIsDone(false)} />
+              <Picker.Item label="Finished" value={() => setIsDone(true)} />
+            </Picker>
+          </StOnelineInputContainer>
+
+          <StOnelineInputContainer>
+            <StOnelineText>평점:</StOnelineText>
+            <Rating
+              startingValue={obj.rating}
+              style={{ marginLeft: 20 }}
+              ratingCount={5}
+              imageSize={30}
+              tintColor="#E1DEDA"
+            />
+          </StOnelineInputContainer>
+
+          <StOverlinesInputContainer>
+            <StOverlineText>인상 깊었던 문장</StOverlineText>
+            <OutputBox>
+              <OutputText>{obj.bestSentence}</OutputText>
+            </OutputBox>
+          </StOverlinesInputContainer>
+
+          <StOverlinesInputContainer>
+            <StOverlineText>나의 생각</StOverlineText>
+            <OutputBox>
+              <OutputText>{obj.myThinking}</OutputText>
+            </OutputBox>
+          </StOverlinesInputContainer>
+        </StContents>
+
+        <StButtons>
+          <StButton
+            onPress={goDetailEdit}
+            style={{ backgroundColor: "#959d90" }}
           >
-            <Picker.Item label="Reading" value={false} />
-            <Picker.Item label="Finished" value={true} />
-          </Picker>
-        </StOnelineInputContainer>
-
-        <StOnelineInputContainer>     
-          <StOnelineText>평점:</StOnelineText>
-          <Rating
-            startingValue={0}
-            style={{ marginLeft: 20 }}
-            ratingCount={5}
-            imageSize={30}
-            tintColor="#E1DEDA"
-          />
-        </StOnelineInputContainer>
-
-       
-
-
-
-        <StOverlinesInputContainer>
-          <StOverlineText>인상 깊었던 문장</StOverlineText>
-          <OutputBox>
-            <OutputText>안녕하세요</OutputText>
-          </OutputBox>
-        </StOverlinesInputContainer>
-
-        <StOverlinesInputContainer>
-        <StOverlineText>나의 생각</StOverlineText>
-          <OutputBox>
-            <OutputText>나의 죽음을 적에게 알리지마라...</OutputText>
-          </OutputBox>
-        </StOverlinesInputContainer>
-      </StContents>
-
-      <StButtons>
-        <StButton onPress={goDetailEdit} style={{ backgroundColor: "#959d90" }}>
-          <StButtonText>Edit</StButtonText>
-        </StButton>
-        <StButton style={{ backgroundColor: "#BDBDBD" }}>
-          <StButtonText>Delete</StButtonText>
-        </StButton>
-      </StButtons>
-    </StAddContainer>
-
+            <StButtonText>Edit</StButtonText>
+          </StButton>
+          <StButton style={{ backgroundColor: "#BDBDBD" }}>
+            <StButtonText>Delete</StButtonText>
+          </StButton>
+        </StButtons>
+      </StAddContainer>
     </Scroll>
   );
 };
 
 export default Detail;
 
-const Scroll = styled.ScrollView`
-
-`
+const Scroll = styled.ScrollView``;
 
 const StAddContainer = styled.ScrollView`
   padding-left: 30px;
@@ -135,7 +126,7 @@ const AuthorText = styled.Text`
   color: grey;
   margin-top: 10px;
   margin-left: 15px;
-`; 
+`;
 
 const StOnelineInputContainer = styled.View`
   flex-direction: row;
@@ -192,11 +183,11 @@ const TitleBox = styled.Text`
   font-size: 16px;
   margin-bottom: 5px;
   color: ${(props) => props.theme.text};
-`
+`;
 
 const OutputText = styled.Text`
-font-size: 16px;
-padding: 10px;
+  font-size: 16px;
+  padding: 10px;
 `;
 
 /////////////// 콘텐츠, 버튼 구분 ///////////////

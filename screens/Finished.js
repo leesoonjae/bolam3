@@ -10,91 +10,78 @@ import {
   View,
 } from "react-native";
 import styled from "@emotion/native";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 // 컴포넌트명 변경했습니다 App => ReadBooks
 export default function ReadBooks() {
+  const navigation = useNavigation();
+
+  // const goDetail = () => {
+  //   navigation.navigate("Stacks", { screen: "Detail" });
+  // };
+
+  const [finishedBookData, setFinishedBookData] = useState([]);
+
+  const [finishedBookCount, setFinishedBookCount] = useState(0);
+  const [goalBooksCount, setGoalBooksCount] = useState(0);
+
+  const finishedBooks = async () => {
+    try {
+      const serverFinishedBooks = await axios.get(
+        `http://192.168.0.2:4000/data`
+      );
+      // npm start 해서 나오는 자신의 주소로 봐꾸셔야 실행이 됩니다!
+      setFinishedBookData(serverFinishedBooks.data);
+      const allReadBooks = finishedBookData.map((allRead) => allRead.length);
+      setGoalBooksCount(allReadBooks.length);
+      const bbb = finishedBookData.filter((allRead) => allRead.isDone === true);
+      setFinishedBookCount(bbb.length);
+    } catch (error) {
+      console.log("Error 가 발생했습니다.", error);
+    }
+  };
+
+  useEffect(() => {
+    finishedBooks();
+  }, []);
+
   return (
     <SafeAreaView style={{ alignItems: "stretch" }}>
-      <FinishedTitle>🏆 총 74권의 책을 읽었어요!</FinishedTitle>
-      <FinishedSubTitle>📚 나의 목표: 110권</FinishedSubTitle>
-      <FinishedListWrapper>
-        <FinishedList>
-          <FinishedCard>
-            <FinishedImg
-              source={{
-                uri: "https://image.yes24.com/goods/102591011/XL",
-              }}
-            />
-            <FinishedText>
-              <FinishedCardTitle>친애하는 나의 민원인</FinishedCardTitle>
-              <FinishedRating>⭐ 9.5 / 10</FinishedRating>
-            </FinishedText>
-          </FinishedCard>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <FinishedTitle>
+          🏆 총 {finishedBookCount} 권의 책을 읽었어요!
+        </FinishedTitle>
 
-          <FinishedCard>
-            <FinishedImg
-              source={{
-                uri: "https://image.yes24.com/goods/102591011/XL",
-              }}
-            />
-            <FinishedText>
-              <FinishedCardTitle>친애하는 나의 민원인</FinishedCardTitle>
-              <FinishedRating>⭐ 9.5 / 10</FinishedRating>
-            </FinishedText>
-          </FinishedCard>
-        </FinishedList>
-        <FinishedList>
-          <FinishedCard>
-            <FinishedImg
-              source={{
-                uri: "https://image.yes24.com/goods/102591011/XL",
-              }}
-            />
-            <FinishedText>
-              <FinishedCardTitle>친애하는 나의 민원인</FinishedCardTitle>
-              <FinishedRating>⭐ 9.5 / 10</FinishedRating>
-            </FinishedText>
-          </FinishedCard>
-
-          <FinishedCard>
-            <FinishedImg
-              source={{
-                uri: "https://image.yes24.com/goods/102591011/XL",
-              }}
-            />
-            <FinishedText>
-              <FinishedCardTitle>친애하는 나의 민원인</FinishedCardTitle>
-              <FinishedRating>⭐ 9.5 / 10</FinishedRating>
-            </FinishedText>
-          </FinishedCard>
-        </FinishedList>
-        <FinishedList>
-          <FinishedCard>
-            <FinishedImg
-              source={{
-                uri: "https://image.yes24.com/goods/102591011/XL",
-              }}
-            />
-            <FinishedText>
-              <FinishedCardTitle>친애하는 나의 민원인</FinishedCardTitle>
-              <FinishedRating>⭐ 9.5 / 10</FinishedRating>
-            </FinishedText>
-          </FinishedCard>
-
-          <FinishedCard>
-            <FinishedImg
-              source={{
-                uri: "https://image.yes24.com/goods/102591011/XL",
-              }}
-            />
-            <FinishedText>
-              <FinishedCardTitle>친애하는 나의 민원인</FinishedCardTitle>
-              <FinishedRating>⭐ 9.5 / 10</FinishedRating>
-            </FinishedText>
-          </FinishedCard>
-        </FinishedList>
-      </FinishedListWrapper>
-
+        <FinishedSubTitle>📚 나의 목표: {goalBooksCount} 권</FinishedSubTitle>
+        <FinishedListWrapper>
+          {finishedBookData.map((obj) =>
+            obj.isDone === true ? (
+              <FinishedList>
+                <FinishedCard
+                  onPress={() =>
+                    navigation.navigate("Stacks", {
+                      screen: "Detail",
+                      params: obj,
+                    })
+                  }
+                >
+                  <FinishedImg
+                    source={{
+                      uri: obj.imgUri,
+                    }}
+                  />
+                  <FinishedText>
+                    <FinishedCardTitle>{obj.title}</FinishedCardTitle>
+                    <FinishedRating>⭐ {obj.rating} / 5</FinishedRating>
+                  </FinishedText>
+                </FinishedCard>
+              </FinishedList>
+            ) : null
+          )}
+        </FinishedListWrapper>
+      </ScrollView>
       <StatusBar style="auto" />
     </SafeAreaView>
   );
@@ -117,18 +104,21 @@ const FinishedSubTitle = styled.Text`
 `;
 
 const FinishedListWrapper = styled.View`
+  display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 `;
 
 const FinishedList = styled.View`
+  display: flex;
   flex-direction: row;
-  margin-left: -10px;
+  margin-left: 20px;
+  margin-right: 20px;
   justify-content: space-between;
 `;
 
-const FinishedCard = styled.View`
+const FinishedCard = styled.TouchableOpacity`
   margin-top: 20px;
-  margin-right: 10px;
   width: 170px;
   height: 250px;
   background-color: #e2d9ce;

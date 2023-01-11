@@ -15,10 +15,12 @@ function TodayBooks() {
     navigation.navigate("Stacks", { screen: "Recommend" });
   };
 
-  const [bookApiImg, setbookApiImg] = useState("");
-  const [bookApiTitle, setBookApiTitle] = useState("");
-  const [bookApiAuthor, setBookApiAuthor] = useState("");
-  const [bookApiContent, setBookApContent] = useState("");
+  const [bookApiObj, setBookApiObj] = useState({
+    title: "",
+    author: "",
+    description: "",
+    cover: "",
+  });
 
   const getBooks = async () => {
     try {
@@ -26,10 +28,7 @@ function TodayBooks() {
         `http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttbsoojae10291105001&QueryType=BlogBest&MaxResults=1&start=1&SearchTarget=Book&output=JS&Version=20131101`
       );
       const aaa = JSON.parse(bookApi.request._response);
-      setbookApiImg(aaa.item[0].cover);
-      setBookApiTitle(aaa.item[0].title);
-      setBookApiAuthor(aaa.item[0].author);
-      setBookApContent(aaa.item[0].description);
+      setBookApiObj(aaa.item[0]);
     } catch (error) {
       console.log("Error가 발생했습니다.", error);
     }
@@ -39,32 +38,24 @@ function TodayBooks() {
     getBooks();
   }, []);
 
-  // const goDetail = () => {
-  //   navigate("Stacks", { screen: "Detail" });
-  // };
-
-  // const goDetailEdit = () => {
-  //   navigate("Stacks", { screen: "DetailEdit" });
-  // };
-
   return (
     <View>
       <MainToDayTitle>오늘의 추천 도서</MainToDayTitle>
       <ToDay onPress={goRecommend}>
         <ToDayImg
           source={{
-            uri: bookApiImg,
+            uri: bookApiObj.cover,
           }}
         />
         <TodayText>
           <ToDayTitle numberOfLines={1} ellipsizeMode="tail">
-            {bookApiTitle}
+            {bookApiObj.title}
           </ToDayTitle>
           <ToDayOuter numberOfLines={1} ellipsizeMode="tail">
-            {bookApiAuthor}
+            {bookApiObj.author}
           </ToDayOuter>
           <ToDayContents numberOfLines={8} ellipsizeMode="tail">
-            {bookApiContent}
+            {bookApiObj.description}
           </ToDayContents>
         </TodayText>
       </ToDay>
@@ -121,6 +112,7 @@ const ToDayContents = styled.Text`
 const ToDayImg = styled.Image`
   width: 150px;
   height: 200px;
+  border-radius: 15px;
 `;
 
 const AddBook = styled.Text`

@@ -10,6 +10,9 @@ import uuid from "react-native-uuid";
 import * as ImagePicker from "expo-image-picker";
 import { Alert } from "react-native";
 
+import { useSelector, useDispatch } from "react-redux";
+import { addReadMe, __addReadMe, __getReadMe } from "../redux/modules/readMe";
+
 const Add = () => {
   const isDark = useColorScheme() === "dark";
 
@@ -44,14 +47,33 @@ const Add = () => {
 
   // json-server 추가
   const postData = async () => {
+    if (
+      imgUri === "" ||
+      title === "" ||
+      writer === "" ||
+      rating === 0 ||
+      period === "" ||
+      bestSentence === "" ||
+      myThinking === ""
+    ) {
+      alert("입력을 완료해주세요");
+      return;
+    } else if (period.length < 10) {
+      alert("독서기간을 양식에 맞게 작성해주세요(2023.1.10 ~ 2023.2.10).");
+      return;
+    } else if (myThinking.length < 10) {
+      alert("나의 생각을 10글자 이상 작성해주세요.");
+      return;
+    }
     Alert.alert("리드미 작성", "리드미를 작성하시겠습니까?", [
+
       { text: "취소", style: "destructive" },
       {
         text: "작성",
         onPress: async () => {
           try {
             // console.log("data: ", data);
-            await axios.post("http://192.168.0.4:4000/data", data);
+            await axios.post("http://192.168.0.2:4000/data", data);
             setImgUri("");
             setTitle("");
             setWriter("");
@@ -76,7 +98,7 @@ const Add = () => {
       aspect: [4, 3],
       quality: 1,
     });
-    console.log("result.assets[0].uri: ", result.assets[0].uri);
+    // console.log("result.assets[0].uri: ", result.assets[0].uri);
     setImgUri(result.assets[0].uri);
 
     if (!result.canceled) {
@@ -87,16 +109,44 @@ const Add = () => {
   // json-server 조회
   // const getData = async () => {
   //   try {
-  //     const response_data = await axios.get("http://172.30.1.91:4000/data");
+  //     const response_data = await axios.get("http://172.30.1.64:4000/data");
   //     console.log(response_data.data);
   //   } catch (err) {
   //     console.log(err);
   //   }
   // };
 
-  // useEffect(() => {
-  //   getData();
-  // }, []);
+  // const getData = async () => {
+  //   try {
+  //     const response_data = await axios.get("http://localhost:4000/data");
+  //     console.log(response_data.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  // store 추가(redex, redux-toolkit)
+  const dispatch = useDispatch();
+
+  const postDataToStore = () => {
+    dispatch(addReadMe(data));
+  };
+
+  // store 조회(redex, redux-toolkit)
+  const state = useSelector((state) => state);
+  // console.log("state : ", state);
+  // console.log("state.readME : ", state.readMe);
+  // console.log("state.readMe.test: ", state.readMe.test)
+
+  useEffect(() => {
+    // getData();
+    dispatch(__getReadMe());
+  }, []);
+
+  // json-server, store 추가
+  const postDataToSeverAndStore = () => {
+    dispatch(__addReadMe(data));
+  };
 
   return (
     <StAddContainer>
@@ -184,7 +234,10 @@ const Add = () => {
         <StButton style={{ backgroundColor: "#959d90" }} onPress={postData}>
           <StButtonText>Done</StButtonText>
         </StButton>
-        <StButton style={{ backgroundColor: "#BDBDBD" }}>
+        <StButton
+          style={{ backgroundColor: "#BDBDBD" }}
+          onPress={postDataToSeverAndStore}
+        >
           <StButtonText>cancle</StButtonText>
         </StButton>
       </StButtons>
