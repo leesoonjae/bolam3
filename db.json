@@ -261,17 +261,6 @@
       "myThinking": ""
     },
     {
-      "id": "67ea483a-7581-4be0-ab35-08908d081be4",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/076e0637-2008-4a84-95e3-3bdf01ded9a1.jpeg",
-      "title": "aa",
-      "writer": "dddd",
-      "rating": 4,
-      "period": "wwwif (\n              imgUri === \"\" ||\n              title === \"\" ||\n              writer === \"\" ||\n              rating === 0 ||\n              period === \"\" ||\n              bestSentence === \"\" ||\n              myThinking === \"\"\n          ",
-      "isDone": false,
-      "bestSentence": "fff",
-      "myThinking": "sss"
-    },
-    {
       "id": "5da15b9f-2c6d-43e9-9b6c-a3ef867abe9c",
       "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/481208ed-dd51-48b6-a057-f71be521dd98.jpeg",
       "title": "a",
