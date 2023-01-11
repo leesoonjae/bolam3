@@ -41,7 +41,7 @@ function TodayBooks() {
   return (
     <View>
       <MainToDayTitle>오늘의 추천 도서</MainToDayTitle>
-      <ToDay>
+      <ToDay onPress={goRecommend}>
         <ToDayImg
           source={{
             uri: bookApiObj.cover,
