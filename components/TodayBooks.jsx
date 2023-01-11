@@ -7,6 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 
 function TodayBooks() {
   const navigation = useNavigation();
+
   const goAdd = () => {
     navigation.navigate("Stacks", { screen: "Add" });
   };
@@ -60,7 +61,7 @@ function TodayBooks() {
         </TodayText>
       </ToDay>
       <AddBook>책 추가하기</AddBook>
-      <AddBookBack>
+      <AddBookBack onPress={goAdd}>
         <AddBookBtn onPress={goAdd}>
           <AntDesign name="pluscircleo" size={50} color="black" />
         </AddBookBtn>
@@ -72,21 +73,25 @@ function TodayBooks() {
 export default TodayBooks;
 
 const MainToDayTitle = styled.Text`
-  margin-top: 10px;
-  font-size: 25px;
+  margin-top: 18px;
+  font-size: 18px;
   color: ${(props) => props.theme.text};
+  font-weight: 600;
 `;
 
 const ToDay = styled.TouchableOpacity`
   flex-direction: row;
   margin-top: 15px;
+  margin-bottom: 10px;
   background-color: #e2d9ce;
   padding: 20px;
+  padding-left: 10px;
   border-radius: 10px;
 `;
 
 const TodayText = styled.View`
-  padding-left: 20px;
+  padding-left: 18px;
+  padding-top: 18px;
 `;
 
 const ToDayTitle = styled.Text`
@@ -117,11 +122,13 @@ const ToDayImg = styled.Image`
 
 const AddBook = styled.Text`
   margin-top: 10px;
-  font-size: 25px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 600;
   color: ${(props) => props.theme.text};
 `;
 
-const AddBookBack = styled.View`
+const AddBookBack = styled.TouchableOpacity`
   background-color: #e2d9ce;
   height: 160px;
   border-radius: 25px;
@@ -129,6 +136,7 @@ const AddBookBack = styled.View`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 11px;
 `;
 
 const AddBookBtn = styled.TouchableOpacity`
