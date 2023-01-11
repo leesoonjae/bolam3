@@ -44,14 +44,14 @@ const Add = () => {
 
   // json-server 추가
   const postData = async () => {
-    Alert.alert("리드미 작성", "리드미를 작성하시겠습니까", [
+    Alert.alert("리드미 작성", "리드미를 작성하시겠습니까?", [
       { text: "취소", style: "destructive" },
       {
         text: "작성",
         onPress: async () => {
           try {
             // console.log("data: ", data);
-            await axios.post("http://172.30.1.91:4000/data", data);
+            await axios.post("http://192.168.0.4:4000/data", data);
             setImgUri("");
             setTitle("");
             setWriter("");
