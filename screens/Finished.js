@@ -18,9 +18,9 @@ import { useNavigation } from "@react-navigation/native";
 export default function ReadBooks() {
   const navigation = useNavigation();
 
-  const goDetail = () => {
-    navigation.navigate("Stacks", { screen: "Detail" });
-  };
+  // const goDetail = () => {
+  //   navigation.navigate("Stacks", { screen: "Detail" });
+  // };
 
   const [finishedBookData, setFinishedBookData] = useState([]);
 
@@ -58,7 +58,14 @@ export default function ReadBooks() {
           {finishedBookData.map((obj) =>
             obj.isDone === true ? (
               <FinishedList>
-                <FinishedCard onPress={goDetail}>
+                <FinishedCard
+                  onPress={() =>
+                    navigation.navigate("Stacks", {
+                      screen: "Detail",
+                      params: obj,
+                    })
+                  }
+                >
                   <FinishedImg
                     source={{
                       uri: obj.imgUri,
