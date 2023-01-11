@@ -60,7 +60,7 @@ function TodayBooks() {
         </TodayText>
       </ToDay>
       <AddBook>책 추가하기</AddBook>
-      <AddBookBack>
+      <AddBookBack onPress={goAdd}>
         <AddBookBtn onPress={goAdd}>
           <AntDesign name="pluscircleo" size={50} color="black" />
         </AddBookBtn>
@@ -121,7 +121,7 @@ const AddBook = styled.Text`
   color: ${(props) => props.theme.text};
 `;
 
-const AddBookBack = styled.View`
+const AddBookBack = styled.TouchableOpacity`
   background-color: #e2d9ce;
   height: 160px;
   border-radius: 25px;
