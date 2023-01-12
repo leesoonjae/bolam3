@@ -61,20 +61,20 @@ function TodayBooks() {
     <View>
       <MainToDayTitle>오늘의 추천 도서</MainToDayTitle>
       <ToDay onPress={goRecommend}>
-        {/* <ToDayImg
+        <ToDayImg
           source={{
-            uri: bookData?.item[0].cover,
+            uri: bookData.data.item[0].cover,
           }}
-        /> */}
+        />
         <TodayText>
           <ToDayTitle numberOfLines={1} ellipsizeMode="tail">
-            {bookData?.item[0].title}
+            {bookData.data.item[0].title}
           </ToDayTitle>
           <ToDayOuter numberOfLines={1} ellipsizeMode="tail">
-            {bookData?.item[0].author}
+            {bookData.data.item[0].author}
           </ToDayOuter>
           <ToDayContents numberOfLines={8} ellipsizeMode="tail">
-            {bookData?.item[0].description}
+            {bookData.data.item[0].description}
           </ToDayContents>
         </TodayText>
       </ToDay>
