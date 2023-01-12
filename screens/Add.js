@@ -12,28 +12,37 @@ import { Alert } from "react-native";
 import { useQuery } from "react-query";
 import { getDataFromServer } from "../api";
 
-const Add = ({ navigation: { goBack } }) => {
+const Add = ({ navigation: { goBack, navigate } }) => {
   const isDark = useColorScheme() === "dark";
 
   const [imgUri, setImgUri] = useState("");
   const [title, setTitle] = useState("");
   const [writer, setWriter] = useState("");
   const [rating, setRating] = useState(0);
-  const [period, setPeriod] = useState("");
   const [isDone, setIsDone] = useState(false);
   const [bestSentence, setbestSentence] = useState("");
   const [myThinking, setMyThinking] = useState("");
 
+  // const [allData, setAllData] = useState({
+  //   imgUri: "",
+  //   title: "",
+  //   writer: "",
+  //   period: "",
+  //   isDone: false,
+  //   bestSentence: "",
+  //   myThinking: ""
+  // })
+  // const [rating, setRating] = useState(0);
+
   // console.log("imgUri: ", imgUri);
 
   // 데이터 구조
-  const test = {
+  const data = {
     id: uuid.v4(),
     imgUri: imgUri,
     title: title,
     writer: writer,
     rating: rating,
-    period: period,
     isDone: isDone,
     bestSentence: bestSentence,
     myThinking: myThinking,
@@ -51,14 +60,10 @@ const Add = ({ navigation: { goBack } }) => {
       title === "" ||
       writer === "" ||
       rating === 0 ||
-      period === "" ||
       bestSentence === "" ||
       myThinking === ""
     ) {
       alert("입력을 완료해주세요");
-      return;
-    } else if (period.length < 10) {
-      alert("독서기간을 양식에 맞게 작성해주세요(2023.1.10 ~ 2023.2.10).");
       return;
     } else if (myThinking.length < 10) {
       alert("나의 생각을 10글자 이상 작성해주세요.");
@@ -71,8 +76,9 @@ const Add = ({ navigation: { goBack } }) => {
         onPress: async () => {
           try {
             // console.log("data: ", data);
-            await axios.post("http://172.30.1.64:4000/test", test);
+            await axios.post("http://172.30.1.39:4000/data", data);
             goBack();
+            // navigate("Tabs", { screen: "Finished" })
           } catch (err) {
             console.log(err);
           }
@@ -137,15 +143,6 @@ const Add = ({ navigation: { goBack } }) => {
         </StOnelineInputContainer>
 
         <StOnelineInputContainer>
-          <StOnelineText>독서 기간</StOnelineText>
-          <StOnelineInput
-            value={period}
-            placeholder="2023.1.10 ~ 2023.2.10"
-            onChangeText={setPeriod}
-          />
-        </StOnelineInputContainer>
-
-        <StOnelineInputContainer>
           <StOnelineText>진행 상황</StOnelineText>
           <Picker
             value={isDone}
@@ -193,7 +190,7 @@ const Add = ({ navigation: { goBack } }) => {
           style={{ backgroundColor: "#BDBDBD" }}
           onPress={() => goBack()}
         >
-          <StButtonText>cancle</StButtonText>
+          <StButtonText>Cancle</StButtonText>
         </StButton>
       </StButtons>
     </StAddContainer>

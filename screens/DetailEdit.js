@@ -92,7 +92,7 @@ const DetailEdit = ({
         </StOnelineInputContainer>
 
         <StOnelineInputContainer>
-          <StOnelineText>진행 상황:</StOnelineText>
+          <StOnelineText>진행 상황</StOnelineText>
           <Picker
             value={newIsDone}
             selectedValue={newIsDone}
@@ -109,7 +109,7 @@ const DetailEdit = ({
         </StOnelineInputContainer>
 
         <StOnelineInputContainer>
-          <StOnelineText>평점:</StOnelineText>
+          <StOnelineText>평점</StOnelineText>
           <Rating
             onFinishRating={getNewRatings}
             startingValue={obj.rating}
@@ -143,8 +143,11 @@ const DetailEdit = ({
         <StButton style={{ backgroundColor: "#959d90" }} onPress={updateData}>
           <StButtonText>Done</StButtonText>
         </StButton>
-        <StButton style={{ backgroundColor: "#BDBDBD" }} onPress={deleteData}>
-          <StButtonText>Delete</StButtonText>
+        <StButton
+          style={{ backgroundColor: "#BDBDBD" }}
+          onPress={() => goBack()}
+        >
+          <StButtonText>Cancle</StButtonText>
         </StButton>
       </StButtons>
     </StAddContainer>

@@ -21,20 +21,13 @@ function FinishedBooks() {
 
   const [finishedBookData, setFinishedBookData] = useState([]);
 
-  const [finishedBookCount, setFinishedBookCount] = useState(0);
-  const [goalBooksCount, setGoalBooksCount] = useState(0);
-
   const finishedBooks = async () => {
     try {
       const serverFinishedBooks = await axios.get(
-        `http://192.168.0.4:4000/data`
+        `http://172.30.1.39:4000/data`
       );
       // npm start 해서 나오는 자신의 주소로 봐꾸셔야 실행이 됩니다!
       setFinishedBookData(serverFinishedBooks.data);
-      const allReadBooks = finishedBookData.map((allRead) => allRead.length);
-      setGoalBooksCount(allReadBooks.length);
-      const bbb = finishedBookData.filter((allRead) => allRead.isDone === true);
-      setFinishedBookCount(bbb.length);
     } catch (error) {
       console.log("Error 가 발생했습니다.", error);
     }
@@ -62,6 +55,7 @@ function FinishedBooks() {
                   params: obj,
                 })
               }
+              key={obj.id}
             >
               <TouchableOpacity>
                 <View

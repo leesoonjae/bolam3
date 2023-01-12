@@ -21,110 +21,20 @@
       "isDone": false,
       "bestSentence": "2222222222222222",
       "myThinking": "22222222222222222222"
+    },
+    {
+      "id": "28aa4c5e-1bac-4a81-a2ec-6b870994980f",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/3fcacd9b-efb2-4821-b579-2bcd8c0f9f57.jpeg",
+      "title": "11111",
+      "writer": "111111",
+      "rating": 5,
+      "period": "111111111111111",
+      "isDone": true,
+      "bestSentence": "111111111111",
+      "myThinking": "11111111111111"
     }
   ],
   "data": [
-    {
-      "id": "e20aadc9-0a8c-44d0-86fd-e28eb400f6cb",
-      "title": "좋아요",
-      "writer": "우와!",
-      "rating": 5,
-      "period": "2023.1.1 ~ 2.3",
-      "isDone": true,
-      "bestSentence": "sss",
-      "myThinking": "www"
-    },
-    {
-      "id": "63487317-d07b-4fe9-841e-ea7ecd8104aa",
-      "title": "안녕하세요",
-      "writer": "반갑습니다",
-      "rating": 3,
-      "period": "sss",
-      "isDone": true,
-      "bestSentence": "dd",
-      "myThinking": "ww"
-    },
-    {
-      "id": "5a178c29-3ddb-41bf-9b79-6b32944ec91e",
-      "title": "순두부찌개",
-      "writer": "맛있다",
-      "rating": 5,
-      "period": "",
-      "isDone": false,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
-      "id": "8e89f7c4-23ee-40f1-9dd2-679d73abdb94",
-      "title": "카페인",
-      "writer": "필요해",
-      "rating": 4,
-      "period": "",
-      "isDone": true,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
-      "id": "aff4ceb1-ec7b-4770-9e45-1bb741f3a296",
-      "title": "커피커피",
-      "writer": "커피",
-      "rating": 0,
-      "period": "",
-      "isDone": false,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
-      "id": "7fd45958-4e54-465e-8754-d47ad1100330",
-      "title": "ss",
-      "writer": "ss",
-      "rating": 5,
-      "period": "22222",
-      "isDone": true,
-      "bestSentence": "dd",
-      "myThinking": "aaa"
-    },
-    {
-      "id": "57c42b76-bd10-49d4-9db3-c986a92531d9",
-      "title": "wwww",
-      "writer": "ss",
-      "rating": 5,
-      "period": "22222",
-      "isDone": true,
-      "bestSentence": "dd",
-      "myThinking": "aaa"
-    },
-    {
-      "id": "c5f61d1b-a456-42b2-8a17-764ed44e47fb",
-      "title": "dfd",
-      "writer": "",
-      "rating": 4,
-      "period": "",
-      "isDone": true,
-      "bestSentence": "",
-      "myThinking": ""
-    },
-    {
-      "id": "83db7fa6-e6df-415c-85f0-2c7d90691897",
-      "title": "ㄴㄴㄴㄴ",
-      "writer": "ㄷㄷㄷㄷㄷ",
-      "rating": 5,
-      "period": "212312",
-      "isDone": false,
-      "bestSentence": "ㄴㅁㅇㄹㄴㅇ",
-      "myThinking": "ㄴㅇㅁㄹㅇㄴ"
-    },
-    {
-      "id": "2c4fcf14-17ea-4354-8745-abe7c1c63c3e",
-      "createdAt": 1673361827230,
-      "title": "qqqqqq",
-      "writer": "qqqqqq",
-      "rating": 5,
-      "period": "qqqqqqq",
-      "isDone": true,
-      "bestSentence": "qqqqqqq",
-      "myThinking": "qqqqqq"
-    },
     {
       "id": "99de3c32-130d-43b5-aeac-66677629e20f",
       "createdAt": 1673362191278,
@@ -147,17 +57,6 @@
       "isDone": false,
       "bestSentence": "erqer",
       "myThinking": "ewqfsda"
-    },
-    {
-      "id": "0e2eccb8-1aff-4e4b-8832-d72229bf356c",
-      "imgUri": "",
-      "title": "qwdsfadsf",
-      "writer": "adsfdsa",
-      "rating": 4,
-      "period": "",
-      "isDone": false,
-      "bestSentence": "sdfds",
-      "myThinking": "sdfsdaf"
     },
     {
       "id": "887c13f3-ff56-43ef-bd24-53d2bb3cfec5",
@@ -213,6 +112,38 @@
       "isDone": false,
       "bestSentence": "일렁일렁",
       "myThinking": "넘실넘실~~~~~~"
+    },
+    {
+      "id": "bc88a1a4-e753-4ad4-92e7-5f73732797bd",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/f33cec24-6365-4307-b905-40cd789d76bd.jpeg",
+      "title": "111111111111111",
+      "writer": "111111111111111",
+      "rating": 5,
+      "period": "1111111111111111",
+      "isDone": true,
+      "bestSentence": "1111111111111111111",
+      "myThinking": "11111111111111111"
+    },
+    {
+      "id": "1b84d678-2c9a-45ef-bc03-24787dc492ef",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/8c24edcb-3964-4b1c-9230-c0bbe3dda722.jpeg",
+      "title": "dddddddddd",
+      "writer": "dddddddddddd",
+      "rating": 5,
+      "period": "dddddddddddddd",
+      "isDone": true,
+      "bestSentence": "ddddddddddddddd",
+      "myThinking": "dddddddddddddd"
+    },
+    {
+      "id": "55222e5f-08c8-4c8b-ba40-02c6230c694d",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/2e70339f-e357-4a44-90b5-faa6ae2a5651.jpeg",
+      "title": "22222222222222",
+      "writer": "22222222222222",
+      "rating": 4,
+      "isDone": true,
+      "bestSentence": "222222222",
+      "myThinking": "222222222222222"
     }
   ]
 }

@@ -30,14 +30,16 @@ export default function ReadBooks() {
   const finishedBooks = async () => {
     try {
       const serverFinishedBooks = await axios.get(
-        `http://172.30.1.64:4000/data`
+        `http://172.30.1.39:4000/data`
       );
       // npm start 해서 나오는 자신의 주소로 봐꾸셔야 실행이 됩니다!
       setFinishedBookData(serverFinishedBooks.data);
       const allReadBooks = finishedBookData.map((allRead) => allRead.length);
       setGoalBooksCount(allReadBooks.length);
-      const bbb = finishedBookData.filter((allRead) => allRead.isDone === true);
-      setFinishedBookCount(bbb.length);
+      const trueReadBooks = finishedBookData.filter(
+        (allRead) => allRead.isDone === true
+      );
+      setFinishedBookCount(trueReadBooks.length);
     } catch (error) {
       console.log("Error 가 발생했습니다.", error);
     }
@@ -64,6 +66,7 @@ export default function ReadBooks() {
                     params: obj,
                   })
                 }
+                key={obj.id}
               >
                 <FinishedImg
                   source={{
@@ -96,9 +99,10 @@ const styles = StyleSheet.create({
   stylegridView: {
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-between",
-    marginLeft: 15,
-    marginRight: 5,
+    // justifyContent: "space-between",
+    // marginLeft: 15,
+    // marginRight: 5,
+    marginLeft: 13,
   },
 });
 
@@ -108,6 +112,7 @@ const FinishedTitle = styled.Text`
   font-weight: 600;
   color: #513d34;
   text-align: center;
+  color: ${(props) => props.theme.text};
 `;
 
 const FinishedSubTitle = styled.Text`
@@ -118,9 +123,12 @@ const FinishedSubTitle = styled.Text`
   font-weight: 500;
   text-align: right;
   color: #513d34;
+  color: ${(props) => props.theme.text};
 `;
 
-const FinishedListWrapper = styled.View``;
+const FinishedListWrapper = styled.View`
+  justify-content: center;
+`;
 
 const FinishedCard = styled.TouchableOpacity`
   margin-top: 20px;
