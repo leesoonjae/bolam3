@@ -110,8 +110,19 @@
       "writer": "이기동",
       "rating": 4,
       "isDone": true,
-      "bestSentence": "되죠?",
-      "myThinking": "된다에 내 손목은 건다. 쫄리면 뒈지시던가"
+      "bestSentence": "테스타",
+      "myThinking": "테테테테테테테ㅔ테테테테텥ㄹ미"
+    },
+    {
+      "id": "e2e1e4e6-a634-48c6-9aee-c4604727c5b9",
+      "imgUri": "",
+      "title": "테테텥",
+      "writer": "테스트트",
+      "rating": 0,
+      "period": "",
+      "isDone": true,
+      "bestSentence": "녀야ㅐ채유조냐야류",
+      "myThinking": "어쳐펴나류랴탳ㅎㄴ"
     }
   ]
 }
