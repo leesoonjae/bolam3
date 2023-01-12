@@ -13,12 +13,12 @@
 
 /////////////// 리덕스와 리덕스 툴킷 구분 ///////////////
 
-// import { configureStore } from "@reduxjs/toolkit";
-// import readMe from "../modules/readMe";
+import { configureStore } from "@reduxjs/toolkit";
+import readMe from "../modules/readMe";
 
 // root reducer, store
-// const store = configureStore({
-//   reducer: { readMe, readMe },
-// });
+const store = configureStore({
+  reducer: { readMe: readMe },
+});
 
-// export default store;
+export default store;

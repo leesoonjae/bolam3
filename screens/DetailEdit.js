@@ -13,9 +13,9 @@ const DetailEdit = ({
   navigation: { navigate, goBack },
   route: { params: obj },
 }) => {
-  const goFinished = () => {
-    navigate("Tabs", { screen: "Finished", params: obj });
-  };
+  // const goFinished = () => {
+  //   navigate("Tabs", { screen: "Finished", params: obj });
+  // };
 
   const isDark = useColorScheme() === "dark";
 
@@ -72,8 +72,8 @@ const DetailEdit = ({
         style: "default",
         onPress: () => {
           try {
-            axios.put(`http://192.168.0.2:4000/data/${obj.id}`, newData);
-            goFinished();
+            axios.put(`http://172.30.1.39:4000/data/${obj.id}`, newData);
+            navigate("Tabs", { screen: "Main" });
           } catch (error) {
             console.log("Error발생", error);
           }

@@ -11,8 +11,12 @@ import * as ImagePicker from "expo-image-picker";
 import { Alert } from "react-native";
 import { useQuery } from "react-query";
 import { getDataFromServer } from "../api";
+import { useDispatch } from "react-redux";
+import { __addReadMe } from "../redux/modules/readMe";
 
 const Add = ({ navigation: { goBack, navigate } }) => {
+  const dispatch = useDispatch();
+
   const isDark = useColorScheme() === "dark";
 
   const [imgUri, setImgUri] = useState("");
@@ -77,8 +81,9 @@ const Add = ({ navigation: { goBack, navigate } }) => {
           try {
             // console.log("data: ", data);
             Alert.alert("작성이 완료되었습니다.");
-            await axios.post("http://172.30.1.39:4000/data", data);
-            await goBack();
+            dispatch(__addReadMe(data));
+            // await axios.post("http://172.30.1.39:4000/data", data);
+            navigate("Tabs", { screen: "Main" });
             // navigate("Tabs", { screen: "Finished" })
           } catch (err) {
             console.log(err);

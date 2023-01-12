@@ -4,6 +4,10 @@ import { View, Text, TouchableOpacity } from "react-native";
 import styled from "@emotion/native";
 import { ScrollView } from "react-native-gesture-handler";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import { useQuery } from "react-query";
+import { getDataFromServer } from "../api";
+import { useDispatch, useSelector } from "react-redux";
+import { __getReadMe } from "../redux/modules/readMe";
 
 function ReadingBooks() {
   const navigation = useNavigation();
