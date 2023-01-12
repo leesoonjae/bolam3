@@ -81,17 +81,6 @@
       "myThinking": "따끈따근!!!!!!!"
     },
     {
-      "id": "7a36e85e-402e-43f0-95ab-d0902a7b29a8",
-      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/4C9AE236-47D9-43BA-AF4A-4665E61ED7D1.jpg",
-      "title": "새해",
-      "writer": "복",
-      "rating": 5,
-      "period": "2023.01.01~",
-      "isDone": true,
-      "bestSentence": "우아",
-      "myThinking": "많이받으새요!!!!!"
-    },
-    {
       "id": "599d58d3-7c10-431e-896e-9eb4ab025b23",
       "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/91FBD88D-54B9-4E0C-A83D-2DB0C2D60281.jpg",
       "title": "봄",
@@ -133,6 +122,17 @@
       "isDone": true,
       "bestSentence": "테스타",
       "myThinking": "테테테테테테테ㅔ테테테테텥ㄹ미"
+    },
+    {
+      "id": "e2e1e4e6-a634-48c6-9aee-c4604727c5b9",
+      "imgUri": "",
+      "title": "테테텥",
+      "writer": "테스트트",
+      "rating": 0,
+      "period": "",
+      "isDone": true,
+      "bestSentence": "녀야ㅐ채유조냐야류",
+      "myThinking": "어쳐펴나류랴탳ㅎㄴ"
     }
   ]
 }
