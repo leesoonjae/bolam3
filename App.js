@@ -12,9 +12,9 @@ import store from "./redux/config/configStore";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-export default function App() {
-  const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
+export default function App() {
   const isDark = useColorScheme() === "dark";
   // console.log('isDark: ', isDark);
 

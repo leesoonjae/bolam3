@@ -1,17 +1,37 @@
 import styled from "@emotion/native";
 import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../util";
-import { AntDesign } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
-import { Picker } from "@react-native-picker/picker";
-import React, { useState } from "react";
-import { Image, Text } from "react-native";
+import React from "react";
+import { Alert } from "react-native";
+import axios from "axios";
 
-const Detail = ({ navigation: { navigate }, route: { params: obj } }) => {
-  // console.log("ggg", obj);
-  const [isDone, setIsDone] = useState(false);
-
+const Detail = ({
+  navigation: { goBack, navigate },
+  route: { params: obj },
+}) => {
   const goDetailEdit = () => {
     navigate("Stacks", { screen: "DetailEdit", params: obj });
+  };
+
+  const deleteBook = () => {
+    Alert.alert("책 정리", "삭제하시겠습니까?", [
+      {
+        text: "취소",
+        style: "cancel",
+      },
+      {
+        text: "삭제",
+        style: "destructive",
+        onPress: () => {
+          try {
+            axios.delete(`http://192.168.0.2:4000/data/${obj.id}`);
+            goBack();
+          } catch (error) {
+            console.log("Error발생", error);
+          }
+        },
+      },
+    ]);
   };
 
   return (
@@ -69,7 +89,7 @@ const Detail = ({ navigation: { navigate }, route: { params: obj } }) => {
           >
             <StButtonText>Edit</StButtonText>
           </StButton>
-          <StButton style={{ backgroundColor: "#BDBDBD" }}>
+          <StButton style={{ backgroundColor: "#BDBDBD" }} onPress={deleteBook}>
             <StButtonText>Delete</StButtonText>
           </StButton>
         </StButtons>

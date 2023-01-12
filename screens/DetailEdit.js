@@ -7,12 +7,15 @@ import React, { useEffect, useState } from "react";
 import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
 import * as ImagePicker from "expo-image-picker";
 import axios from "axios";
+import { Alert } from "react-native";
 
 const DetailEdit = ({
   navigation: { navigate, goBack },
   route: { params: obj },
 }) => {
-  // console.log("obj: ", obj);
+  const goFinished = () => {
+    navigate("Tabs", { screen: "Finished", params: obj });
+  };
 
   const isDark = useColorScheme() === "dark";
 
@@ -59,12 +62,24 @@ const DetailEdit = ({
 
   // json-server 수정
   const updateData = () => {
-    axios.put(`http://192.168.0.2:4000/data`, newData);
-  };
-
-  // json-server 삭제
-  const deleteData = () => {
-    axios.delete(`http://192.168.0.2:4000/data`);
+    Alert.alert("책 정리", "수정하시겠습니까?", [
+      {
+        text: "취소",
+        style: "cancel",
+      },
+      {
+        text: "수정",
+        style: "default",
+        onPress: () => {
+          try {
+            axios.put(`http://192.168.0.2:4000/data/${obj.id}`, newData);
+            goFinished();
+          } catch (error) {
+            console.log("Error발생", error);
+          }
+        },
+      },
+    ]);
   };
 
   return (
