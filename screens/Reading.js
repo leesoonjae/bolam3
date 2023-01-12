@@ -27,7 +27,7 @@ export default function ReadingBooks() {
 
   const getData = async () => {
     try {
-      const res = await axios.get("http://192.168.0.2:4000/data");
+      const res = await axios.get("https://lying-magical-math.glitch.me/data");
       setReadingBookData(res.data);
     } catch (error) {
       console.log("Error!", error);

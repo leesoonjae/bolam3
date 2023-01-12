@@ -77,7 +77,7 @@ const Add = ({ navigation: { goBack, navigate } }) => {
           try {
             // console.log("data: ", data);
             Alert.alert("작성이 완료되었습니다.");
-            await axios.post("http://172.30.1.39:4000/data", data);
+            await axios.post("https://lying-magical-math.glitch.me/data", data);
             await goBack();
             // navigate("Tabs", { screen: "Finished" })
           } catch (err) {
@@ -111,7 +111,7 @@ const Add = ({ navigation: { goBack, navigate } }) => {
   // );
 
   return (
-    <StAddContainer>
+    <StAddContainer scrollIndicatorInsets={{ right: 1 }}>
       <StContents>
         <StImageContainer onPress={imageUpload}>
           {imgUri ? (

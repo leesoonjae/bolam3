@@ -72,7 +72,7 @@ const DetailEdit = ({
         style: "default",
         onPress: () => {
           try {
-            axios.put(`http://192.168.0.2:4000/data/${obj.id}`, newData);
+            axios.put(`https://lying-magical-math.glitch.me/${obj.id}`, newData);
             goFinished();
           } catch (error) {
             console.log("Error발생", error);
@@ -83,7 +83,7 @@ const DetailEdit = ({
   };
 
   return (
-    <StAddContainer>
+    <StAddContainer scrollIndicatorInsets={{ right: 1 }}>
       <StContents>
         <StImageContainer onPress={imageUpload}>
           {newImgUri ? (

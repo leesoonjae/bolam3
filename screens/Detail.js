@@ -24,7 +24,7 @@ const Detail = ({
         style: "destructive",
         onPress: () => {
           try {
-            axios.delete(`http://192.168.0.2:4000/data/${obj.id}`);
+            axios.delete(`https://lying-magical-math.glitch.me/${obj.id}`);
             goBack();
           } catch (error) {
             console.log("Error발생", error);
@@ -35,7 +35,7 @@ const Detail = ({
   };
 
   return (
-    <Scroll>
+    <Scroll scrollIndicatorInsets={{ right: 1 }}>
       <StImageBox>
         <StImage source={{ uri: obj.imgUri }} />
       </StImageBox>
