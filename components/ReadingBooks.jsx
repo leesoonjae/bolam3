@@ -18,11 +18,8 @@ function ReadingBooks() {
 
   const getData = async () => {
     try {
-      const res = await axios.get("http://192.168.0.4:4000/data");
+      const res = await axios.get("http://172.30.1.39:4000/data");
       setReadingBookData(res.data);
-      const allReadingBooks = readingBookData.map(
-        (allReading) => allReading.length
-      );
     } catch (error) {
       console.log("Error!", error);
     }
@@ -50,6 +47,7 @@ function ReadingBooks() {
                   params: obj,
                 })
               }
+              key={obj.id}
             >
               <TouchableOpacity>
                 <View

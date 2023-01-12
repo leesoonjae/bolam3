@@ -183,10 +183,12 @@ const StImgContainer = styled.View`
   width: ${SCREEN_WIDTH / 1.18 + "px"};
   height: ${SCREEN_HEIGHT / 3.5 + "px"};
   margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
 `;
 
 const StImg = styled.Image`
-  width: 100%;
+  width: 200px;
   height: 100%;
   margin-bottom: 5px;
   border-radius: 10px;
@@ -216,7 +218,7 @@ const StTextContainer = styled.View``;
 
 const StText = styled.Text`
   color: ${(props) => props.theme.text};
-  line-height: 20;
+  line-height: 20px;
   font-size: 13px;
 `;
 

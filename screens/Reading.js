@@ -27,11 +27,8 @@ export default function ReadingBooks() {
 
   const getData = async () => {
     try {
-      const res = await axios.get("http://192.168.0.4:4000/data");
+      const res = await axios.get("http://172.30.1.39:4000/data");
       setReadingBookData(res.data);
-      const allReadingBooks = readingBookData.map(
-        (allReading) => allReading.length
-      );
     } catch (error) {
       console.log("Error!", error);
     }
@@ -45,9 +42,11 @@ export default function ReadingBooks() {
     <ReadingPage horizontal={false}>
       <SafeAreaView style={{ alignItems: "stretch" }}>
         <ReadingTitle>📚 독서리스트 추가하기</ReadingTitle>
+
         <ReadAddButton onPress={goAdd} style={{ backgroundColor: "#E7DFD4" }}>
           <ReadAddButtonText>➕</ReadAddButtonText>
         </ReadAddButton>
+
         <ReadingListWrapper style={styles.stylegridView}>
           {readingBookData.map((obj) =>
             obj.isDone === false ? (
@@ -58,6 +57,7 @@ export default function ReadingBooks() {
                     params: obj,
                   })
                 }
+                key={obj.id}
               >
                 <ReadingImg
                   source={{
@@ -90,9 +90,12 @@ const styles = StyleSheet.create({
   stylegridView: {
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-between",
-    marginLeft: 15,
-    marginRight: 5,
+    marginLeft: 13,
+    // margin: "auto",
+    // justifyContent: "space-between",
+    // width: "100%",
+    // justifyContent: "center",
+    // marginRight: 5,
   },
 });
 
@@ -102,13 +105,14 @@ const ReadingTitle = styled.Text`
   color: #513d34;
   text-align: left;
   margin-left: 55px;
+  color: ${(props) => props.theme.text};
 `;
 
 const ReadAddButton = styled.TouchableOpacity`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 45px;
+  margin: auto;
   margin-top: 10px;
   width: 300px;
   height: 150px;
@@ -120,7 +124,11 @@ const ReadAddButtonText = styled.Text`
   color: white;
 `;
 
-const ReadingListWrapper = styled.View``;
+const ReadingListWrapper = styled.View`
+  /* padding-left: 20px; */
+  /* padding-right: 20px; */
+  justify-content: center;
+`;
 
 const ReadingCard = styled.TouchableOpacity`
   margin-top: 20px;
