@@ -35,7 +35,7 @@ const Detail = ({
   };
 
   return (
-    <Scroll>
+    <Scroll scrollIndicatorInsets={{ right: 1 }}>
       <StImageBox>
         <StImage source={{ uri: obj.imgUri }} />
       </StImageBox>

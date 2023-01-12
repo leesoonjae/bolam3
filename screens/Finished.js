@@ -31,7 +31,7 @@ export default function ReadBooks() {
   const finishedBooks = async () => {
     try {
       const serverFinishedBooks = await axios.get(
-        `http://172.30.1.39:4000/data`
+        `https://lying-magical-math.glitch.me/data`
       );
       // npm start 해서 나오는 자신의 주소로 봐꾸셔야 실행이 됩니다!
       setFinishedBookData(serverFinishedBooks.data);

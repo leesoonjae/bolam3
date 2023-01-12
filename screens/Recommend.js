@@ -36,11 +36,6 @@ const Recommend = () => {
   useLayoutEffect(() => {
     getBooks();
   }, []);
-  // const [title, setTitle] = useState("어떤 양형 이유");
-  // const [writer, setWriter] = useState("박주영");
-  // const [text, setText] = useState(
-  //   "'세상이 평온할수록 법정은 최소한 그만큼 참혹해진다' 판사가 써 내려간 법정 뒷면의 이야기법원은 세상의 원망과 고통, 절망과 눈물, 죽음과 절규가 모이는 곳이다. 판사는 법정에 선 모든 이의 책망과 옹호를 감당하며 판결문을 써 내려간다. 피도 눈물도, 형용사와 ..."
-  // );
 
   return (
     <StRecommendContainer>
@@ -69,43 +64,6 @@ const Recommend = () => {
             </StText>
           </StTextContainer>
         </StContentMain>
-
-        {/* <StContentMain>
-            <StImgContainer>
-              <StImg source={require("../assets/icon.png")} />
-            </StImgContainer>
-
-            <StTitleContainer>
-              <StTitle>{title}</StTitle>
-            </StTitleContainer>
-
-            <StWriterContainer>
-              <StWriter>{writer}</StWriter>
-            </StWriterContainer>
-
-            <StTextContainer>
-              <StText>{text}</StText>
-            </StTextContainer>
-          </StContentMain>
-
-          <StContentMain>
-            <StImgContainer>
-              <StImg source={require("../assets/icon.png")} />
-            </StImgContainer>
-
-            <StTitleContainer>
-              <StTitle>{title}</StTitle>
-            </StTitleContainer>
-
-            <StWriterContainer>
-              <StWriter>{writer}</StWriter>
-            </StWriterContainer>
-
-            <StTextContainer>
-              <StText>{text}</StText>
-            </StTextContainer>
-          </StContentMain>
-        </Swiper> */}
 
         <StContentSub>
           <StSubText>📚 연관 도서</StSubText>

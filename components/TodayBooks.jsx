@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import styled from "@emotion/native";
 import { AntDesign } from "@expo/vector-icons";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
+import { useQuery, useQueryClient } from "react-query";
+import { getBooks } from "../api";
 
 function TodayBooks() {
   const navigation = useNavigation();
+  const queryClient = useQueryClient();
 
   const goAdd = () => {
     navigation.navigate("Stacks", { screen: "Add" });
@@ -16,28 +19,41 @@ function TodayBooks() {
     navigation.navigate("Stacks", { screen: "Recommend" });
   };
 
-  const [bookApiObj, setBookApiObj] = useState({
-    title: "",
-    author: "",
-    description: "",
-    cover: "",
-  });
+  // const [bookApiObj, setBookApiObj] = useState({
+  //   title: "",
+  //   author: "",
+  //   description: "",
+  //   cover: "",
+  // });
 
-  const getBooks = async () => {
-    try {
-      const bookApi = await axios.get(
-        `http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttbsoojae10291105001&QueryType=BlogBest&MaxResults=1&start=1&SearchTarget=Book&output=JS&Version=20131101`
-      );
-      const aaa = JSON.parse(bookApi.request._response);
-      setBookApiObj(aaa.item[0]);
-    } catch (error) {
-      console.log("Error가 발생했습니다.", error);
-    }
-  };
+  // const getBooks = async () => {
+  //   try {
+  //     const bookApi = await axios.get(
+  //       `http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttbsoojae10291105001&QueryType=BlogBest&MaxResults=1&start=1&SearchTarget=Book&output=JS&Version=20131101`
+  //     );
+  //     const aaa = JSON.parse(bookApi.request._response);
+  //     setBookApiObj(aaa.item[0]);
+  //   } catch (error) {
+  //     console.log("Error가 발생했습니다.", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getBooks();
-  }, []);
+  // useEffect(() => {
+  //   getBooks();
+  // }, []);
+
+  const { data: bookData, isLoading: bookLoading } = useQuery(
+    "BookCome",
+    getBooks
+  );
+
+  if (bookLoading) {
+    return (
+      <Loader>
+        <Text>로딩중</Text>
+      </Loader>
+    );
+  }
 
   return (
     <View>
@@ -45,18 +61,18 @@ function TodayBooks() {
       <ToDay onPress={goRecommend}>
         <ToDayImg
           source={{
-            uri: bookApiObj.cover,
+            uri: bookData.data.item[0].cover,
           }}
         />
         <TodayText>
           <ToDayTitle numberOfLines={1} ellipsizeMode="tail">
-            {bookApiObj.title}
+            {bookData.data.item[0].title}
           </ToDayTitle>
           <ToDayOuter numberOfLines={1} ellipsizeMode="tail">
-            {bookApiObj.author}
+            {bookData.data.item[0].author}
           </ToDayOuter>
           <ToDayContents numberOfLines={8} ellipsizeMode="tail">
-            {bookApiObj.description}
+            {bookData.data.item[0].description}
           </ToDayContents>
         </TodayText>
       </ToDay>
@@ -145,4 +161,10 @@ const AddBookBtn = styled.TouchableOpacity`
   justify-content: center;
   width: 50px;
   height: 50px;
+`;
+
+const Loader = styled.View`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

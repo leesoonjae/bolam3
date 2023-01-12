@@ -83,7 +83,7 @@ const DetailEdit = ({
   };
 
   return (
-    <StAddContainer>
+    <StAddContainer scrollIndicatorInsets={{ right: 1 }}>
       <StContents>
         <StImageContainer onPress={imageUpload}>
           {newImgUri ? (
