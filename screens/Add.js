@@ -1,5 +1,5 @@
 import styled from "@emotion/native";
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../util";
+import { SCREEN_HEIGHT } from "../util";
 import { AntDesign } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
 import { Picker } from "@react-native-picker/picker";
@@ -7,95 +7,118 @@ import React, { useState, useEffect } from "react";
 import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
 import axios from "axios";
 import uuid from "react-native-uuid";
+import * as ImagePicker from "expo-image-picker";
+import { Alert } from "react-native";
+import { useQuery } from "react-query";
+import { getDataFromServer } from "../api";
 
-const Add = () => {
-  const [image, setImage] = useState("");
+const Add = ({ navigation: { goBack, navigate } }) => {
+  const isDark = useColorScheme() === "dark";
+
+  const [imgUri, setImgUri] = useState("");
   const [title, setTitle] = useState("");
   const [writer, setWriter] = useState("");
   const [rating, setRating] = useState(0);
-  const [period, setPeriod] = useState("");
   const [isDone, setIsDone] = useState(false);
   const [bestSentence, setbestSentence] = useState("");
   const [myThinking, setMyThinking] = useState("");
 
+  // const [allData, setAllData] = useState({
+  //   imgUri: "",
+  //   title: "",
+  //   writer: "",
+  //   period: "",
+  //   isDone: false,
+  //   bestSentence: "",
+  //   myThinking: ""
+  // })
+  // const [rating, setRating] = useState(0);
+
+  // console.log("imgUri: ", imgUri);
+
+  // 데이터 구조
   const data = {
     id: uuid.v4(),
+    imgUri: imgUri,
     title: title,
     writer: writer,
     rating: rating,
-    period: period,
     isDone: isDone,
     bestSentence: bestSentence,
     myThinking: myThinking,
   };
 
-  // console.log(title);
-
+  // 별점 기록
   const getRatings = (ratings) => {
     setRating(ratings);
   };
 
-  const getData = async () => {
-    try {
-      const response_data = axios.get("http://172.30.1.91:4000/data");
-      console.log(response_data.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  // useEffect(() => {
-  //   getData();
-  // }, []);
-
+  // json-server 추가
   const postData = async () => {
-    try {
-      // console.log("data: ", data);
-      await axios.post("http://172.30.1.91:4000/data", data);
-      // inputRef.current.clear();
-      setTitle("");
-      setWriter("");
-      setRating(0);
-      setPeriod("");
-      setIsDone(false);
-      setbestSentence("");
-      setMyThinking("");
-    } catch (err) {
-      console.log(err);
+    if (
+      imgUri === "" ||
+      title === "" ||
+      writer === "" ||
+      rating === 0 ||
+      bestSentence === "" ||
+      myThinking === ""
+    ) {
+      alert("입력을 완료해주세요");
+      return;
+    } else if (myThinking.length < 10) {
+      alert("나의 생각을 10글자 이상 작성해주세요.");
+      return;
+    }
+    Alert.alert("리드미 작성", "리드미를 작성하시겠습니까?", [
+      { text: "취소", style: "destructive" },
+      {
+        text: "작성",
+        onPress: async () => {
+          try {
+            // console.log("data: ", data);
+            await axios.post("http://172.30.1.39:4000/data", data);
+            goBack();
+            // navigate("Tabs", { screen: "Finished" })
+          } catch (err) {
+            console.log(err);
+          }
+        },
+      },
+    ]);
+  };
+
+  // 이미지 업로드
+  const imageUpload = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    // console.log("result.assets[0].uri: ", result.assets[0].uri);
+    setImgUri(result.assets[0].uri);
+
+    if (!result.canceled) {
+      setImgUri(result.assets[0].uri);
     }
   };
 
-  // export const postContent = createAsyncThunk(
-  //   `${name}/postContent`,
-  //   async (
-  //     { nickname, password, contentTitle, contentWhy, contentHow, contentWhen },
-  //     { fulfillWithValue, rejectWithValue }
-  //   ) => {
-  //     try {
-  //       await axios.post("http://localhost:3001/content", {
-  //         id: nanoid(),
-  //         nickname,
-  //         password,
-  //         contentTitle,
-  //         contentWhy,
-  //         contentHow,
-  //         contentWhen,
-  //       });
-  //       const res = axios.get("http://localhost:3001/content");
-  //       return fulfillWithValue(res.data);
-  //     } catch (e) {
-  //       return rejectWithValue(e);
-  //     }
-  //   }
+  // json-server 조회 : react-query
+  // const { data: fromServerData, isLoading: isLoadingData } = useQuery(
+  //   "getDataKey",
+  //   getDataFromServer
   // );
 
-  const isDark = useColorScheme() === "dark";
   return (
     <StAddContainer>
       <StContents>
-        <StImage>
-          <AntDesign name="pluscircleo" size={40} color="white" />
-        </StImage>
+        <StImageContainer onPress={imageUpload}>
+          {imgUri ? (
+            <StImage source={{ uri: imgUri }} />
+          ) : (
+            <AntDesign name="pluscircleo" size={40} color="white" />
+          )}
+        </StImageContainer>
 
         <StOnelineInputContainer>
           <StOnelineText>제목</StOnelineText>
@@ -116,15 +139,6 @@ const Add = () => {
             ratingCount={5}
             imageSize={30}
             tintColor={isDark ? "#333030" : "#E1DEDA"}
-          />
-        </StOnelineInputContainer>
-
-        <StOnelineInputContainer>
-          <StOnelineText>독서 기간</StOnelineText>
-          <StOnelineInput
-            value={period}
-            placeholder="2023.1.10 ~ 2023.2.10"
-            onChangeText={setPeriod}
           />
         </StOnelineInputContainer>
 
@@ -172,8 +186,11 @@ const Add = () => {
         <StButton style={{ backgroundColor: "#959d90" }} onPress={postData}>
           <StButtonText>Done</StButtonText>
         </StButton>
-        <StButton style={{ backgroundColor: "#BDBDBD" }}>
-          <StButtonText>cancle</StButtonText>
+        <StButton
+          style={{ backgroundColor: "#BDBDBD" }}
+          onPress={() => goBack()}
+        >
+          <StButtonText>Cancle</StButtonText>
         </StButton>
       </StButtons>
     </StAddContainer>
@@ -194,7 +211,7 @@ const StAddContainer = styled.ScrollView`
 
 const StContents = styled.View``;
 
-const StImage = styled.TouchableOpacity`
+const StImageContainer = styled.TouchableOpacity`
   width: 100%;
   height: ${SCREEN_HEIGHT / 5 + "px"};
   background-color: #b5aeae;
@@ -203,6 +220,12 @@ const StImage = styled.TouchableOpacity`
   border-radius: 10px;
   justify-content: center;
   align-items: center;
+`;
+
+const StImage = styled.Image`
+  width: 70%;
+  height: 100%;
+  border-radius: 10px;
 `;
 
 const StOnelineInputContainer = styled.View`

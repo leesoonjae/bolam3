@@ -50,7 +50,14 @@ export default function Stacks({ navigation: { goBack } }) {
         name="Add"
         component={Add}
       />
-      <Stack.Screen name="Detail" component={Detail} />
+      <Stack.Screen
+        options={{
+          title: "Read me",
+          headerTitleStyle: { color: isDark ? DARK_TEXT_COLOR : "white" },
+        }}
+        name="Detail"
+        component={Detail}
+      />
       <Stack.Screen name="DetailEdit" component={DetailEdit} />
     </Stack.Navigator>
   );
