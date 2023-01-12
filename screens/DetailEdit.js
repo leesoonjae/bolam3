@@ -1,46 +1,102 @@
 import styled from "@emotion/native";
-import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../util";
+import { SCREEN_HEIGHT } from "../util";
 import { AntDesign } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
 import { Picker } from "@react-native-picker/picker";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
+import * as ImagePicker from "expo-image-picker";
+import axios from "axios";
 
-const DetailEdit = ({ navigation: { navigate }}) => {
+const DetailEdit = ({
+  navigation: { navigate, goBack },
+  route: { params: obj },
+}) => {
+  // console.log("obj: ", obj);
 
+  const isDark = useColorScheme() === "dark";
 
+  const [newImgUri, setNewImgUri] = useState("");
+  const [newRating, setNewRating] = useState(0);
+  const [newPeriod, setNewPeriod] = useState("");
+  const [newIsDone, setNewIsDone] = useState(false);
+  const [newBestSentence, setNewBestSentence] = useState("");
+  const [newMyThinking, setMyNewthinking] = useState("");
 
-  const [isDone, setIsDone] = useState(false);
-  
-
-  const goDetailEdit = () => {
-    navigate("Stacks", { screen: "DetailEdit" });
+  // 데이터 구조
+  const newData = {
+    id: obj.id,
+    imgUri: newImgUri,
+    title: obj.title,
+    writer: obj.writer,
+    rating: newRating,
+    period: newPeriod,
+    isDone: newIsDone,
+    bestSentence: newBestSentence,
+    myThinking: newMyThinking,
   };
 
-  return(
-    <Scroll>
+  // 별점 기록
+  const getNewRatings = (ratings) => {
+    setNewRating(ratings);
+  };
 
-        <StImageBox>
-        </StImageBox>
-        
-        <StAddContainer>
-        <StContents>
+  // 이미지 업로드
+  const imageUpload = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    // console.log("result.assets[0].uri: ", result.assets[0].uri);
+    setNewImgUri(result.assets[0].uri);
+
+    if (!result.canceled) {
+      setNewImgUri(result.assets[0].uri);
+    }
+  };
+
+  // json-server 수정
+  const updateData = () => {
+    axios.put(`http://172.30.1.64:4000/data`, newData);
+  };
+
+  // json-server 삭제
+  const deleteData = () => {
+    axios.delete(`http://172.30.1.64:4000/data`);
+  };
+
+  return (
+    <StAddContainer>
+      <StContents>
+        <StImageContainer onPress={imageUpload}>
+          {newImgUri ? (
+            <StImage source={{ uri: newImgUri }} />
+          ) : (
+            <AntDesign name="pluscircleo" size={40} color="white" />
+          )}
+        </StImageContainer>
         <TitleContainer>
-         <TitleText>나의라임 오뤤즤나무</TitleText> 
-         <AuthorText>김d엘라스</AuthorText>
+          <TitleText>{obj.title}</TitleText>
+          <AuthorText>{obj.writer}</AuthorText>
         </TitleContainer>
 
         <StOnelineInputContainer>
-        <StOnelineText>독서 기간:</StOnelineText>
-          <ReadDateInput>
-            <OutputText>2022.01.09 ~ 2029.12.31</OutputText>
-          </ReadDateInput>
+          <StOnelineText>독서 기간:</StOnelineText>
+          <ReadDateInput
+            placeholder={obj.period}
+            value={newPeriod}
+            onChangeText={setNewPeriod}
+          />
         </StOnelineInputContainer>
 
         <StOnelineInputContainer>
-          <StOnelineText>진행 상황:</StOnelineText>
+          <StOnelineText>진행 상황</StOnelineText>
           <Picker
-            selectedValue={isDone}
-            onValueChange={(itemValue) => setIsDone(itemValue)}
+            value={newIsDone}
+            selectedValue={newIsDone}
+            onValueChange={(itemValue) => setNewIsDone(itemValue)}
             style={{
               backgroundColor: "white",
               width: 265,
@@ -52,70 +108,77 @@ const DetailEdit = ({ navigation: { navigate }}) => {
           </Picker>
         </StOnelineInputContainer>
 
-        <StOnelineInputContainer>     
-          <StOnelineText>평점:</StOnelineText>
+        <StOnelineInputContainer>
+          <StOnelineText>평점</StOnelineText>
           <Rating
-            startingValue={0}
+            onFinishRating={getNewRatings}
+            startingValue={obj.rating}
             style={{ marginLeft: 20 }}
             ratingCount={5}
             imageSize={30}
-            tintColor="#E1DEDA"
+            tintColor={isDark ? "#333030" : "#E1DEDA"}
           />
         </StOnelineInputContainer>
 
-       
-
-
-
         <StOverlinesInputContainer>
           <StOverlineText>인상 깊었던 문장</StOverlineText>
-          <OutputBoxInput>
-            <OutputText>안녕하세요</OutputText>
-          </OutputBoxInput>
+          <OutputBoxInput
+            placeholder={obj.bestSentence}
+            value={newBestSentence}
+            onChangeText={setNewBestSentence}
+          />
         </StOverlinesInputContainer>
 
         <StOverlinesInputContainer>
-        <StOverlineText>나의 생각</StOverlineText>
-          <OutputBoxInput>
-            <OutputText>나의 죽음을 적에게 알리지마라...</OutputText>
-          </OutputBoxInput>
+          <StOverlineText>나의 생각</StOverlineText>
+          <OutputBoxInput
+            placeholder={obj.myThinking}
+            value={newMyThinking}
+            onChangeText={setMyNewthinking}
+          />
         </StOverlinesInputContainer>
       </StContents>
 
       <StButtons>
-        <StButton onPress={goDetailEdit} style={{ backgroundColor: "#959d90" }}>
+        <StButton style={{ backgroundColor: "#959d90" }} onPress={updateData}>
           <StButtonText>Done</StButtonText>
         </StButton>
-        <StButton style={{ backgroundColor: "#BDBDBD" }}>
+        <StButton
+          style={{ backgroundColor: "#BDBDBD" }}
+          onPress={() => goBack()}
+        >
           <StButtonText>Cancle</StButtonText>
         </StButton>
       </StButtons>
     </StAddContainer>
-
-    </Scroll>
   );
 };
 
 export default DetailEdit;
 
-const Scroll = styled.ScrollView`
-
-`
-
 const StAddContainer = styled.ScrollView`
   padding-left: 30px;
   padding-right: 30px;
+  background-color: ${(props) => props.theme.backgroundColor};
 `;
 
 const StContents = styled.View``;
 
-const StImageBox = styled.View`
+const StImageContainer = styled.TouchableOpacity`
   width: 100%;
-  height: ${SCREEN_HEIGHT / 2 + "px"};
-  background-color: #d9d9d9;
+  height: ${SCREEN_HEIGHT / 5 + "px"};
+  background-color: #b5aeae;
+  margin-top: 20px;
   margin-bottom: 20px;
+  border-radius: 10px;
   justify-content: center;
   align-items: center;
+`;
+
+const StImage = styled.Image`
+  width: 70%;
+  height: 100%;
+  border-radius: 10px;
 `;
 
 const TitleContainer = styled.View`
@@ -128,6 +191,7 @@ const TitleText = styled.Text`
   flex-direction: row;
   margin-bottom: 10px;
   font-size: 25px;
+  color: ${(props) => props.theme.text};
 `;
 
 const AuthorText = styled.Text`
@@ -135,7 +199,8 @@ const AuthorText = styled.Text`
   color: grey;
   margin-top: 10px;
   margin-left: 15px;
-`; 
+  color: ${(props) => props.theme.text};
+`;
 
 const StOnelineInputContainer = styled.View`
   flex-direction: row;
@@ -188,15 +253,9 @@ const OutputBoxInput = styled.TextInput`
   height: 40px;
 `;
 
-const TitleBox = styled.Text`
-  font-size: 16px;
-  margin-bottom: 5px;
-  color: ${(props) => props.theme.text};
-`
-
 const OutputText = styled.Text`
-font-size: 16px;
-padding: 10px;
+  font-size: 16px;
+  padding: 10px;
 `;
 
 /////////////// 콘텐츠, 버튼 구분 ///////////////

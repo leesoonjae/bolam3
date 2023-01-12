@@ -4,18 +4,21 @@ import { AntDesign } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
 import { Picker } from "@react-native-picker/picker";
 import React, { useState } from "react";
+import { Image, Text } from "react-native";
 
 const Detail = ({ navigation: { navigate }, route: { params: obj } }) => {
   console.log("ggg", obj);
   const [isDone, setIsDone] = useState(false);
 
   const goDetailEdit = () => {
-    navigate("Stacks", { screen: "DetailEdit" });
+    navigate("Stacks", { screen: "DetailEdit", params: obj });
   };
 
   return (
     <Scroll>
-      <StImageBox></StImageBox>
+      <StImageBox>
+        <StImage source={{ uri: obj.imgUri }} />
+      </StImageBox>
 
       <StAddContainer>
         <StContents>
@@ -25,30 +28,16 @@ const Detail = ({ navigation: { navigate }, route: { params: obj } }) => {
           </TitleContainer>
 
           <StOnelineInputContainer>
-            <StOnelineText>독서 기간:</StOnelineText>
-            <ReadDate>
-              <OutputText>{obj.period}</OutputText>
-            </ReadDate>
+            <StOnelineText style={{ marginBottom: 18, marginRight: 10 }}>
+              진행 상황
+            </StOnelineText>
+            <OutputBox>
+              <OutputText>{obj.isDone ? "Finished" : "Reading"}</OutputText>
+            </OutputBox>
           </StOnelineInputContainer>
 
           <StOnelineInputContainer>
-            <StOnelineText>진행 상황:</StOnelineText>
-            <Picker
-              selectedValue={isDone}
-              onValueChange={(itemValue) => setIsDone(itemValue)}
-              style={{
-                backgroundColor: "white",
-                width: 265,
-                marginLeft: 20,
-              }}
-            >
-              <Picker.Item label="Reading" value={() => setIsDone(false)} />
-              <Picker.Item label="Finished" value={() => setIsDone(true)} />
-            </Picker>
-          </StOnelineInputContainer>
-
-          <StOnelineInputContainer>
-            <StOnelineText>평점:</StOnelineText>
+            <StOnelineText>평점</StOnelineText>
             <Rating
               startingValue={obj.rating}
               style={{ marginLeft: 20 }}
@@ -91,7 +80,9 @@ const Detail = ({ navigation: { navigate }, route: { params: obj } }) => {
 
 export default Detail;
 
-const Scroll = styled.ScrollView``;
+const Scroll = styled.ScrollView`
+  background-color: ${(props) => props.theme.backgroundColor};
+`;
 
 const StAddContainer = styled.ScrollView`
   padding-left: 30px;
@@ -102,11 +93,17 @@ const StContents = styled.View``;
 
 const StImageBox = styled.View`
   width: 100%;
-  height: ${SCREEN_HEIGHT / 2 + "px"};
+  height: ${SCREEN_HEIGHT / 2.5 + "px"};
   background-color: #d9d9d9;
   margin-bottom: 20px;
   justify-content: center;
   align-items: center;
+`;
+
+const StImage = styled.Image`
+  width: 70%;
+  height: 80%;
+  border-radius: 10px;
 `;
 
 const TitleContainer = styled.View`
@@ -119,6 +116,7 @@ const TitleText = styled.Text`
   flex-direction: row;
   margin-bottom: 10px;
   font-size: 25px;
+  color: ${(props) => props.theme.text};
 `;
 
 const AuthorText = styled.Text`
@@ -126,6 +124,7 @@ const AuthorText = styled.Text`
   color: grey;
   margin-top: 10px;
   margin-left: 15px;
+  color: ${(props) => props.theme.text};
 `;
 
 const StOnelineInputContainer = styled.View`

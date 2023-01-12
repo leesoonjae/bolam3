@@ -70,6 +70,7 @@ export default function ReadBooks() {
                     params: obj,
                   })
                 }
+                key={obj.id}
               >
                 <FinishedImg
                   source={{
@@ -102,9 +103,10 @@ const styles = StyleSheet.create({
   stylegridView: {
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-between",
-    marginLeft: 15,
-    marginRight: 5,
+    // justifyContent: "space-between",
+    // marginLeft: 15,
+    // marginRight: 5,
+    marginLeft: 13,
   },
 });
 
@@ -114,6 +116,7 @@ const FinishedTitle = styled.Text`
   font-weight: 600;
   color: #513d34;
   text-align: center;
+  color: ${(props) => props.theme.text};
 `;
 
 const FinishedSubTitle = styled.Text`
@@ -124,9 +127,12 @@ const FinishedSubTitle = styled.Text`
   font-weight: 500;
   text-align: right;
   color: #513d34;
+  color: ${(props) => props.theme.text};
 `;
 
-const FinishedListWrapper = styled.View``;
+const FinishedListWrapper = styled.View`
+  justify-content: center;
+`;
 
 const FinishedCard = styled.TouchableOpacity`
   margin-top: 20px;

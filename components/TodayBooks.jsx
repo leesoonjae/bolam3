@@ -91,7 +91,7 @@ const ToDay = styled.TouchableOpacity`
 
 const TodayText = styled.View`
   padding-left: 18px;
-  padding-top: 18px;
+  /* padding-top: 18px; */
 `;
 
 const ToDayTitle = styled.Text`
@@ -116,7 +116,7 @@ const ToDayContents = styled.Text`
 
 const ToDayImg = styled.Image`
   width: 150px;
-  height: 200px;
+  height: 210px;
   border-radius: 15px;
 `;
 

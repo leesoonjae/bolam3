@@ -9,21 +9,30 @@ import axios from "axios";
 import uuid from "react-native-uuid";
 import * as ImagePicker from "expo-image-picker";
 import { Alert } from "react-native";
+import { useQuery } from "react-query";
+import { getDataFromServer } from "../api";
 
-import { useSelector, useDispatch } from "react-redux";
-import { addReadMe, __addReadMe, __getReadMe } from "../redux/modules/readMe";
-
-const Add = () => {
+const Add = ({ navigation: { goBack, navigate } }) => {
   const isDark = useColorScheme() === "dark";
 
   const [imgUri, setImgUri] = useState("");
   const [title, setTitle] = useState("");
   const [writer, setWriter] = useState("");
   const [rating, setRating] = useState(0);
-  const [period, setPeriod] = useState("");
   const [isDone, setIsDone] = useState(false);
   const [bestSentence, setbestSentence] = useState("");
   const [myThinking, setMyThinking] = useState("");
+
+  // const [allData, setAllData] = useState({
+  //   imgUri: "",
+  //   title: "",
+  //   writer: "",
+  //   period: "",
+  //   isDone: false,
+  //   bestSentence: "",
+  //   myThinking: ""
+  // })
+  // const [rating, setRating] = useState(0);
 
   // console.log("imgUri: ", imgUri);
 
@@ -34,7 +43,6 @@ const Add = () => {
     title: title,
     writer: writer,
     rating: rating,
-    period: period,
     isDone: isDone,
     bestSentence: bestSentence,
     myThinking: myThinking,
@@ -52,14 +60,10 @@ const Add = () => {
       title === "" ||
       writer === "" ||
       rating === 0 ||
-      period === "" ||
       bestSentence === "" ||
       myThinking === ""
     ) {
       alert("입력을 완료해주세요");
-      return;
-    } else if (period.length < 10) {
-      alert("독서기간을 양식에 맞게 작성해주세요(2023.1.10 ~ 2023.2.10).");
       return;
     } else if (myThinking.length < 10) {
       alert("나의 생각을 10글자 이상 작성해주세요.");
@@ -72,15 +76,9 @@ const Add = () => {
         onPress: async () => {
           try {
             // console.log("data: ", data);
-            await axios.post("http://192.168.0.2:4000/data", data);
-            setImgUri("");
-            setTitle("");
-            setWriter("");
-            setRating(0);
-            setPeriod("");
-            setIsDone(false);
-            setbestSentence("");
-            setMyThinking("");
+            await axios.post("http://172.30.1.39:4000/data", data);
+            goBack();
+            // navigate("Tabs", { screen: "Finished" })
           } catch (err) {
             console.log(err);
           }
@@ -105,47 +103,11 @@ const Add = () => {
     }
   };
 
-  // json-server 조회
-  // const getData = async () => {
-  //   try {
-  //     const response_data = await axios.get("http://172.30.1.64:4000/data");
-  //     console.log(response_data.data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-  // const getData = async () => {
-  //   try {
-  //     const response_data = await axios.get("http://localhost:4000/data");
-  //     console.log(response_data.data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-  // store 추가(redex, redux-toolkit)
-  const dispatch = useDispatch();
-
-  const postDataToStore = () => {
-    dispatch(addReadMe(data));
-  };
-
-  // store 조회(redex, redux-toolkit)
-  const state = useSelector((state) => state);
-  // console.log("state : ", state);
-  // console.log("state.readME : ", state.readMe);
-  // console.log("state.readMe.test: ", state.readMe.test)
-
-  useEffect(() => {
-    // getData();
-    dispatch(__getReadMe());
-  }, []);
-
-  // json-server, store 추가
-  const postDataToSeverAndStore = () => {
-    dispatch(__addReadMe(data));
-  };
+  // json-server 조회 : react-query
+  // const { data: fromServerData, isLoading: isLoadingData } = useQuery(
+  //   "getDataKey",
+  //   getDataFromServer
+  // );
 
   return (
     <StAddContainer>
@@ -177,15 +139,6 @@ const Add = () => {
             ratingCount={5}
             imageSize={30}
             tintColor={isDark ? "#333030" : "#E1DEDA"}
-          />
-        </StOnelineInputContainer>
-
-        <StOnelineInputContainer>
-          <StOnelineText>독서 기간</StOnelineText>
-          <StOnelineInput
-            value={period}
-            placeholder="2023.1.10 ~ 2023.2.10"
-            onChangeText={setPeriod}
           />
         </StOnelineInputContainer>
 
@@ -235,9 +188,9 @@ const Add = () => {
         </StButton>
         <StButton
           style={{ backgroundColor: "#BDBDBD" }}
-          onPress={postDataToSeverAndStore}
+          onPress={() => goBack()}
         >
-          <StButtonText>cancle</StButtonText>
+          <StButtonText>Cancle</StButtonText>
         </StButton>
       </StButtons>
     </StAddContainer>
