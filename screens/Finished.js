@@ -11,8 +11,8 @@ import {
 } from "react-native";
 import styled from "@emotion/native";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import React, { useCallback, useState } from "react";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 // 컴포넌트명 변경했습니다 App => ReadBooks
 export default function ReadBooks() {
@@ -34,24 +34,26 @@ export default function ReadBooks() {
       );
       // npm start 해서 나오는 자신의 주소로 봐꾸셔야 실행이 됩니다!
       setFinishedBookData(serverFinishedBooks.data);
-      const allReadBooks = finishedBookData.map((allRead) => allRead.length);
-      console.log("전체", allReadBooks);
+
+      const allReadBooks = serverFinishedBooks.data.map(
+        (allRead) => allRead.length
+      );
       setGoalBooksCount(allReadBooks.length);
-      console.log("전체적용", goalBooksCount);
-      const trueReadBooks = finishedBookData.filter(
+
+      const trueReadBooks = serverFinishedBooks.data.filter(
         (allRead) => allRead.isDone === true
       );
-      console.log("일부만", trueReadBooks);
       setFinishedBookCount(trueReadBooks.length);
-      console.log("일부만적용", finishedBookCount);
     } catch (error) {
       console.log("Error 가 발생했습니다.", error);
     }
   };
 
-  useEffect(() => {
-    finishedBooks();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      finishedBooks();
+    }, [])
+  );
 
   return (
     <FinishedPage horizontal={false}>

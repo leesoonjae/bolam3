@@ -59,12 +59,12 @@ const DetailEdit = ({
 
   // json-server 수정
   const updateData = () => {
-    axios.put(`http://172.30.1.64:4000/data`, newData);
+    axios.put(`http://192.168.0.2:4000/data`, newData);
   };
 
   // json-server 삭제
   const deleteData = () => {
-    axios.delete(`http://172.30.1.64:4000/data`);
+    axios.delete(`http://192.168.0.2:4000/data`);
   };
 
   return (

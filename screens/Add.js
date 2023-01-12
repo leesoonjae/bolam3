@@ -76,7 +76,7 @@ const Add = ({ navigation: { goBack, navigate } }) => {
         onPress: async () => {
           try {
             // console.log("data: ", data);
-            await axios.post("http://172.30.1.39:4000/data", data);
+            await axios.post("http://192.168.0.2:4000/data", data);
             goBack();
             // navigate("Tabs", { screen: "Finished" })
           } catch (err) {
