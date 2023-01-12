@@ -8,6 +8,8 @@ import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
 import * as ImagePicker from "expo-image-picker";
 import axios from "axios";
 import { Alert } from "react-native";
+import { useDispatch } from "react-redux";
+import { __updateReadMe } from "../redux/modules/readMe";
 
 const DetailEdit = ({
   navigation: { navigate, goBack },
@@ -16,6 +18,7 @@ const DetailEdit = ({
   // const goFinished = () => {
   //   navigate("Tabs", { screen: "Finished", params: obj });
   // };
+  const dispatch = useDispatch();
 
   const isDark = useColorScheme() === "dark";
 
@@ -33,7 +36,6 @@ const DetailEdit = ({
     title: obj.title,
     writer: obj.writer,
     rating: newRating,
-    period: newPeriod,
     isDone: newIsDone,
     bestSentence: newBestSentence,
     myThinking: newMyThinking,
@@ -72,10 +74,11 @@ const DetailEdit = ({
         style: "default",
         onPress: () => {
           try {
-            axios.put(
-              `https://lying-magical-math.glitch.me/data/${obj.id}`,
-              newData
-            );
+            dispatch(__updateReadMe(newData));
+            // axios.put(
+            //   `https://lying-magical-math.glitch.me/data/${obj.id}`,
+            //   newData
+            // );
             navigate("Tabs", { screen: "Main" });
           } catch (error) {
             console.log("Error발생", error);
