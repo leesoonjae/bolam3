@@ -1,39 +1,4 @@
 {
-  "test": [
-    {
-      "id": "6796ddff-04c8-483d-a45d-4419ba1a5d94",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/8eec3864-5628-4ece-94a7-63cae24e6a9d.jpeg",
-      "title": "11111111",
-      "writer": "11111111",
-      "rating": 5,
-      "period": "11111111111",
-      "isDone": true,
-      "bestSentence": "111111111",
-      "myThinking": "11111111111111"
-    },
-    {
-      "id": "87345f35-6c8a-409d-b498-a14de18cfd29",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/6dfda00b-c355-4394-b613-4ba67ece2818.jpeg",
-      "title": "22222222222222",
-      "writer": "2222222222222222",
-      "rating": 5,
-      "period": "222222222222",
-      "isDone": false,
-      "bestSentence": "2222222222222222",
-      "myThinking": "22222222222222222222"
-    },
-    {
-      "id": "28aa4c5e-1bac-4a81-a2ec-6b870994980f",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/3fcacd9b-efb2-4821-b579-2bcd8c0f9f57.jpeg",
-      "title": "11111",
-      "writer": "111111",
-      "rating": 5,
-      "period": "111111111111111",
-      "isDone": true,
-      "bestSentence": "111111111111",
-      "myThinking": "11111111111111"
-    }
-  ],
   "data": [
     {
       "id": "99de3c32-130d-43b5-aeac-66677629e20f",
@@ -59,80 +24,94 @@
       "myThinking": "ewqfsda"
     },
     {
-      "id": "887c13f3-ff56-43ef-bd24-53d2bb3cfec5",
-      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/1D84F11F-477C-4618-8442-DDD5B358C018.jpg",
-      "title": "소금빵",
-      "writer": "맛있죠",
+      "id": "366ac263-9227-4455-97fb-4f7d2d8afc87",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/141327e1-7840-4ae3-a07b-019ed7609bc1.jpeg",
+      "title": "잠을 잘 수 없습니다",
+      "writer": "이기동",
       "rating": 5,
-      "period": "2023.02.03~2023.03.04",
-      "isDone": false,
-      "bestSentence": "단팥빵도",
-      "myThinking": "맛있죠!!!!!!!!!!!!!"
-    },
-    {
-      "id": "491fbf73-9992-4bab-b6fa-b7320f899b2f",
-      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/63CB73B0-4DC6-4C89-B77C-43DFD7E340FB.jpg",
-      "title": "귀여운식빵",
-      "writer": "모락모락",
-      "rating": 5,
-      "period": "2022.03.04~2022.04.04",
-      "isDone": false,
-      "bestSentence": "와",
-      "myThinking": "따끈따근!!!!!!!"
-    },
-    {
-      "id": "7a36e85e-402e-43f0-95ab-d0902a7b29a8",
-      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/4C9AE236-47D9-43BA-AF4A-4665E61ED7D1.jpg",
-      "title": "새해",
-      "writer": "복",
-      "rating": 5,
-      "period": "2023.01.01~",
       "isDone": true,
-      "bestSentence": "우아",
-      "myThinking": "많이받으새요!!!!!"
+      "bestSentence": "하루 종일 코드가 머리 속을 맴돈다",
+      "myThinking": "해결은 할 수 없다. 이러다 탈모오면 어떡하지?"
     },
     {
-      "id": "599d58d3-7c10-431e-896e-9eb4ab025b23",
-      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/91FBD88D-54B9-4E0C-A83D-2DB0C2D60281.jpg",
-      "title": "봄",
-      "writer": "추워",
-      "rating": 5,
-      "period": "2022.12.12~2023.03.01",
+      "id": "7dbc6e43-6d99-4c50-9e6a-91299bde14c6",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/d084e9b1-95c7-49f8-9fd2-5a4d1aa02a1a.jpeg",
+      "title": "왜 돌아가는거지?",
+      "writer": "이기동",
+      "rating": 3,
       "isDone": false,
-      "bestSentence": "봄봄!!!!",
-      "myThinking": "빨리빨리!!!!!!!!!"
+      "bestSentence": "이거 웨 되노?",
+      "myThinking": "일단 동작시키고 보려고요."
     },
     {
-      "id": "fc34bd2a-0dd7-492b-b3b8-e8421d358ee1",
-      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/C378FC6D-5A8F-4658-A6A8-CE72C276CCBA.jpg",
-      "title": "바다",
-      "writer": "조아",
+      "id": "b17217d1-92f6-4882-b192-d86aaf756660",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/03ecc620-a2c2-4c09-b907-57751cfb58d8.jpeg",
+      "title": "작동이 안된다",
+      "writer": "이기동",
+      "rating": 2,
+      "isDone": true,
+      "bestSentence": "1분전에는 됐는데",
+      "myThinking": "무서워서 코드를 수정할 수가 없다"
+    },
+    {
+      "id": "79274c46-d4e2-4901-a4a5-280bec76874f",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/dbf307d3-4cc1-4735-bc76-bc304a560576.jpeg",
+      "title": "인터넷 익스프로러",
+      "writer": "이기동",
+      "rating": 2,
+      "isDone": false,
+      "bestSentence": "오늘 친구를 잃었다",
+      "myThinking": "인터넷 익스플로러는 선넘었지"
+    },
+    {
+      "id": "858eaf23-0a65-4243-8ae6-bcc5450c6eb3",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/3d658ff0-8c40-4467-a04e-e8798d87de96.jpeg",
+      "title": "3시까지",
+      "writer": "이기동",
+      "rating": 5,
+      "isDone": false,
+      "bestSentence": "이건 운명이야 ",
+      "myThinking": "생각하지마. 그냥 받아들여."
+    },
+    {
+      "id": "b057e2b3-43b8-45de-9411-0996ef09bf2e",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/accf9478-ebb8-49ab-9de7-e36b04ab80c5.jpeg",
+      "title": "왜 되는데??",
+      "writer": "이기동",
       "rating": 4,
-      "period": "2022.12.12~2022.12.25",
       "isDone": false,
-      "bestSentence": "일렁일렁",
-      "myThinking": "넘실넘실~~~~~~"
+      "bestSentence": "니 왜 되는데",
+      "myThinking": "뭔데 진짜 니 왜 되는데"
     },
     {
-      "id": "986dfa53-baa5-4408-9a27-e3bc0fbba1d1",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540bowul%252Fbolam3/ImagePicker/dd7086bf-b288-4518-8c21-5cb9448936e5.jpeg",
-      "title": "강아지",
-      "writer": "강아지",
-      "rating": 5,
-      "period": "2023.01.01~2023.01.10",
-      "isDone": true,
-      "bestSentence": "강아지",
-      "myThinking": "겅어지 강아지 강아지 강아지"
+      "id": "9daf4aaf-d1ff-444e-9e5b-811f0a4e0801",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/5f399b24-8ee5-476e-ab74-be9d9305a09b.jpeg",
+      "title": "제발",
+      "writer": "제발",
+      "rating": 4,
+      "isDone": false,
+      "bestSentence": "제발",
+      "myThinking": "저는 불자인데 하나님을 보았습니다"
     },
     {
-      "id": "bf1562c4-c801-4874-9e76-2b6872df26bc",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540bowul%252Fbolam3/ImagePicker/717491a9-fcc5-4d17-921b-5843b6630022.jpeg",
-      "title": "테스트4",
-      "writer": "테사트4",
+      "id": "bc0c40ee-12bd-4ca1-8b0f-fbac58c27063",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/59662352-2343-403d-a415-e568a75c1a16.jpeg",
+      "title": "나를 죽이지 못한 고통은",
+      "writer": "이기동",
+      "rating": 3,
+      "isDone": false,
+      "bestSentence": "나를 더 강하게 만든다",
+      "myThinking": "이러다 죽는거 아니야?"
+    },
+    {
+      "id": "e4bb46b1-10b2-4b93-adf5-5feeaa770ec6",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/78307d16-5527-4cd7-8be0-8046df4d677f.jpeg",
+      "title": "즉시반영",
+      "writer": "이기동",
       "rating": 4,
       "isDone": true,
-      "bestSentence": "테스타",
-      "myThinking": "테테테테테테테ㅔ테테테테텥ㄹ미"
+      "bestSentence": "되죠?",
+      "myThinking": "된다에 내 손목은 건다. 쫄리면 뒈지시던가"
     }
   ]
 }

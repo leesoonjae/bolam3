@@ -83,15 +83,6 @@ const DetailEdit = ({
         </TitleContainer>
 
         <StOnelineInputContainer>
-          <StOnelineText>독서 기간:</StOnelineText>
-          <ReadDateInput
-            placeholder={obj.period}
-            value={newPeriod}
-            onChangeText={setNewPeriod}
-          />
-        </StOnelineInputContainer>
-
-        <StOnelineInputContainer>
           <StOnelineText>진행 상황</StOnelineText>
           <Picker
             value={newIsDone}

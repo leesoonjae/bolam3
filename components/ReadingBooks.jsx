@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { View, Text, TouchableOpacity } from "react-native";
 import styled from "@emotion/native";
 import { ScrollView } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 
 function ReadingBooks() {
   const navigation = useNavigation();
@@ -18,16 +18,18 @@ function ReadingBooks() {
 
   const getData = async () => {
     try {
-      const res = await axios.get("http://192.168.0.2:4000/data");
+      const res = await axios.get("http://172.30.1.39:4000/data");
       setReadingBookData(res.data);
     } catch (error) {
       console.log("Error!", error);
     }
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      getData();
+    }, [])
+  );
 
   return (
     <ReadingBook>
@@ -40,16 +42,15 @@ function ReadingBooks() {
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {readingBookData.map((obj) =>
           obj.isDone === false ? (
-            <Poster
-              onPress={() =>
-                navigation.navigate("Stacks", {
-                  screen: "Detail",
-                  params: obj,
-                })
-              }
-              key={obj.id}
-            >
-              <TouchableOpacity>
+            <Poster key={obj.id}>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("Stacks", {
+                    screen: "Detail",
+                    params: obj,
+                  })
+                }
+              >
                 <View
                   style={{
                     shadowColor: "black",

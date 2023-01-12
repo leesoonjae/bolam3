@@ -1,5 +1,5 @@
 import styled from "@emotion/native";
-import { SCREEN_HEIGHT } from "../util";
+import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../util";
 import { AntDesign } from "@expo/vector-icons";
 import { Rating } from "react-native-ratings";
 import { Picker } from "@react-native-picker/picker";
@@ -76,8 +76,9 @@ const Add = ({ navigation: { goBack, navigate } }) => {
         onPress: async () => {
           try {
             // console.log("data: ", data);
-            await axios.post("http://192.168.0.2:4000/data", data);
-            goBack();
+            Alert.alert("작성이 완료되었습니다.");
+            await axios.post("http://172.30.1.39:4000/data", data);
+            await goBack();
             // navigate("Tabs", { screen: "Finished" })
           } catch (err) {
             console.log(err);
@@ -212,18 +213,19 @@ const StAddContainer = styled.ScrollView`
 const StContents = styled.View``;
 
 const StImageContainer = styled.TouchableOpacity`
-  width: 100%;
-  height: ${SCREEN_HEIGHT / 5 + "px"};
+  width: ${SCREEN_WIDTH / 1.5 + "px"};
+  height: ${SCREEN_HEIGHT / 4 + "px"};
   background-color: #b5aeae;
-  margin-top: 20px;
-  margin-bottom: 20px;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 const StImage = styled.Image`
-  width: 70%;
+  width: 100%;
   height: 100%;
   border-radius: 10px;
 `;
