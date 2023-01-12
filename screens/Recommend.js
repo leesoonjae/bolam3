@@ -4,6 +4,7 @@ import { SCREEN_HEIGHT, SCREEN_WIDTH } from "../util";
 import Swiper from "react-native-swiper";
 import { ScrollView } from "react-native-gesture-handler";
 import axios from "axios";
+import { useNavigation } from "@react-navigation/native";
 
 const Recommend = () => {
   const [bookApiObj, setBookApiObj] = useState({
@@ -25,6 +26,11 @@ const Recommend = () => {
     } catch (error) {
       console.log("Error가 발생했습니다.", error);
     }
+  };
+
+  const navigation = useNavigation();
+  const goAdd = () => {
+    navigation.navigate("Stacks", { screen: "Add" });
   };
 
   useLayoutEffect(() => {
@@ -102,7 +108,7 @@ const Recommend = () => {
         </Swiper> */}
 
         <StContentSub>
-          <StSubText>연관 도서</StSubText>
+          <StSubText>📚 연관 도서</StSubText>
 
           {etcBookImg.length !== 0 && (
             <StSubImgsContainer>
@@ -145,7 +151,7 @@ const Recommend = () => {
       </StContents>
 
       <StButtons>
-        <StButtonContainer>
+        <StButtonContainer onPress={goAdd}>
           <StButtonText>Add review</StButtonText>
         </StButtonContainer>
       </StButtons>
@@ -176,6 +182,7 @@ const StContentSub = styled.View``;
 const StImgContainer = styled.View`
   width: ${SCREEN_WIDTH / 1.18 + "px"};
   height: ${SCREEN_HEIGHT / 3.5 + "px"};
+  margin-bottom: 10px;
 `;
 
 const StImg = styled.Image`
@@ -189,7 +196,8 @@ const StImg = styled.Image`
 const StTitleContainer = styled.View``;
 
 const StTitle = styled.Text`
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
   margin-bottom: 5px;
   color: ${(props) => props.theme.text};
 `;
@@ -200,6 +208,7 @@ const StWriterContainer = styled.View`
 
 const StWriter = styled.Text`
   margin-bottom: 5px;
+  font-size: 13px;
   color: ${(props) => props.theme.text};
 `;
 
@@ -207,10 +216,13 @@ const StTextContainer = styled.View``;
 
 const StText = styled.Text`
   color: ${(props) => props.theme.text};
+  line-height: 20;
+  font-size: 13px;
 `;
 
 const StSubText = styled.Text`
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
   margin-bottom: 5px;
   margin-top: 20px;
   color: ${(props) => props.theme.text};
@@ -219,7 +231,8 @@ const StSubText = styled.Text`
 const StSubImgsContainer = styled.View`
   flex-direction: row;
   justify-content: space-around;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  margin-top: 5px;
 `;
 
 const StSubImgContainer = styled.View`
@@ -228,8 +241,8 @@ const StSubImgContainer = styled.View`
 `;
 
 const StSubImg = styled.Image`
-  width: ${SCREEN_WIDTH / 4 + "px"};
-  height: 230px;
+  width: ${SCREEN_WIDTH / 2.8 + "px"};
+  height: 200px;
   border-radius: 10px;
   border: 1px;
 `;
