@@ -30,7 +30,7 @@ export default function ReadBooks() {
   const finishedBooks = async () => {
     try {
       const serverFinishedBooks = await axios.get(
-        `http://192.168.0.2:4000/data`
+        `http://172.30.1.64:4000/data`
       );
       setFinishedBookData(serverFinishedBooks.data);
       const allReadBooks = finishedBookData.map((allRead) => allRead.length);

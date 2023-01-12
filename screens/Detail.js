@@ -10,7 +10,7 @@ const Detail = ({ navigation: { navigate }, route: { params: obj } }) => {
   const [isDone, setIsDone] = useState(false);
 
   const goDetailEdit = () => {
-    navigate("Stacks", { screen: "DetailEdit" });
+    navigate("Stacks", { screen: "DetailEdit", params: obj });
   };
 
   return (

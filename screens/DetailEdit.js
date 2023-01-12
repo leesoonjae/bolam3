@@ -6,11 +6,14 @@ import { Picker } from "@react-native-picker/picker";
 import React, { useEffect, useState } from "react";
 import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
 import * as ImagePicker from "expo-image-picker";
-import { useQuery } from "react-query";
-import { getDataFromServer } from "../api";
 import axios from "axios";
 
-const DetailEdit = ({ navigation: { navigate, goBack } }) => {
+const DetailEdit = ({
+  navigation: { navigate, goBack },
+  route: { params: obj },
+}) => {
+  // console.log("obj: ", obj);
+
   const isDark = useColorScheme() === "dark";
 
   const [newImgUri, setNewImgUri] = useState("");
@@ -18,28 +21,19 @@ const DetailEdit = ({ navigation: { navigate, goBack } }) => {
   const [newPeriod, setNewPeriod] = useState("");
   const [newIsDone, setNewIsDone] = useState(false);
   const [newBestSentence, setNewBestSentence] = useState("");
-  const [newThinking, setNewthinking] = useState("");
-
-  const [oldData, setOldData] = useState({
-    id: 0,
-    imgUri: "",
-    title: "",
-    writer: "",
-    rating: 0,
-    period: "",
-    isDone: false,
-    bestSentence: "",
-    myThinking: "",
-  });
+  const [newMyThinking, setMyNewthinking] = useState("");
 
   // 데이터 구조
   const newData = {
-    newImgUri: newImgUri,
-    newPeriod: newPeriod,
-    newIsDone: newIsDone,
-    newRating: newRating,
-    newBestSentence: newBestSentence,
-    newThinking: newThinking,
+    id: obj.id,
+    imgUri: newImgUri,
+    title: obj.title,
+    writer: obj.writer,
+    rating: newRating,
+    period: newPeriod,
+    isDone: newIsDone,
+    bestSentence: newBestSentence,
+    myThinking: newMyThinking,
   };
 
   // 별점 기록
@@ -65,30 +59,13 @@ const DetailEdit = ({ navigation: { navigate, goBack } }) => {
 
   // json-server 수정
   const updateData = () => {
-    axios.put(`http://172.30.1.64:4000/test`, newData);
+    axios.put(`http://172.30.1.64:4000/data`, newData);
   };
 
   // json-server 삭제
   const deleteData = () => {
-    axios.delete(`http://172.30.1.64:4000/test`);
+    axios.delete(`http://172.30.1.64:4000/data`);
   };
-
-  // json-server 조회 : 최근 게시물로 조회했습니다
-  const getData = async () => {
-    try {
-      const response_data = await axios.get("http://172.30.1.64:4000/test");
-      // console.log(response_data.data[response_data.data.length - 1]);
-      setOldData(response_data.data[response_data.data.length - 1]);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  // console.log(oldData);
 
   return (
     <StAddContainer>
@@ -101,14 +78,14 @@ const DetailEdit = ({ navigation: { navigate, goBack } }) => {
           )}
         </StImageContainer>
         <TitleContainer>
-          <TitleText>{oldData.title}</TitleText>
-          <AuthorText>{oldData.writer}</AuthorText>
+          <TitleText>{obj.title}</TitleText>
+          <AuthorText>{obj.writer}</AuthorText>
         </TitleContainer>
 
         <StOnelineInputContainer>
           <StOnelineText>독서 기간:</StOnelineText>
           <ReadDateInput
-            placeholder={oldData.period}
+            placeholder={obj.period}
             value={newPeriod}
             onChangeText={setNewPeriod}
           />
@@ -135,7 +112,7 @@ const DetailEdit = ({ navigation: { navigate, goBack } }) => {
           <StOnelineText>평점:</StOnelineText>
           <Rating
             onFinishRating={getNewRatings}
-            startingValue={oldData.rating}
+            startingValue={obj.rating}
             style={{ marginLeft: 20 }}
             ratingCount={5}
             imageSize={30}
@@ -146,7 +123,7 @@ const DetailEdit = ({ navigation: { navigate, goBack } }) => {
         <StOverlinesInputContainer>
           <StOverlineText>인상 깊었던 문장</StOverlineText>
           <OutputBoxInput
-            placeholder={oldData.bestSentence}
+            placeholder={obj.bestSentence}
             value={newBestSentence}
             onChangeText={setNewBestSentence}
           />
@@ -155,9 +132,9 @@ const DetailEdit = ({ navigation: { navigate, goBack } }) => {
         <StOverlinesInputContainer>
           <StOverlineText>나의 생각</StOverlineText>
           <OutputBoxInput
-            placeholder={oldData.myThinking}
-            value={newThinking}
-            onChangeText={setNewthinking}
+            placeholder={obj.myThinking}
+            value={newMyThinking}
+            onChangeText={setMyNewthinking}
           />
         </StOverlinesInputContainer>
       </StContents>
