@@ -24,7 +24,7 @@ function FinishedBooks() {
   const finishedBooks = async () => {
     try {
       const serverFinishedBooks = await axios.get(
-        `http://192.168.0.2:4000/data`
+        `http://172.30.1.39:4000/data`
       );
       // npm start 해서 나오는 자신의 주소로 봐꾸셔야 실행이 됩니다!
       setFinishedBookData(serverFinishedBooks.data);
@@ -50,16 +50,15 @@ function FinishedBooks() {
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {finishedBookData.map((obj) =>
           obj.isDone === true ? (
-            <Poster
-              onPress={() =>
-                navigation.navigate("Stacks", {
-                  screen: "Detail",
-                  params: obj,
-                })
-              }
-              key={obj.id}
-            >
-              <TouchableOpacity>
+            <Poster key={obj.id}>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate("Stacks", {
+                    screen: "Detail",
+                    params: obj,
+                  })
+                }
+              >
                 <View
                   style={{
                     shadowColor: "black",

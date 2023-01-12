@@ -1,39 +1,4 @@
 {
-  "test": [
-    {
-      "id": "6796ddff-04c8-483d-a45d-4419ba1a5d94",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/8eec3864-5628-4ece-94a7-63cae24e6a9d.jpeg",
-      "title": "11111111",
-      "writer": "11111111",
-      "rating": 5,
-      "period": "11111111111",
-      "isDone": true,
-      "bestSentence": "111111111",
-      "myThinking": "11111111111111"
-    },
-    {
-      "id": "87345f35-6c8a-409d-b498-a14de18cfd29",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/6dfda00b-c355-4394-b613-4ba67ece2818.jpeg",
-      "title": "22222222222222",
-      "writer": "2222222222222222",
-      "rating": 5,
-      "period": "222222222222",
-      "isDone": false,
-      "bestSentence": "2222222222222222",
-      "myThinking": "22222222222222222222"
-    },
-    {
-      "id": "28aa4c5e-1bac-4a81-a2ec-6b870994980f",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/3fcacd9b-efb2-4821-b579-2bcd8c0f9f57.jpeg",
-      "title": "11111",
-      "writer": "111111",
-      "rating": 5,
-      "period": "111111111111111",
-      "isDone": true,
-      "bestSentence": "111111111111",
-      "myThinking": "11111111111111"
-    }
-  ],
   "data": [
     {
       "id": "99de3c32-130d-43b5-aeac-66677629e20f",
@@ -57,82 +22,6 @@
       "isDone": false,
       "bestSentence": "erqer",
       "myThinking": "ewqfsda"
-    },
-    {
-      "id": "887c13f3-ff56-43ef-bd24-53d2bb3cfec5",
-      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/1D84F11F-477C-4618-8442-DDD5B358C018.jpg",
-      "title": "소금빵",
-      "writer": "맛있죠",
-      "rating": 5,
-      "period": "2023.02.03~2023.03.04",
-      "isDone": false,
-      "bestSentence": "단팥빵도",
-      "myThinking": "맛있죠!!!!!!!!!!!!!"
-    },
-    {
-      "id": "491fbf73-9992-4bab-b6fa-b7320f899b2f",
-      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/63CB73B0-4DC6-4C89-B77C-43DFD7E340FB.jpg",
-      "title": "귀여운식빵",
-      "writer": "모락모락",
-      "rating": 5,
-      "period": "2022.03.04~2022.04.04",
-      "isDone": false,
-      "bestSentence": "와",
-      "myThinking": "따끈따근!!!!!!!"
-    },
-    {
-      "id": "7a36e85e-402e-43f0-95ab-d0902a7b29a8",
-      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/4C9AE236-47D9-43BA-AF4A-4665E61ED7D1.jpg",
-      "title": "새해",
-      "writer": "복",
-      "rating": 5,
-      "period": "2023.01.01~",
-      "isDone": true,
-      "bestSentence": "우아",
-      "myThinking": "많이받으새요!!!!!"
-    },
-    {
-      "id": "599d58d3-7c10-431e-896e-9eb4ab025b23",
-      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/91FBD88D-54B9-4E0C-A83D-2DB0C2D60281.jpg",
-      "title": "봄",
-      "writer": "추워",
-      "rating": 5,
-      "period": "2022.12.12~2023.03.01",
-      "isDone": false,
-      "bestSentence": "봄봄!!!!",
-      "myThinking": "빨리빨리!!!!!!!!!"
-    },
-    {
-      "id": "fc34bd2a-0dd7-492b-b3b8-e8421d358ee1",
-      "imgUri": "file:///var/mobile/Containers/Data/Application/0D58C61D-ABBE-4154-B650-D87689D5E791/Library/Caches/ExponentExperienceData/%2540hanul_kim%252Fbolam3/ImagePicker/C378FC6D-5A8F-4658-A6A8-CE72C276CCBA.jpg",
-      "title": "바다",
-      "writer": "조아",
-      "rating": 4,
-      "period": "2022.12.12~2022.12.25",
-      "isDone": false,
-      "bestSentence": "일렁일렁",
-      "myThinking": "넘실넘실~~~~~~"
-    },
-    {
-      "id": "986dfa53-baa5-4408-9a27-e3bc0fbba1d1",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540bowul%252Fbolam3/ImagePicker/dd7086bf-b288-4518-8c21-5cb9448936e5.jpeg",
-      "title": "강아지",
-      "writer": "강아지",
-      "rating": 5,
-      "period": "2023.01.01~2023.01.10",
-      "isDone": true,
-      "bestSentence": "강아지",
-      "myThinking": "겅어지 강아지 강아지 강아지"
-    },
-    {
-      "id": "bf1562c4-c801-4874-9e76-2b6872df26bc",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540bowul%252Fbolam3/ImagePicker/717491a9-fcc5-4d17-921b-5843b6630022.jpeg",
-      "title": "테스트4",
-      "writer": "테사트4",
-      "rating": 4,
-      "isDone": true,
-      "bestSentence": "222222222",
-      "myThinking": "222222222222222"
     },
     {
       "id": "366ac263-9227-4455-97fb-4f7d2d8afc87",
@@ -215,14 +104,14 @@
       "myThinking": "이러다 죽는거 아니야?"
     },
     {
-      "id": "1163f232-343f-403f-abfd-755f05a2e7e9",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/07eb3947-cad6-4f26-8838-b7f24ddfb7ba.jpeg",
-      "title": "어머님은 짜장면이 싫다고 하셨어",
+      "id": "e4bb46b1-10b2-4b93-adf5-5feeaa770ec6",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/78307d16-5527-4cd7-8be0-8046df4d677f.jpeg",
+      "title": "즉시반영",
       "writer": "이기동",
-      "rating": 3,
+      "rating": 4,
       "isDone": true,
-      "bestSentence": "그래서 짬뽕을 드셨어",
-      "myThinking": "탕수육도 시켰어. 탕수육은 찍먹이지"
+      "bestSentence": "되죠?",
+      "myThinking": "된다에 내 손목은 건다. 쫄리면 뒈지시던가"
     }
   ]
 }
