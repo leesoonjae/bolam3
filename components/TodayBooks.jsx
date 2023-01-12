@@ -46,8 +46,6 @@ function TodayBooks() {
     "BookCome",
     getBooks
   );
-  console.log("BookData", bookData);
-  console.log("bookLoading", bookLoading);
 
   if (bookLoading) {
     return (
