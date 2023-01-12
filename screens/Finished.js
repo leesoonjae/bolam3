@@ -11,8 +11,8 @@ import {
 } from "react-native";
 import styled from "@emotion/native";
 import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
-import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import React, { useCallback, useState } from "react";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 // 컴포넌트명 변경했습니다 App => ReadBooks
 export default function ReadBooks() {
@@ -30,13 +30,17 @@ export default function ReadBooks() {
   const finishedBooks = async () => {
     try {
       const serverFinishedBooks = await axios.get(
-        `http://172.30.1.39:4000/data`
+        `http://192.168.0.2:4000/data`
       );
       // npm start 해서 나오는 자신의 주소로 봐꾸셔야 실행이 됩니다!
       setFinishedBookData(serverFinishedBooks.data);
-      const allReadBooks = finishedBookData.map((allRead) => allRead.length);
+
+      const allReadBooks = serverFinishedBooks.data.map(
+        (allRead) => allRead.length
+      );
       setGoalBooksCount(allReadBooks.length);
-      const trueReadBooks = finishedBookData.filter(
+
+      const trueReadBooks = serverFinishedBooks.data.filter(
         (allRead) => allRead.isDone === true
       );
       setFinishedBookCount(trueReadBooks.length);

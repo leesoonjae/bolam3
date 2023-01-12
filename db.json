@@ -114,32 +114,21 @@
       "myThinking": "넘실넘실~~~~~~"
     },
     {
-      "id": "bc88a1a4-e753-4ad4-92e7-5f73732797bd",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/f33cec24-6365-4307-b905-40cd789d76bd.jpeg",
-      "title": "111111111111111",
-      "writer": "111111111111111",
+      "id": "986dfa53-baa5-4408-9a27-e3bc0fbba1d1",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540bowul%252Fbolam3/ImagePicker/dd7086bf-b288-4518-8c21-5cb9448936e5.jpeg",
+      "title": "강아지",
+      "writer": "강아지",
       "rating": 5,
-      "period": "1111111111111111",
+      "period": "2023.01.01~2023.01.10",
       "isDone": true,
-      "bestSentence": "1111111111111111111",
-      "myThinking": "11111111111111111"
+      "bestSentence": "강아지",
+      "myThinking": "겅어지 강아지 강아지 강아지"
     },
     {
-      "id": "1b84d678-2c9a-45ef-bc03-24787dc492ef",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/8c24edcb-3964-4b1c-9230-c0bbe3dda722.jpeg",
-      "title": "dddddddddd",
-      "writer": "dddddddddddd",
-      "rating": 5,
-      "period": "dddddddddddddd",
-      "isDone": true,
-      "bestSentence": "ddddddddddddddd",
-      "myThinking": "dddddddddddddd"
-    },
-    {
-      "id": "55222e5f-08c8-4c8b-ba40-02c6230c694d",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/2e70339f-e357-4a44-90b5-faa6ae2a5651.jpeg",
-      "title": "22222222222222",
-      "writer": "22222222222222",
+      "id": "bf1562c4-c801-4874-9e76-2b6872df26bc",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540bowul%252Fbolam3/ImagePicker/717491a9-fcc5-4d17-921b-5843b6630022.jpeg",
+      "title": "테스트4",
+      "writer": "테사트4",
       "rating": 4,
       "isDone": true,
       "bestSentence": "222222222",
