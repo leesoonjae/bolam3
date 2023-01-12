@@ -11,8 +11,8 @@ import {
 } from "react-native";
 import styled from "@emotion/native";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import React, { useCallback, useEffect, useState } from "react";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 
 // 컴포넌트명 변경했습니다 App => ReadBooks
 export default function ReadBooks() {
@@ -45,9 +45,11 @@ export default function ReadBooks() {
     }
   };
 
-  useEffect(() => {
-    finishedBooks();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      finishedBooks();
+    }, [])
+  );
 
   return (
     <FinishedPage horizontal={false}>

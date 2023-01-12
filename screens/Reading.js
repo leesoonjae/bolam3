@@ -10,9 +10,9 @@ import {
   View,
 } from "react-native";
 import styled from "@emotion/native";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 
 // 컴포넌트명 변경했습니다 App => ReadingBooks
 export default function ReadingBooks() {
@@ -34,9 +34,11 @@ export default function ReadingBooks() {
     }
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      getData();
+    }, [])
+  );
 
   return (
     <ReadingPage horizontal={false}>

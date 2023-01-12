@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { View, Text, TouchableOpacity } from "react-native";
 import styled from "@emotion/native";
 import { ScrollView } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
 import { LIGHTGRAY_COLOR } from "../colors";
 import { Theme } from "@react-navigation/native";
@@ -33,9 +33,11 @@ function FinishedBooks() {
     }
   };
 
-  useEffect(() => {
-    finishedBooks();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      finishedBooks();
+    }, [])
+  );
 
   return (
     <ReadBook>

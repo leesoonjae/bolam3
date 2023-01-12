@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import { Image, Text } from "react-native";
 
 const Detail = ({ navigation: { navigate }, route: { params: obj } }) => {
-  console.log("ggg", obj);
+  // console.log("ggg", obj);
   const [isDone, setIsDone] = useState(false);
 
   const goDetailEdit = () => {

@@ -144,6 +144,96 @@
       "isDone": true,
       "bestSentence": "222222222",
       "myThinking": "222222222222222"
+    },
+    {
+      "id": "366ac263-9227-4455-97fb-4f7d2d8afc87",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/141327e1-7840-4ae3-a07b-019ed7609bc1.jpeg",
+      "title": "잠을 잘 수 없습니다",
+      "writer": "이기동",
+      "rating": 5,
+      "isDone": true,
+      "bestSentence": "하루 종일 코드가 머리 속을 맴돈다",
+      "myThinking": "해결은 할 수 없다. 이러다 탈모오면 어떡하지?"
+    },
+    {
+      "id": "7dbc6e43-6d99-4c50-9e6a-91299bde14c6",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/d084e9b1-95c7-49f8-9fd2-5a4d1aa02a1a.jpeg",
+      "title": "왜 돌아가는거지?",
+      "writer": "이기동",
+      "rating": 3,
+      "isDone": false,
+      "bestSentence": "이거 웨 되노?",
+      "myThinking": "일단 동작시키고 보려고요."
+    },
+    {
+      "id": "b17217d1-92f6-4882-b192-d86aaf756660",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/03ecc620-a2c2-4c09-b907-57751cfb58d8.jpeg",
+      "title": "작동이 안된다",
+      "writer": "이기동",
+      "rating": 2,
+      "isDone": true,
+      "bestSentence": "1분전에는 됐는데",
+      "myThinking": "무서워서 코드를 수정할 수가 없다"
+    },
+    {
+      "id": "79274c46-d4e2-4901-a4a5-280bec76874f",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/dbf307d3-4cc1-4735-bc76-bc304a560576.jpeg",
+      "title": "인터넷 익스프로러",
+      "writer": "이기동",
+      "rating": 2,
+      "isDone": false,
+      "bestSentence": "오늘 친구를 잃었다",
+      "myThinking": "인터넷 익스플로러는 선넘었지"
+    },
+    {
+      "id": "858eaf23-0a65-4243-8ae6-bcc5450c6eb3",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/3d658ff0-8c40-4467-a04e-e8798d87de96.jpeg",
+      "title": "3시까지",
+      "writer": "이기동",
+      "rating": 5,
+      "isDone": false,
+      "bestSentence": "이건 운명이야 ",
+      "myThinking": "생각하지마. 그냥 받아들여."
+    },
+    {
+      "id": "b057e2b3-43b8-45de-9411-0996ef09bf2e",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/accf9478-ebb8-49ab-9de7-e36b04ab80c5.jpeg",
+      "title": "왜 되는데??",
+      "writer": "이기동",
+      "rating": 4,
+      "isDone": false,
+      "bestSentence": "니 왜 되는데",
+      "myThinking": "뭔데 진짜 니 왜 되는데"
+    },
+    {
+      "id": "9daf4aaf-d1ff-444e-9e5b-811f0a4e0801",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/5f399b24-8ee5-476e-ab74-be9d9305a09b.jpeg",
+      "title": "제발",
+      "writer": "제발",
+      "rating": 4,
+      "isDone": false,
+      "bestSentence": "제발",
+      "myThinking": "저는 불자인데 하나님을 보았습니다"
+    },
+    {
+      "id": "bc0c40ee-12bd-4ca1-8b0f-fbac58c27063",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/59662352-2343-403d-a415-e568a75c1a16.jpeg",
+      "title": "나를 죽이지 못한 고통은",
+      "writer": "이기동",
+      "rating": 3,
+      "isDone": false,
+      "bestSentence": "나를 더 강하게 만든다",
+      "myThinking": "이러다 죽는거 아니야?"
+    },
+    {
+      "id": "1163f232-343f-403f-abfd-755f05a2e7e9",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/07eb3947-cad6-4f26-8838-b7f24ddfb7ba.jpeg",
+      "title": "어머님은 짜장면이 싫다고 하셨어",
+      "writer": "이기동",
+      "rating": 3,
+      "isDone": true,
+      "bestSentence": "그래서 짬뽕을 드셨어",
+      "myThinking": "탕수육도 시켰어. 탕수육은 찍먹이지"
     }
   ]
 }
