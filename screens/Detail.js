@@ -24,7 +24,7 @@ const Detail = ({
         style: "destructive",
         onPress: () => {
           try {
-            axios.delete(`http://172.30.1.39:4000/data/${obj.id}`);
+            axios.delete(`https://lying-magical-math.glitch.me/data/${obj.id}`);
             goBack();
           } catch (error) {
             console.log("Error발생", error);

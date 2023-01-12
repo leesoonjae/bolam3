@@ -72,7 +72,10 @@ const DetailEdit = ({
         style: "default",
         onPress: () => {
           try {
-            axios.put(`http://172.30.1.39:4000/data/${obj.id}`, newData);
+            axios.put(
+              `https://lying-magical-math.glitch.me/data/${obj.id}`,
+              newData
+            );
             navigate("Tabs", { screen: "Main" });
           } catch (error) {
             console.log("Error발생", error);
