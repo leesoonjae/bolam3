@@ -95,7 +95,7 @@ export const __getReadMe = createAsyncThunk(
   "getReadMe",
   async (payload, thunkAPI) => {
     try {
-      const response_data = await axios.get("http://172.30.1.64:4000/test");
+      const response_data = await axios.get("http://192.168.0.2:4000/test");
       // console.log(response_data);
       // console.log(response_data.data);
       return thunkAPI.fulfillWithValue(response_data.data);
@@ -111,7 +111,7 @@ export const __addReadMe = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       // console.log(payload);
-      await axios.post("http://172.30.1.64:4000/test", payload);
+      await axios.post("http://192.168.0.2:4000/test", payload);
       return thunkAPI.fulfillWithValue(payload);
     } catch (err) {
       console.log(err);

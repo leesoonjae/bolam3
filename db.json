@@ -213,6 +213,17 @@
       "isDone": false,
       "bestSentence": "일렁일렁",
       "myThinking": "넘실넘실~~~~~~"
+    },
+    {
+      "id": "986dfa53-baa5-4408-9a27-e3bc0fbba1d1",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540bowul%252Fbolam3/ImagePicker/dd7086bf-b288-4518-8c21-5cb9448936e5.jpeg",
+      "title": "강아지",
+      "writer": "강아지",
+      "rating": 5,
+      "period": "2023.01.01~2023.01.10",
+      "isDone": true,
+      "bestSentence": "강아지",
+      "myThinking": "겅어지 강아지 강아지 강아지"
     }
   ]
 }

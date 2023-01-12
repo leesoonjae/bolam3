@@ -30,14 +30,20 @@ export default function ReadBooks() {
   const finishedBooks = async () => {
     try {
       const serverFinishedBooks = await axios.get(
-        `http://192.168.0.4:4000/data`
+        `http://192.168.0.2:4000/data`
       );
       // npm start 해서 나오는 자신의 주소로 봐꾸셔야 실행이 됩니다!
       setFinishedBookData(serverFinishedBooks.data);
       const allReadBooks = finishedBookData.map((allRead) => allRead.length);
+      console.log("전체", allReadBooks);
       setGoalBooksCount(allReadBooks.length);
-      const bbb = finishedBookData.filter((allRead) => allRead.isDone === true);
-      setFinishedBookCount(bbb.length);
+      console.log("전체적용", goalBooksCount);
+      const trueReadBooks = finishedBookData.filter(
+        (allRead) => allRead.isDone === true
+      );
+      console.log("일부만", trueReadBooks);
+      setFinishedBookCount(trueReadBooks.length);
+      console.log("일부만적용", finishedBookCount);
     } catch (error) {
       console.log("Error 가 발생했습니다.", error);
     }
