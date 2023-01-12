@@ -1,27 +1,15 @@
 {
   "data": [
     {
-      "id": "99de3c32-130d-43b5-aeac-66677629e20f",
-      "createdAt": 1673362191278,
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/aa14f4f5-17ef-4ffc-bbc5-9d3cf2d4c5af.jpeg",
-      "title": "dddd",
-      "writer": "sssss",
-      "rating": 5,
-      "period": "eeeee",
-      "isDone": false,
-      "bestSentence": "pppppppp",
-      "myThinking": "ppppppppp"
-    },
-    {
       "id": "a7c0cc9f-f90b-4bac-b773-7a905965a921",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/5b1ae1d7-6c3f-4715-a36e-048abdae234e.jpeg",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/16964c2a-5c76-42d8-a33c-c9093272aad1.jpeg",
       "title": "aaaaaw",
       "writer": "wwwww",
-      "rating": 3,
-      "period": "eqweqwewq",
+      "rating": 5,
+      "period": "",
       "isDone": false,
-      "bestSentence": "erqer",
-      "myThinking": "ewqfsda"
+      "bestSentence": "주인님 주무시나요?",
+      "myThinking": "제가 버그 고치는 법을 찾아낸 것 같아요."
     },
     {
       "id": "366ac263-9227-4455-97fb-4f7d2d8afc87",
@@ -45,13 +33,14 @@
     },
     {
       "id": "b17217d1-92f6-4882-b192-d86aaf756660",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/03ecc620-a2c2-4c09-b907-57751cfb58d8.jpeg",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/3bb5740a-fc2f-41e7-8c75-77dd8b6c4d6f.jpeg",
       "title": "작동이 안된다",
       "writer": "이기동",
-      "rating": 2,
+      "rating": 0,
+      "period": "",
       "isDone": true,
-      "bestSentence": "1분전에는 됐는데",
-      "myThinking": "무서워서 코드를 수정할 수가 없다"
+      "bestSentence": "인터넷 익스프로러 ㄴㄴㄴ",
+      "myThinking": "인터넷 익스프로러는 선넘었지"
     },
     {
       "id": "79274c46-d4e2-4901-a4a5-280bec76874f",
@@ -104,25 +93,84 @@
       "myThinking": "이러다 죽는거 아니야?"
     },
     {
-      "id": "e4bb46b1-10b2-4b93-adf5-5feeaa770ec6",
-      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/78307d16-5527-4cd7-8be0-8046df4d677f.jpeg",
-      "title": "즉시반영",
+      "id": "467d4385-d484-43f2-b2a8-a21278ef9aa1",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/4d490fb5-2799-49bc-932a-339e273bea52.jpeg",
+      "title": "나의 새해",
       "writer": "이기동",
       "rating": 4,
       "isDone": true,
-      "bestSentence": "테스타",
-      "myThinking": "테테테테테테테ㅔ테테테테텥ㄹ미"
+      "bestSentence": "코딩과 새해를 맞이하다",
+      "myThinking": "그래..코딩이 남자는 아니겠지?"
     },
     {
-      "id": "e2e1e4e6-a634-48c6-9aee-c4604727c5b9",
-      "imgUri": "",
-      "title": "테테텥",
-      "writer": "테스트트",
-      "rating": 0,
-      "period": "",
+      "id": "1a494e95-6373-4616-bf62-96154f8abf7c",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/72f068ed-9838-46d4-98a7-73b4a7dcb172.jpeg",
+      "title": "천지신께 빕니다",
+      "writer": "이기동",
+      "rating": 5,
       "isDone": true,
-      "bestSentence": "녀야ㅐ채유조냐야류",
-      "myThinking": "어쳐펴나류랴탳ㅎㄴ"
+      "bestSentence": "신이시여",
+      "myThinking": "저에게 응답을 주소서. 에러말고."
+    },
+    {
+      "id": "aa1b0211-19fa-449b-aa9c-5350328cdd26",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/7d8676ab-530d-46f6-abe5-1b434d205729.jpeg",
+      "title": "만나면 좋은 친구",
+      "writer": "이기동",
+      "rating": 5,
+      "isDone": false,
+      "bestSentence": "엠비시 문화방송",
+      "myThinking": "대한민국 울산 북구 만세"
+    },
+    {
+      "id": "7e1c99ce-a6d2-406b-9036-2d901e0b43a8",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/14121251-adb3-4a64-8c98-b11fcb3bf572.jpeg",
+      "title": "버벌진트",
+      "writer": "이기동",
+      "rating": 3,
+      "isDone": true,
+      "bestSentence": "버절진트를 아시나요?",
+      "myThinking": "아무쪼록 태풍피해가 없으시길 바라요"
+    },
+    {
+      "id": "f5a40b71-0482-46f5-b5de-8ae4809acb46",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/ddc8911a-b5fa-4a37-8dd7-05d731f8c7c0.jpeg",
+      "title": "이천수로",
+      "writer": "이기동",
+      "rating": 3,
+      "isDone": false,
+      "bestSentence": "삼행시 지어보겠습니다",
+      "myThinking": "운띄어주시죠  ㅋ ㅋ ㅋ"
+    },
+    {
+      "id": "9b55e1cf-3590-468c-a60a-17eeaa121d3c",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/564914dc-7073-4bd9-b9a7-ac95a5a78d33.jpeg",
+      "title": "이동국",
+      "writer": "이기동",
+      "rating": 3,
+      "isDone": true,
+      "bestSentence": "삼행시 지어볼게요",
+      "myThinking": "이 : 이렇게도\n동 : 동서남북"
+    },
+    {
+      "id": "52d565da-0a6f-4d60-9027-9ec11bbd3e74",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/1f7dd07e-b52c-47a0-b69d-2dde4e047e4f.jpeg",
+      "title": "000000",
+      "writer": "0000000",
+      "rating": 5,
+      "isDone": true,
+      "bestSentence": "0000000",
+      "myThinking": "00000000-000"
+    },
+    {
+      "id": "596d5c13-2aa5-45e9-9cb5-4bd7ac291682",
+      "imgUri": "file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540leekidong%252Fbolam3/ImagePicker/56cc193e-b3da-4bda-873e-b84412af3cfb.jpeg",
+      "title": "9999999999999",
+      "writer": "99999999999",
+      "rating": 5,
+      "isDone": true,
+      "bestSentence": "999999999999999",
+      "myThinking": "99999999999999"
     }
   ]
 }

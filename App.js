@@ -22,12 +22,14 @@ export default function App() {
 
   return (
     // 기동 : 다크모드 추가
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        <NavigationContainer theme={isDark ? DarkTheme : DefaultTheme}>
-          <Root />
-        </NavigationContainer>
-      </ThemeProvider>
-    </QueryClientProvider>
+    <Provider store={store}>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+          <NavigationContainer theme={isDark ? DarkTheme : DefaultTheme}>
+            <Root />
+          </NavigationContainer>
+        </ThemeProvider>
+      </QueryClientProvider>
+    </Provider>
   );
 }

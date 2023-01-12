@@ -4,11 +4,15 @@ import { Rating } from "react-native-ratings";
 import React from "react";
 import { Alert } from "react-native";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { __deleteReadMe } from "../redux/modules/readMe";
 
 const Detail = ({
   navigation: { goBack, navigate },
   route: { params: obj },
 }) => {
+  const dispatch = useDispatch();
+
   const goDetailEdit = () => {
     navigate("Stacks", { screen: "DetailEdit", params: obj });
   };
@@ -24,7 +28,8 @@ const Detail = ({
         style: "destructive",
         onPress: () => {
           try {
-            axios.delete(`https://lying-magical-math.glitch.me/${obj.id}`);
+            dispatch(__deleteReadMe(obj.id));
+            // axios.delete(`https://lying-magical-math.glitch.me/data/${obj.id}`);
             goBack();
           } catch (error) {
             console.log("Error발생", error);
