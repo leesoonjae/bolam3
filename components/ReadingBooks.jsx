@@ -10,25 +10,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { __getReadMe } from "../redux/modules/readMe";
 
 function ReadingBooks() {
-  // const dispatch = useDispatch();
-  // const golbalData = useSelector((state) => state);
-  // console.log(golbalData.readMe.data);
-
   const navigation = useNavigation();
-  // const goDetail = () => {
-  //   navigation.navigate("Stacks", { screen: "Detail" });
-  // };
+
   const goReading = () => {
     navigation.navigate("Tabs", { screen: "Reading" });
   };
 
   const [readingBookData, setReadingBookData] = useState([]);
 
-  // const getData = () => {
-  //   dispatch(__getReadMe());
-  //   setReadingBookData(golbalData.readMe.data);
-  // };
-  
   const getData = async () => {
     try {
       const res = await axios.get("https://lying-magical-math.glitch.me/data");

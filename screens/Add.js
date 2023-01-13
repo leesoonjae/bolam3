@@ -27,19 +27,6 @@ const Add = ({ navigation: { goBack, navigate } }) => {
   const [bestSentence, setbestSentence] = useState("");
   const [myThinking, setMyThinking] = useState("");
 
-  // const [allData, setAllData] = useState({
-  //   imgUri: "",
-  //   title: "",
-  //   writer: "",
-  //   period: "",
-  //   isDone: false,
-  //   bestSentence: "",
-  //   myThinking: ""
-  // })
-  // const [rating, setRating] = useState(0);
-
-  // console.log("imgUri: ", imgUri);
-
   // 데이터 구조
   const data = {
     id: uuid.v4(),
@@ -108,12 +95,6 @@ const Add = ({ navigation: { goBack, navigate } }) => {
       setImgUri(result.assets[0].uri);
     }
   };
-
-  // json-server 조회 : react-query
-  // const { data: fromServerData, isLoading: isLoadingData } = useQuery(
-  //   "getDataKey",
-  //   getDataFromServer
-  // );
 
   return (
     <StAddContainer scrollIndicatorInsets={{ right: 1 }}>

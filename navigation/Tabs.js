@@ -52,7 +52,7 @@ export default function Tabs() {
         component={Reading}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Icon name="person" color={color} size={size} />
+            <Icon name="article" color={color} size={size} />
           ),
         }}
       />
@@ -61,7 +61,7 @@ export default function Tabs() {
         component={Finished}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Icon name="home" color={color} size={size} />
+            <Icon name="inbox" color={color} size={size} />
           ),
         }}
       />

@@ -93,11 +93,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     marginLeft: 13,
-    // margin: "auto",
-    // justifyContent: "space-between",
-    // width: "100%",
-    // justifyContent: "center",
-    // marginRight: 5,
   },
 });
 
@@ -127,8 +122,6 @@ const ReadAddButtonText = styled.Text`
 `;
 
 const ReadingListWrapper = styled.View`
-  /* padding-left: 20px; */
-  /* padding-right: 20px; */
   justify-content: center;
 `;
 

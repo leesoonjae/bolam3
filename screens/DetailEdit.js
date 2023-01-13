@@ -15,16 +15,12 @@ const DetailEdit = ({
   navigation: { navigate, goBack },
   route: { params: obj },
 }) => {
-  // const goFinished = () => {
-  //   navigate("Tabs", { screen: "Finished", params: obj });
-  // };
   const dispatch = useDispatch();
 
   const isDark = useColorScheme() === "dark";
 
   const [newImgUri, setNewImgUri] = useState("");
   const [newRating, setNewRating] = useState(0);
-  const [newPeriod, setNewPeriod] = useState("");
   const [newIsDone, setNewIsDone] = useState(false);
   const [newBestSentence, setNewBestSentence] = useState("");
   const [newMyThinking, setMyNewthinking] = useState("");

@@ -11,9 +11,6 @@ import { Theme } from "@react-navigation/native";
 function FinishedBooks() {
   const isDark = useColorScheme() === "dark";
   const navigation = useNavigation();
-  // const goDetail = () => {
-  //   navigation.navigate("Stacks", { screen: "Detail" });
-  // };
 
   const goFinished = () => {
     navigation.navigate("Tabs", { screen: "Finished" });

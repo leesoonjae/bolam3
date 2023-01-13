@@ -19,29 +19,6 @@ function TodayBooks() {
     navigation.navigate("Stacks", { screen: "Recommend" });
   };
 
-  // const [bookApiObj, setBookApiObj] = useState({
-  //   title: "",
-  //   author: "",
-  //   description: "",
-  //   cover: "",
-  // });
-
-  // const getBooks = async () => {
-  //   try {
-  //     const bookApi = await axios.get(
-  //       `http://www.aladin.co.kr/ttb/api/ItemList.aspx?ttbkey=ttbsoojae10291105001&QueryType=BlogBest&MaxResults=1&start=1&SearchTarget=Book&output=JS&Version=20131101`
-  //     );
-  //     const aaa = JSON.parse(bookApi.request._response);
-  //     setBookApiObj(aaa.item[0]);
-  //   } catch (error) {
-  //     console.log("Error가 발생했습니다.", error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getBooks();
-  // }, []);
-
   const { data: bookData, isLoading: bookLoading } = useQuery(
     "BookCome",
     getBooks
@@ -107,7 +84,6 @@ const ToDay = styled.TouchableOpacity`
 
 const TodayText = styled.View`
   padding-left: 18px;
-  /* padding-top: 18px; */
 `;
 
 const ToDayTitle = styled.Text`
